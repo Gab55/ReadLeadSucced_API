@@ -3,7 +3,13 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True" selected="True" />
+          <Node name="ReadLeadSucced_API" expanded="True">
+            <Node name="ReadLeadSucced_API" expanded="True" />
+            <Node name="ReadLeadSucced_ConnexionBDD" expanded="True">
+              <Node name="Data" selected="True" />
+            </Node>
+            <Node name="ReadLeadSucced_Data" expanded="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
