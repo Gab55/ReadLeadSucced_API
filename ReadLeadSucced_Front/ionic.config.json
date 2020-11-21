@@ -1,0 +1,7 @@
+{
+  "name": "ReadLeadSucced_Front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
