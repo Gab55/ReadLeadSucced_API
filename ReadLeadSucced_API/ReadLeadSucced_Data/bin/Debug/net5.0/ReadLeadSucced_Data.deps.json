@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "ReadLeadSucced_Data/1.0.0": {
+        "runtime": {
+          "ReadLeadSucced_Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ReadLeadSucced_Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
