@@ -1,0 +1,5 @@
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_Data\obj\Debug\net5.0\ReadLeadSucced_Data.csprojAssemblyReference.cache
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_Data\obj\Debug\net5.0\ReadLeadSucced_Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_Data\obj\Debug\net5.0\ReadLeadSucced_Data.AssemblyInfoInputs.cache
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_Data\obj\Debug\net5.0\ReadLeadSucced_Data.AssemblyInfo.cs
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_Data\obj\Debug\net5.0\ReadLeadSucced_Data.csproj.CoreCompileInputs.cache

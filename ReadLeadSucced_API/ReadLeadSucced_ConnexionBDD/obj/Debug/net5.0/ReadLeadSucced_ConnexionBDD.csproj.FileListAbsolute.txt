@@ -1,0 +1,5 @@
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_ConnexionBDD\obj\Debug\net5.0\ReadLeadSucced_ConnexionBDD.csprojAssemblyReference.cache
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_ConnexionBDD\obj\Debug\net5.0\ReadLeadSucced_ConnexionBDD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_ConnexionBDD\obj\Debug\net5.0\ReadLeadSucced_ConnexionBDD.AssemblyInfoInputs.cache
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_ConnexionBDD\obj\Debug\net5.0\ReadLeadSucced_ConnexionBDD.AssemblyInfo.cs
+C:\Users\Gab\Documents\GitHub\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_ConnexionBDD\obj\Debug\net5.0\ReadLeadSucced_ConnexionBDD.csproj.CoreCompileInputs.cache

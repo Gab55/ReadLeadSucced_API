@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 {
   "version": 2,
   "dgSpecHash": "Ht8Ep337pgznwd21Xco0gGzd0XXO+JUqmo1jfs7Yre/kMMVqz3OUIo+IvIAn8fJoVbhs54clmMUkbPoWx8I0Sw==",
@@ -6,13 +5,4 @@
   "projectFilePath": "C:\\Users\\Gab\\Documents\\GitHub\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj",
   "expectedPackageFiles": [],
   "logs": []
-=======
-{
-  "version": 2,
-  "dgSpecHash": "u0j+UbhHNhmrVbS4GpRh8zYmg/u2UAJ5UrxRN/jkBz7kXJfNA1d+VpUm38D2tvGlbd1eb/shZ1cP3RzVmURLzA==",
-  "success": true,
-  "projectFilePath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
->>>>>>> Stashed changes
 }

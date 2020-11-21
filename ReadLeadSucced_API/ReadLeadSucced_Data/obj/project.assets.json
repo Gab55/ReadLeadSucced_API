@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 {
   "version": 3,
   "targets": {
@@ -70,70 +69,4 @@
       }
     }
   }
-=======
-{
-  "version": 3,
-  "targets": {
-    ".NETCoreApp,Version=v3.1": {}
-  },
-  "libraries": {},
-  "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
-  },
-  "packageFolders": {
-    "/Users/gabrielgiroud/.nuget/packages/": {}
-  },
-  "project": {
-    "version": "1.0.0",
-    "restore": {
-      "projectUniqueName": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
-      "projectName": "ReadLeadSucced_Data",
-      "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
-      "packagesPath": "/Users/gabrielgiroud/.nuget/packages/",
-      "outputPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/obj/",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "/Users/gabrielgiroud/.config/NuGet/NuGet.Config"
-      ],
-      "originalTargetFrameworks": [
-        "netcoreapp3.1"
-      ],
-      "sources": {
-        "https://api.nuget.org/v3/index.json": {}
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
-        }
-      },
-      "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
-      }
-    },
-    "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
-        "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
-        ],
-        "assetTargetFallback": true,
-        "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
-      }
-    }
-  }
->>>>>>> Stashed changes
 }
