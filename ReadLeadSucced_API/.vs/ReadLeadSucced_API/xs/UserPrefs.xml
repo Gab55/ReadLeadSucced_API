@@ -5,9 +5,7 @@
         <State name="__root__">
           <Node name="ReadLeadSucced_API" expanded="True">
             <Node name="ReadLeadSucced_API" expanded="True" />
-            <Node name="ReadLeadSucced_ConnexionBDD" expanded="True">
-              <Node name="Data" selected="True" />
-            </Node>
+            <Node name="ReadLeadSucced_ConnexionBDD" expanded="True" selected="True" />
             <Node name="ReadLeadSucced_Data" expanded="True" />
           </Node>
         </State>
@@ -16,7 +14,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.ReadLeadSucced__API PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.ItemProperties.ReadLeadSucced__API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "ReadLeadSucced_Data/1.0.0": {
+      "ReadLeadSucced_ConnexionBDD/1.0.0": {
         "runtime": {
-          "ReadLeadSucced_Data.dll": {}
+          "ReadLeadSucced_ConnexionBDD.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "ReadLeadSucced_Data/1.0.0": {
+    "ReadLeadSucced_ConnexionBDD/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
