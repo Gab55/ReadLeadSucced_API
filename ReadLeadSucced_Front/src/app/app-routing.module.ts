@@ -14,7 +14,15 @@ const routes: Routes = [
   {
     path: 'catalogue',
     loadChildren: () => import('./pages/catalogue/catalogue.module').then( m => m.CataloguePageModule)
+  },  {
+    path: 'livre',
+    loadChildren: () => import('./livre/livre.module').then( m => m.LivrePageModule)
   },
+  {
+    path: 'detail-livre',
+    loadChildren: () => import('./detail-livre/detail-livre.module').then( m => m.DetailLivrePageModule)
+  },
+
 ];
 
 @NgModule({
