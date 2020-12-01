@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { GestionLivreComponent } from './pages/admin/gestion-livre/gestion-livre.component';
+import { ConnexionComponent } from './pages/auth/connexion/connexion.component';
 import { LivreComponent } from './pages/livre/livre.component';
 import { LivresComponent } from './pages/livres/livres.component';
+import { PanierComponent } from './pages/panier/panier.component';
+import { CreationUtilisateurComponent } from './pages/utilisateur/creation-utilisateur/creation-utilisateur.component';
+import { ProfilUtilisateurComponent } from './pages/utilisateur/profil-utilisateur/profil-utilisateur.component';
 
 const routes: Routes = [
   {
@@ -10,17 +15,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'catalogue',
+    redirectTo: 'livres',
     pathMatch: 'full'
   },
   {
-    path: 'catalogue',
-    component: LivreComponent
+    path: 'auth/connexion',
+    component: ConnexionComponent
   },
-  // {
-  //   path: 'catalogue',
-  //   loadChildren: () => import('./pages/catalogue/catalogue.module').then( m => m.CataloguePageModule)
-  // },
   {
     path: 'livre/?id',
     component: LivreComponent
@@ -28,6 +29,22 @@ const routes: Routes = [
   {
     path: 'livres',
     component: LivresComponent
+  },
+  {
+    path: 'panier',
+    component: PanierComponent
+  },
+  {
+    path: 'utilisateur/creation-utilisateur',
+    component: CreationUtilisateurComponent
+  },
+  {
+    path: 'utilisateur/profil-utilisateur',
+    component: ProfilUtilisateurComponent
+  },
+  {
+    path: 'admin/gestion-livre',
+    component: GestionLivreComponent
   },
   // {
   //   path: 'connexion',
