@@ -2,3 +2,33 @@
   width: 500px;
 }
 
+ion-toolbar{
+  --background: #454545;
+}
+
+
+.container-image {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding-top: 7px;
+}
+
+.logo{
+  width: 15%;
+  height: 15%;
+}
+
+.shopping{
+  width: 14%;
+  height: 14%;
+  position: relative;
+  left:110px;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+  width: 90%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

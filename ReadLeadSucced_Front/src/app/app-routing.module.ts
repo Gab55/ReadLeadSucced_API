@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { GestionLivreComponent } from './pages/admin/gestion-livre/gestion-livre.component';
+import { RechercheUtilisateurComponent } from './pages/admin/recherche-utilisateur/recherche-utilisateur.component';
 import { ConnexionComponent } from './pages/auth/connexion/connexion.component';
 import { LivreComponent } from './pages/livre/livre.component';
 import { LivresComponent } from './pages/livres/livres.component';
 import { PanierComponent } from './pages/panier/panier.component';
 import { CreationUtilisateurComponent } from './pages/utilisateur/creation-utilisateur/creation-utilisateur.component';
 import { ProfilUtilisateurComponent } from './pages/utilisateur/profil-utilisateur/profil-utilisateur.component';
+import { CommonModule } from "@angular/common";
 
 const routes: Routes = [
   {
@@ -35,6 +37,11 @@ const routes: Routes = [
     component: PanierComponent
   },
   {
+    path: 'admin/recherche-utilisateur',
+    // component: RechercheUtilisateurComponent,
+    loadChildren: () => import('./pages/admin/recherche-utilisateur/recherche-utilisateur.component').then( m => m.RechercheUtilisateurComponent)
+  },
+  {
     path: 'utilisateur/creation-utilisateur',
     component: CreationUtilisateurComponent
   },
@@ -46,25 +53,7 @@ const routes: Routes = [
     path: 'admin/gestion-livre',
     component: GestionLivreComponent
   },
-  // {
-  //   path: 'connexion',
-  // }
-  // {
-  //   path: 'creation-client',
-  //   loadChildren: () => import('./pages/utilisateur/creation-utilisateur/creation-utilisateur.module').then( m => m.CreationUtilisateurPageModule)
-  // },
-  // {
-  //   path: 'profil-client',
-  //   loadChildren: () => import('./pages/profil-client/profil-client.module').then( m => m.ProfilClientPageModule)
-  // },
-  // {
-  //   path: 'panier',
-  //   loadChildren: () => import('./pages/panier/panier.module').then( m => m.PanierPageModule)
-  // },
-  // {
-  //   path: 'ges',
-  //   loadChildren: () => import('./pages/admin/ges/ges.module').then( m => m.GesPageModule)
-  // },
+
 
 
 ];
