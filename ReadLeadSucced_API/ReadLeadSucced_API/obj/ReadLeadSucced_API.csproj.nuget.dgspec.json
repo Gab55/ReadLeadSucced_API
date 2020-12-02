@@ -1,42 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {}
+    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {
+    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+        "projectUniqueName": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj",
         "projectName": "ReadLeadSucced_API",
-        "projectPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
-        "packagesPath": "C:\\Users\\allig\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\obj\\",
+        "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj",
+        "packagesPath": "/Users/gabrielgiroud/.nuget/packages/",
+        "outputPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\allig\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/gabrielgiroud/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\ReadLeadSucced_ConnexionBDD.csproj": {
-                "projectPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\ReadLeadSucced_ConnexionBDD.csproj"
+              "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_ConnexionBDD/ReadLeadSucced_ConnexionBDD.csproj": {
+                "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_ConnexionBDD/ReadLeadSucced_ConnexionBDD.csproj"
               },
-              "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj": {
-                "projectPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj"
+              "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj": {
+                "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj"
               }
             }
           }
@@ -98,32 +92,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\ReadLeadSucced_ConnexionBDD.csproj": {
+    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_ConnexionBDD/ReadLeadSucced_ConnexionBDD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\ReadLeadSucced_ConnexionBDD.csproj",
+        "projectUniqueName": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_ConnexionBDD/ReadLeadSucced_ConnexionBDD.csproj",
         "projectName": "ReadLeadSucced_ConnexionBDD",
-        "projectPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\ReadLeadSucced_ConnexionBDD.csproj",
-        "packagesPath": "C:\\Users\\allig\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\obj\\",
+        "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_ConnexionBDD/ReadLeadSucced_ConnexionBDD.csproj",
+        "packagesPath": "/Users/gabrielgiroud/.nuget/packages/",
+        "outputPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_ConnexionBDD/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\allig\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/gabrielgiroud/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -156,32 +144,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj": {
+    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj",
+        "projectUniqueName": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
         "projectName": "ReadLeadSucced_Data",
-        "projectPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj",
-        "packagesPath": "C:\\Users\\allig\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\obj\\",
+        "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
+        "packagesPath": "/Users/gabrielgiroud/.nuget/packages/",
+        "outputPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\allig\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/gabrielgiroud/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -246,7 +228,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

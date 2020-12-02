@@ -7443,31 +7443,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\allig\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/gabrielgiroud/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj",
+      "projectUniqueName": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
       "projectName": "ReadLeadSucced_Data",
-      "projectPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj",
-      "packagesPath": "C:\\Users\\allig\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\obj\\",
+      "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
+      "packagesPath": "/Users/gabrielgiroud/.nuget/packages/",
+      "outputPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\allig\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/gabrielgiroud/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7532,7 +7525,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
