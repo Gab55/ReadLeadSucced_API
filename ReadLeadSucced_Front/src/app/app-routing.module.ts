@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { GestionLivreComponent } from './pages/admin/gestion-livre/gestion-livre.component';
+import { RechercheUtilisateurComponent } from './pages/admin/recherche-utilisateur/recherche-utilisateur.component';
 import { ConnexionComponent } from './pages/auth/connexion/connexion.component';
 import { LivreComponent } from './pages/livre/livre.component';
 import { LivresComponent } from './pages/livres/livres.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'panier',
     component: PanierComponent
+  },
+  {
+    path: 'admin/recherche-utilisateur',
+    component: RechercheUtilisateurComponent
   },
   {
     path: 'utilisateur/creation-utilisateur',
