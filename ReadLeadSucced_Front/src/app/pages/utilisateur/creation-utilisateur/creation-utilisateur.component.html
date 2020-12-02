@@ -18,7 +18,33 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-col size="12">
+  <ion-content>
+<ion-card>
+  <ion-card-header>
+    <h3>
+      <ion-label>Création du profil</ion-label>
+    </h3>
+  </ion-card-header>
+  <hr class="solid">
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
 
-<p>
-  creation-utilisateur works!
-</p>
+            <ion-input>Nom :</ion-input>
+
+ 
+            <ion-input>Prénom :</ion-input>
+   
+            <ion-label>Date de naissance</ion-label>
+            <ion-datetime displayFormat="D MMM YYYY" min="1930" max="2050" ></ion-datetime>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card-content>
+</ion-card>
+</ion-content>
+</ion-col>
