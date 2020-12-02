@@ -6,11 +6,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True">
-            <Node name="ReadLeadSucced_API" expanded="True">
-              <Node name="Startup.cs" selected="True" />
-            </Node>
-          </Node>
+          <Node name="ReadLeadSucced_API" expanded="True" />
         </State>
       </Pad>
     </Pads>
