@@ -32,13 +32,38 @@
       <ion-row>
         <ion-col>
 
-            <ion-input>Nom :</ion-input>
+          <ion-item lines="full">
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input type="text" required></ion-input>
+          </ion-item>
+      
+          <ion-item lines="full">
+            <ion-label position="floating">Prénom</ion-label>
+            <ion-input type="text" required></ion-input>
+          </ion-item>
 
- 
-            <ion-input>Prénom :</ion-input>
-   
+          <ion-item lines="full">
             <ion-label>Date de naissance</ion-label>
             <ion-datetime displayFormat="D MMM YYYY" min="1930" max="2050" ></ion-datetime>
+          </ion-item>
+      
+          <ion-item lines="full">
+            <ion-label position="floating">Adresse</ion-label>
+            <ion-input type="text" required></ion-input>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-label position="floating">Code postal</ion-label>
+            <ion-input type="text" required></ion-input>
+          </ion-item>
+      
+          <ion-item lines="full">
+            <ion-label position="floating">Téléphone</ion-label>
+            <ion-input type="text" required></ion-input>
+          </ion-item>
+          
+
+
 
         </ion-col>
       </ion-row>
