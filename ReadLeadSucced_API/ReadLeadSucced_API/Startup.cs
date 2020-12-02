@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ReadLeadSucced_Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ReadLeadSucced_API
 {
@@ -27,6 +29,11 @@ namespace ReadLeadSucced_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //injection de AppDbContext
+            services.AddDbContext<AppDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultContext")), ServiceLifetime.Scoped
+            );
+            services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
@@ -34,6 +41,8 @@ namespace ReadLeadSucced_API
             {
                 configuration.RootPath = "../../ReadLeadSucced_Front/dist";
             });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

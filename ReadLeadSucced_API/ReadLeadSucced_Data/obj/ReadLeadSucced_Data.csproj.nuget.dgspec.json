@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj": {}
+    "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj": {}
   },
   "projects": {
-    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj": {
+    "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
+        "projectUniqueName": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj",
         "projectName": "ReadLeadSucced_Data",
-        "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/ReadLeadSucced_Data.csproj",
-        "packagesPath": "/Users/gabrielgiroud/.nuget/packages/",
-        "outputPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_Data/obj/",
+        "projectPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\ReadLeadSucced_Data.csproj",
+        "packagesPath": "C:\\Users\\allig\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\allig\\Source\\Repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/gabrielgiroud/.config/NuGet/NuGet.Config"
+          "C:\\Users\\allig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +43,38 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -52,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
