@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-recherche-utilisateur',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RechercheUtilisateurComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {}
 

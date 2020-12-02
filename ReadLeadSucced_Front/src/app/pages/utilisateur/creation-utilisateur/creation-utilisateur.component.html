@@ -19,12 +19,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-col size="12">
-  <ion-content>
+<ion-content>
 <ion-card>
   <ion-card-header>
-    <h3>
+    <h4>
       <ion-label>Création du profil</ion-label>
-    </h3>
+    </h4>
   </ion-card-header>
   <hr class="solid">
   <ion-card-content>
@@ -41,11 +41,6 @@
             <ion-label position="floating">Prénom</ion-label>
             <ion-input type="text" required></ion-input>
           </ion-item>
-
-          <ion-item lines="full">
-            <ion-label>Date de naissance</ion-label>
-            <ion-datetime displayFormat="D MMM YYYY" min="1930" max="2050" ></ion-datetime>
-          </ion-item>
       
           <ion-item lines="full">
             <ion-label position="floating">Adresse</ion-label>
@@ -54,16 +49,24 @@
 
           <ion-item lines="full">
             <ion-label position="floating">Code postal</ion-label>
-            <ion-input type="text" required></ion-input>
+            <ion-input  required></ion-input>
           </ion-item>
       
           <ion-item lines="full">
             <ion-label position="floating">Téléphone</ion-label>
+            <ion-input ></ion-input>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-label position="floating">Email</ion-label>
             <ion-input type="text" required></ion-input>
           </ion-item>
-          
 
-
+          <ion-item lines="full">
+            <ion-label position="floating">Mot de passe</ion-label>
+            <ion-input type="text" required></ion-input>
+          </ion-item>
+        
 
         </ion-col>
       </ion-row>
