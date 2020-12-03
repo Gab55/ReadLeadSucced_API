@@ -31,8 +31,4 @@
     <Folder Include="Models\Migrations\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ReadLeadSucced_ConnexionBDD\ReadLeadSucced_ConnexionBDD.csproj" />
-  </ItemGroup>
-
 </Project>

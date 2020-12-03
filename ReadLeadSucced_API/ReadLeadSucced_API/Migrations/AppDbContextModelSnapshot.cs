@@ -252,22 +252,14 @@ namespace ReadLeadSucced_API.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("LivreidLivre")
-                        .HasColumnType("int");
-
                     b.Property<string>("contenuCommentaire")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("idClient")
-                        .HasColumnType("int");
-
-                    b.Property<int>("idLivre")
+                    b.Property<int?>("idClient")
                         .HasColumnType("int");
 
                     b.HasKey("idCommentaire");
-
-                    b.HasIndex("LivreidLivre");
 
                     b.HasIndex("idClient");
 
@@ -284,9 +276,6 @@ namespace ReadLeadSucced_API.Migrations
                     b.Property<int>("cpEditeur")
                         .HasMaxLength(5)
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("dateDeParution")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("emailEditeur")
                         .HasColumnType("nvarchar(max)");
@@ -359,14 +348,8 @@ namespace ReadLeadSucced_API.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("EditeuridEditeur")
+                    b.Property<int?>("idEditeur")
                         .HasColumnType("int");
-
-                    b.Property<int>("idEditeur")
-                        .HasColumnType("int");
-
-                    b.Property<string>("prenomClient")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("prixLivreHt")
                         .HasColumnType("decimal(10,2)");
@@ -389,7 +372,7 @@ namespace ReadLeadSucced_API.Migrations
 
                     b.HasKey("idLivre");
 
-                    b.HasIndex("EditeuridEditeur");
+                    b.HasIndex("idEditeur");
 
                     b.ToTable("Livre");
                 });
@@ -561,26 +544,16 @@ namespace ReadLeadSucced_API.Migrations
 
             modelBuilder.Entity("ReadLeadSucced_Data.Models.Commentaire", b =>
                 {
-                    b.HasOne("ReadLeadSucced_Data.Models.Livre", "Livre")
-                        .WithMany()
-                        .HasForeignKey("LivreidLivre");
-
-                    b.HasOne("ReadLeadSucced_Data.Models.Client", "Client")
+                    b.HasOne("ReadLeadSucced_Data.Models.Client", null)
                         .WithMany("Commentaires")
-                        .HasForeignKey("idClient")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-
-                    b.Navigation("Livre");
+                        .HasForeignKey("idClient");
                 });
 
             modelBuilder.Entity("ReadLeadSucced_Data.Models.Livre", b =>
                 {
                     b.HasOne("ReadLeadSucced_Data.Models.Editeur", "Editeur")
                         .WithMany()
-                        .HasForeignKey("EditeuridEditeur");
+                        .HasForeignKey("idEditeur");
 
                     b.Navigation("Editeur");
                 });

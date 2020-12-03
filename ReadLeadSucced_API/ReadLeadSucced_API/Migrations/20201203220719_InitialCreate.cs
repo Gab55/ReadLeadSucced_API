@@ -62,7 +62,6 @@ namespace ReadLeadSucced_API.Migrations
                 {
                     idEditeur = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    dateDeParution = table.Column<DateTime>(type: "datetime2", nullable: false),
                     rueEditeur = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     cpEditeur = table.Column<int>(type: "int", maxLength: 5, nullable: false),
                     emailEditeur = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -129,6 +128,26 @@ namespace ReadLeadSucced_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Commentaire",
+                columns: table => new
+                {
+                    idCommentaire = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    contenuCommentaire = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    idClient = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Commentaire", x => x.idCommentaire);
+                    table.ForeignKey(
+                        name: "FK_Commentaire_Client_idClient",
+                        column: x => x.idClient,
+                        principalTable: "Client",
+                        principalColumn: "idClient",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Panier",
                 columns: table => new
                 {
@@ -155,21 +174,19 @@ namespace ReadLeadSucced_API.Migrations
                     idLivre = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     titreLivre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    prenomClient = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     resumeLivre = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     prixLivreHt = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     prixLivreTtc = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     stockInvLivre = table.Column<int>(type: "int", nullable: false),
                     stockCmdLivre = table.Column<int>(type: "int", nullable: false),
-                    idEditeur = table.Column<int>(type: "int", nullable: false),
-                    EditeuridEditeur = table.Column<int>(type: "int", nullable: true)
+                    idEditeur = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Livre", x => x.idLivre);
                     table.ForeignKey(
-                        name: "FK_Livre_Editeur_EditeuridEditeur",
-                        column: x => x.EditeuridEditeur,
+                        name: "FK_Livre_Editeur_idEditeur",
+                        column: x => x.idEditeur,
                         principalTable: "Editeur",
                         principalColumn: "idEditeur",
                         onDelete: ReferentialAction.Restrict);
@@ -217,34 +234,6 @@ namespace ReadLeadSucced_API.Migrations
                         column: x => x.idLivraison,
                         principalTable: "Livraison",
                         principalColumn: "IdLivraison");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Commentaire",
-                columns: table => new
-                {
-                    idCommentaire = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    contenuCommentaire = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    idClient = table.Column<int>(type: "int", nullable: false),
-                    idLivre = table.Column<int>(type: "int", nullable: false),
-                    LivreidLivre = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Commentaire", x => x.idCommentaire);
-                    table.ForeignKey(
-                        name: "FK_Commentaire_Client_idClient",
-                        column: x => x.idClient,
-                        principalTable: "Client",
-                        principalColumn: "idClient",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Commentaire_Livre_LivreidLivre",
-                        column: x => x.LivreidLivre,
-                        principalTable: "Livre",
-                        principalColumn: "idLivre",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -316,6 +305,28 @@ namespace ReadLeadSucced_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LivreCommentaires",
+                columns: table => new
+                {
+                    idLivre = table.Column<int>(type: "int", nullable: false),
+                    idCommentaire = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LivreCommentaires", x => new { x.idLivre, x.idCommentaire });
+                    table.ForeignKey(
+                        name: "FK_LivreCommentaires_Commentaire_idCommentaire",
+                        column: x => x.idCommentaire,
+                        principalTable: "Commentaire",
+                        principalColumn: "idCommentaire");
+                    table.ForeignKey(
+                        name: "FK_LivreCommentaires_Livre_idLivre",
+                        column: x => x.idLivre,
+                        principalTable: "Livre",
+                        principalColumn: "idLivre");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LivrePaniers",
                 columns: table => new
                 {
@@ -340,28 +351,6 @@ namespace ReadLeadSucced_API.Migrations
                         principalColumn: "idPanier");
                 });
 
-            migrationBuilder.CreateTable(
-                name: "LivreCommentaires",
-                columns: table => new
-                {
-                    idLivre = table.Column<int>(type: "int", nullable: false),
-                    idCommentaire = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LivreCommentaires", x => new { x.idLivre, x.idCommentaire });
-                    table.ForeignKey(
-                        name: "FK_LivreCommentaires_Commentaire_idCommentaire",
-                        column: x => x.idCommentaire,
-                        principalTable: "Commentaire",
-                        principalColumn: "idCommentaire");
-                    table.ForeignKey(
-                        name: "FK_LivreCommentaires_Livre_idLivre",
-                        column: x => x.idLivre,
-                        principalTable: "Livre",
-                        principalColumn: "idLivre");
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Commande_idClient",
                 table: "Commande",
@@ -383,14 +372,9 @@ namespace ReadLeadSucced_API.Migrations
                 column: "idClient");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Commentaire_LivreidLivre",
-                table: "Commentaire",
-                column: "LivreidLivre");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Livre_EditeuridEditeur",
+                name: "IX_Livre_idEditeur",
                 table: "Livre",
-                column: "EditeuridEditeur");
+                column: "idEditeur");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LivreAuteurs_idAuteur",
@@ -465,16 +449,16 @@ namespace ReadLeadSucced_API.Migrations
                 name: "Commentaire");
 
             migrationBuilder.DropTable(
-                name: "Panier");
-
-            migrationBuilder.DropTable(
                 name: "Livre");
 
             migrationBuilder.DropTable(
-                name: "Client");
+                name: "Panier");
 
             migrationBuilder.DropTable(
                 name: "Editeur");
+
+            migrationBuilder.DropTable(
+                name: "Client");
         }
     }
 }

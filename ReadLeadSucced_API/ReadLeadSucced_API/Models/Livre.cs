@@ -12,7 +12,6 @@ namespace ReadLeadSucced_Data.Models
         [Key]
         public int idLivre { get; set; }
         public string titreLivre { get; set; }
-        public string prenomClient { get; set; }
         [MaxLength(500)]
         public string resumeLivre { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
@@ -23,8 +22,6 @@ namespace ReadLeadSucced_Data.Models
         public int stockCmdLivre { get; set; }
 
         [ForeignKey("idEditeur")]
-        public int idEditeur { get; set; }
-
 
         public virtual Editeur Editeur { get; set; }
 
