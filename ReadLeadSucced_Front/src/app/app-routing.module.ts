@@ -45,6 +45,19 @@ const routes: Routes = [
     path: 'livres',
     loadChildren: () => import('./pages/livres/livres.module').then( m => m.LivresPageModule)
   },
+  {
+    path: 'admin/recherche-livre',
+    loadChildren: () => import('./pages/admin/recherche-livre/recherche-livre.module').then( m => m.RechercheLivrePageModule)
+  },
+  {
+    path: 'admin/creation-livre',
+    loadChildren: () => import('./pages/admin/creation-livre/creation-livre.module').then( m => m.CreationLivrePageModule)
+  },  {
+    path: 'commande',
+    loadChildren: () => import('./pages/commande/commande.module').then( m => m.CommandePageModule)
+  },
+
+
 
 
 
