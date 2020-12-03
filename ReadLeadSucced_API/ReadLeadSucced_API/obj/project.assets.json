@@ -3014,16 +3014,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "ReadLeadSucced_ConnexionBDD/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/ReadLeadSucced_ConnexionBDD.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ReadLeadSucced_ConnexionBDD.dll": {}
-        }
       }
     }
   },
@@ -9609,11 +9599,6 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "ReadLeadSucced_ConnexionBDD/1.0.0": {
-      "type": "project",
-      "path": "../ReadLeadSucced_ConnexionBDD/ReadLeadSucced_ConnexionBDD.csproj",
-      "msbuildProject": "../ReadLeadSucced_ConnexionBDD/ReadLeadSucced_ConnexionBDD.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9631,7 +9616,6 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.0",
-      "ReadLeadSucced_ConnexionBDD >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -9666,11 +9650,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\ReadLeadSucced_ConnexionBDD.csproj": {
-              "projectPath": "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_ConnexionBDD\\ReadLeadSucced_ConnexionBDD.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
