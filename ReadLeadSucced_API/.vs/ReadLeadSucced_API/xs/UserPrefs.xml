@@ -3,18 +3,17 @@
     <Files>
       <File FileName="ReadLeadSucced_API/Startup.cs" Line="42" Column="48" />
       <File FileName="ReadLeadSucced_API/Program.cs" />
-      <File FileName="ReadLeadSucced_API/AppDbContext.cs" Line="1" Column="1" />
-      <File FileName="ReadLeadSucced_API/Controllers/ClientsController.cs" Line="28" Column="57" />
-      <File FileName="ReadLeadSucced_API/Models/Client.cs" Line="19" Column="24" />
+      <File FileName="ReadLeadSucced_API/AppDbContext.cs" />
+      <File FileName="ReadLeadSucced_API/Controllers/ClientsController.cs" />
+      <File FileName="ReadLeadSucced_API/Models/Client.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True">
+          <Node name="ReadLeadSucced_API" expanded="True" selected="True">
             <Node name="ReadLeadSucced_API" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
