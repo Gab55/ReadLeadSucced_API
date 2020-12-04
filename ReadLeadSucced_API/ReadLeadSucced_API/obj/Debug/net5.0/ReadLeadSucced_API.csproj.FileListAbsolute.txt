@@ -396,4 +396,3 @@ C:/Users/allig/Source/Repos/Gab55/ReadLeadSucced_API/ReadLeadSucced_API/ReadLead
 /Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/obj/Debug/net5.0/ref/ReadLeadSucced_API.dll
 /Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/obj/Debug/net5.0/ReadLeadSucced_API.pdb
 /Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/obj/Debug/net5.0/ReadLeadSucced_API.genruntimeconfig.cache
-/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/obj/Debug/net5.0/ReadLeadSucced_API.csprojAssemblyReference.cache

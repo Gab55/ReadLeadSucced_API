@@ -18,12 +18,12 @@
 </ion-header>
 
 
-<ion-content>  
+<ion-content *ngIf="(client$ | async)?.length>0">  
   <ion-list >  
 
-    <ion-card>
+    <ion-card *ngFor="let cli of (client$ | async)">
       <ion-card-content>
-        <h3>Nom Prenom</h3>  
+        <h3>{{cli.nomClient}} {{cli.prenomClient}}</h3>  
         <ion-icon slot="end"  name="create-outline"></ion-icon>   
       </ion-card-content>
     </ion-card>
