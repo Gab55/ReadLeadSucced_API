@@ -9,6 +9,7 @@ namespace ReadLeadSucced_Data.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int idEditeur { get; set; }
+        public string nomEditeur { get; set; }
         public string rueEditeur { get; set; }
         [MaxLength(5)]
         public int cpEditeur { get; set; }
