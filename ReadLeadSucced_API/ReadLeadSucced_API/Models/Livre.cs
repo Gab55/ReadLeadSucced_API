@@ -22,6 +22,7 @@ namespace ReadLeadSucced_Data.Models
         public int stockCmdLivre { get; set; }
         public string urlImageLivre { get; set; }
 
+
         [ForeignKey("idEditeur")]
 
         public virtual Editeur Editeur { get; set; }
