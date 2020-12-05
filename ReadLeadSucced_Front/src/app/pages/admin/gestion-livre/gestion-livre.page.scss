@@ -1,0 +1,57 @@
+ion-content{
+    --background: #d7d8da !important;
+}
+
+hr {
+    //border: 2px solid red !important;
+    height: 5px !important;
+    width: 700px !important;
+    background: grey !important;
+    display: block !important;
+    font-size: 1em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+h2
+{
+    font-weight: bold !important;
+}
+
+.vertical 
+{ 
+    border-left: 2px solid grey; 
+    height: 250px; 
+    position:absolute; 
+    left: 50%; 
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 1px;
+    width: 150px;
+    height: 300px;
+}
+/*.ajout
+{
+    margin-top: 200px;*
+}*/
+ion-button
+{
+    width: 60vw;
+}
+ion-icon
+{
+    color: yellow;
+    width: 20px;
+    margin: auto;
+    vertical-align: middle;
+    visibility: visible !important;
+}
+.span-container
+{
+    margin-top: 1px; 
+}
