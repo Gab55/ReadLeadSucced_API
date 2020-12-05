@@ -7,7 +7,7 @@ export class Client {
     codePostalClient :number;
     telephoneClient:number;
     emailClient:string;
-    dateNaissanceClient :Date;
+    dateNaissanceClient? :Date;
     motDePasseClient :string;
     loginClient : string;
 }

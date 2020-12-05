@@ -52,7 +52,7 @@ export class CreationUtilisateurPage implements OnInit {
           nomClient: ['', [Validators.required]],
           prenomClient: ['', [Validators.required]],
           adresseClient: ['', [Validators.required]],
-          villeClient: ['', [Validators.required]],
+         // villeClient: ['', [Validators.required]],
           cpClient: ['', [Validators.required]],
           emailClient: ['', [Validators.required]],
           loginClient: ['', [Validators.required]],
@@ -83,33 +83,31 @@ export class CreationUtilisateurPage implements OnInit {
 
 
 
-  // save() {
-  //   if (!this.form.valid) {
-  //     return;
-  //   }
+  save() {
+    if (!this.form.valid) {
+      return;
+    }
 
-  //   if (this.actionType === 'Add') {
-  //     let client: Client = {
-  //       NomClient: this.form.get(this.nomClient).value,
-  //       PrenomClient: this.form.get(this.prenomClient).value,
-  //       DateNaissanceClient : this.form.value.dateNaissance,
-  //       AdresseClient :  this.form.value.adresseClient,
-  //       VilleClient :  this.form.value.villeClient,
-  //       CpClient :  this.form.value.cpClient,
-  //       Telephone:  this.form.value.telephoneClient,
-  //       EmailClient: this.form.get(this.emailClient).value,
-  //       IdUtilisateurCreation :1,
-  //       DateCreation :new Date(),
-  //       IdUtilisateurModification :1,
-  //       DateModification :new Date(),
-  //       DateArchivage :new Date()
-  //     };
+    if (this.actionType === 'Add') {
+      let client: Client = {
+        nomClient: this.form.get(this.nomClient).value,
+        prenomClient: this.form.get(this.prenomClient).value,
+        dateNaissanceClient: new Date(),
+        adresseClient :  this.form.value.adresseClient,
+        villeClient :  '',
+        codePostalClient :  this.form.value.cpClient,
+        telephoneClient:  0,
+        emailClient: this.form.get(this.emailClient).value,
+        loginClient : this.form.value.loginClient,
+        motDePasseClient : this.form.value
 
-  //     this.clientService.saveClient(client)
-  //       .subscribe((data) => {
-  //         this.router.navigate(['recherche-client/']);
-  //       });
-  //   }
-  // }
+      };
+
+      this.utilWebService.saveClient(client)
+        .subscribe((data) => {
+          this.router.navigate(['livres/']);
+        });
+    }
+  }
 
 }
