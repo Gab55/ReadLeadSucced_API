@@ -29,6 +29,26 @@ export class UtilisateurWebServiceService  extends ApiService {
     );
   }
 
+
+  getClientID(clientId: number): Observable<Client> {
+    return this.getById<Client>(this.clientUrl, clientId.toString() )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+
+
+  // POST  --> AJOUT
+  saveClient(client): Observable<Client> {
+    return this.post<Client>(this.clientUrl, JSON.stringify(client))
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+
 // GESTION DES ERREURS
 errorHandler(error) {
   let errorMessage = '';
