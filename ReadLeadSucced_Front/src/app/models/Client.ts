@@ -9,5 +9,6 @@ export class Client {
     emailClient:string;
     dateNaissanceClient :Date;
     motDePasseClient :string;
+    loginClient : string;
 }
 
