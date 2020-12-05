@@ -23,7 +23,10 @@
 
     <ion-card *ngFor="let cli of (client$ | async)">
       <ion-card-content>
-        <h3>{{cli.nomClient}} {{cli.prenomClient}}</h3>  
+        <h3>Nom : {{cli.nomClient}}</h3> 
+        <h3>Prenom : {{cli.prenomClient}}</h3> 
+        <h3>Adresse : {{cli.adresseClient}} à {{cli.villeClient}}</h3> 
+        <h3>Adresse mail : {{cli.emailClient}}</h3>     
         <ion-icon slot="end"  name="create-outline"></ion-icon>   
       </ion-card-content>
     </ion-card>

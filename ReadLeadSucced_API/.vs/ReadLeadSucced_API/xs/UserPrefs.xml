@@ -10,18 +10,13 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True" selected="True">
+          <Node name="ReadLeadSucced_API" expanded="True">
             <Node name="ReadLeadSucced_API" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>)</Value>
-          <Value>ex</Value>
         </State>
       </Pad>
     </Pads>
