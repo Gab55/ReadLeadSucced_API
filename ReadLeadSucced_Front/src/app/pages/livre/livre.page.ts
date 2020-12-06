@@ -11,7 +11,7 @@ import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-serv
 @Component({
   selector: 'app-livre',
   templateUrl: './livre.page.html',
-  styleUrls: ['./livre.page.scss'],
+  styleUrls: ['./livre.page.scss','./../../app.component.scss'],
 })
 export class LivrePage implements OnInit {
   livre$: Observable<Livre>;
