@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{DC0603E5-D42B-4978-9DEF-C4872739268B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ReadLeadSucced_API/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ReadLeadSucced_API/Models/Livre.cs">
     <Files>
       <File FileName="ReadLeadSucced_API/Startup.cs" Line="42" Column="48" />
       <File FileName="ReadLeadSucced_API/Program.cs" />
       <File FileName="ReadLeadSucced_API/AppDbContext.cs" />
       <File FileName="ReadLeadSucced_API/Controllers/ClientsController.cs" />
       <File FileName="ReadLeadSucced_API/Models/Client.cs" />
+      <File FileName="ReadLeadSucced_API/Controllers/LivresController.cs" Line="27" Column="1" />
+      <File FileName="ReadLeadSucced_API/Models/Livre.cs" Line="20" Column="50" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,8 +15,9 @@
           <Node name="ReadLeadSucced_API" expanded="True">
             <Node name="ReadLeadSucced_API" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Livre.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -25,9 +28,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.ReadLeadSucced__API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/Controllers/LivresController.cs" relfile="ReadLeadSucced_API/Controllers/LivresController.cs" line="25" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

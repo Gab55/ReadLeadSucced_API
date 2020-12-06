@@ -12,7 +12,7 @@ namespace ReadLeadSucced_Data.Models
         [Key]
         public int idLivre { get; set; }
         public string titreLivre { get; set; }
-        [MaxLength(500)]
+        //[MaxLength(500)]
         public string resumeLivre { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
         public decimal prixLivreHt { get; set; }

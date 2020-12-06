@@ -1,6 +1,25 @@
+<ion-header>
 
+  <ion-toolbar>
+    <div class="container-image">
+        <div class="logo">
+          <img src="../assets/images/logo-readleadsucced.png" />
+        </div>
+        <div class="shopping">
+          <img src="../assets/images/Icon-shopping.png" />
+        </div>
+        
+  </div>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content class="" [scrollEvents]="true" >
+<ion-content class="" [scrollEvents]="true">
   <ion-slides pager={true} options={slideOpts}>
     <ion-slide>
       <div class="container">
@@ -56,11 +75,11 @@
 
       </ion-col>
     </ion-row>
-    <ion-row size="">
-      <ion-col *ngFor="let livre of Livres" size="4" >
+    <ion-row size="" *ngIf="(livres$ | async)?.length>0">
+      <ion-col  size="4" *ngFor="let livre of (livres$ | async)" >
         <ion-card >
           <ion-img (click)="detailsLivre(livre)" [src]="livre.url" class="full-image"></ion-img>
-          <ion-card-title>{{livre.titre}}</ion-card-title>
+          <ion-card-title>{{livre.titreLivre}}</ion-card-title>
         </ion-card>
       </ion-col>
       
