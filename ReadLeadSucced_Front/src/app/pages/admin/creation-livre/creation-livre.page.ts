@@ -84,17 +84,17 @@ export class CreationLivrePage implements OnInit {
         let livre: Livre = {
           titreLivre: this.form.get(this.titreLivre).value,
           resumerLivre: this.form.get(this.resumerLivre).value,
-          prixLivreHt :  this.form.get(this.prixLivreHt).value,
-          prixLivreTtc: this.form.get(this.prixLivreTtc).value,
-          stockInvLivre: this.form.get(this.stockInvLivre).value,
-          idEditeur: this.form.get(this.idEditeur).value,       
+          prixLivreHt : this.form.value.prixLivreHt,
+          prixLivreTtc: this.form.value.prixLivreTtc,
+          stockInvLivre: this.form.value.stockInvLivre,
+          idEditeur: this.form.value.idEditeur,       
            urlPhoto: this.form.get(this.urlPhoto).value
   
         };
   
         this.livreWebService.saveClient(livre)
           .subscribe((data) => {
-            this.router.navigate(['livres/']);
+            this.router.navigate(['/livres']);
           });
       }
      }
