@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'livres',
+    redirectTo: 'auth/connexion',
     pathMatch: 'full'
   },
 
@@ -52,7 +52,8 @@ const routes: Routes = [
   {
     path: 'admin/creation-livre',
     loadChildren: () => import('./pages/admin/creation-livre/creation-livre.module').then( m => m.CreationLivrePageModule)
-  },  {
+  },
+  {
     path: 'commande',
     loadChildren: () => import('./pages/commande/commande.module').then( m => m.CommandePageModule)
   },

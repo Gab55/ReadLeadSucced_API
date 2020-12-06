@@ -14,6 +14,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using ReadLeadSucced_Data;
 using Microsoft.EntityFrameworkCore;
+using ReadLeadSucced_API.Services;
+using ReadLeadSucced_API.Helpers;
+using Newtonsoft;
 
 namespace ReadLeadSucced_API
 {
@@ -29,13 +32,26 @@ namespace ReadLeadSucced_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Jwt Authentication
+
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
+            // configure DI for application services
+            services.AddScoped<IUserService, UserService>();
+
+            services.AddCors();
+
             //injection de AppDbContext
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultContext")), ServiceLifetime.Scoped
             );
             services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                    .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -61,7 +77,8 @@ namespace ReadLeadSucced_API
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
+            app.UseSpaStaticFiles();
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();
@@ -69,6 +86,8 @@ namespace ReadLeadSucced_API
 
             app.UseRouting();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseMiddleware<JwtMiddleware>();
+
             app.UseAuthentication();
             app.UseAuthorization();
 
