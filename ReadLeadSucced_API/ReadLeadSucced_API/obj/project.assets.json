@@ -9620,23 +9620,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gab\\.nuget\\packages\\": {},
+    "C:\\Users\\Sita\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gab\\Documents\\GitHub\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+      "projectUniqueName": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
       "projectName": "ReadLeadSucced_API",
-      "projectPath": "C:\\Users\\Gab\\Documents\\GitHub\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
-      "packagesPath": "C:\\Users\\Gab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gab\\Documents\\GitHub\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\obj\\",
+      "projectPath": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+      "packagesPath": "C:\\Users\\Sita\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Gab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sita\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
