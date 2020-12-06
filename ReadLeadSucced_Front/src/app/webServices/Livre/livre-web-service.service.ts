@@ -30,7 +30,7 @@ export class LivreWebServiceService  extends ApiService {
   }
 
   getLivretID(livreID: number): Observable<Livre> {
-    return this.getById<Livre>(this.livresUrl, livreID.toString() )
+    return this.getById<Livre>(this.clientUrl, livreID.toString() )
       .pipe(
         retry(1),
         catchError(this.errorHandler)
