@@ -5,7 +5,7 @@ export class Livre {
     prixLivreHt: number;
     prixLivreTtc: number;
     stockInvLivre: number;
-    stockCmdLivre: number;
+    stockCmdLivre?: number;
     idEditeur: number;
     urlPhoto: string;
 }

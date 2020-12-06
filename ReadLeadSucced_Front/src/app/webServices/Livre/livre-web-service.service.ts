@@ -11,7 +11,7 @@ import { ApiService } from 'src/Shared/api.service';
 })
 export class LivreWebServiceService extends ApiService {
 
-  livresClient = environment.appUrl + 'api/Livres';
+  livresUrl = environment.appUrl + 'api/Livres';
 
   constructor( private http: HttpClient) {
     super(http);
@@ -19,13 +19,29 @@ export class LivreWebServiceService extends ApiService {
 
 
   getLivre(): Observable<Livre[]> {
-    return this.get<Livre[]>(this.livresClient, [])
+    return this.get<Livre[]>(this.livresUrl, [])
     .pipe(
       retry(1),
       catchError(this.errorHandler)
     );
   }
 
+  getLivretID(livreID: number): Observable<Livre> {
+    return this.getById<Livre>(this.livresUrl, livreID.toString() )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+  // POST  --> AJOUT
+  saveClient(livre): Observable<Livre> {
+    return this.post<Livre>(this.livresUrl, JSON.stringify(livre))
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
 
   errorHandler(error) {
     let errorMessage = '';
