@@ -56,11 +56,15 @@
 
       </ion-col>
     </ion-row>
-    <ion-row size="">
-      <ion-col *ngFor="let livre of Livres" size="4" >
-        <ion-card >
-          <ion-img (click)="detailsLivre(livre)" [src]="livre.url" class="full-image"></ion-img>
-          <ion-card-title>{{livre.titre}}</ion-card-title>
+
+    <ion-row size="" *ngIf="(livres$ | async)?.length>0">
+      <ion-col  size="4" *ngFor="let livre of (livres$ | async)" >
+        <ion-card  [routerLink]="['/livre/', livre.idLivre]">
+
+            <!-- <ion-img (click)="detailsLivre(livre)" [src]="livre.url" class="full-image"></ion-img> -->
+            <ion-card-title>{{livre.titreLivre}}</ion-card-title>
+
+
         </ion-card>
       </ion-col>
       

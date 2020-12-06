@@ -13,7 +13,10 @@ export class LivreWebServiceService extends ApiService {
 
   livresUrl = environment.appUrl + 'api/Livres';
 
-  constructor( private http: HttpClient) {
+
+  clientUrl = environment.appUrl + 'api/Livres/';
+
+  constructor(private http: HttpClient) {
     super(http);
    }
 
@@ -26,13 +29,19 @@ export class LivreWebServiceService extends ApiService {
     );
   }
 
-  getLivretID(livreID: number): Observable<Livre> {
-    return this.getById<Livre>(this.livresUrl, livreID.toString() )
+
+  getLivretID(clientId: number): Observable<Livre> {
+    return this.getById<Livre>(this.clientUrl, clientId.toString() )
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
+
+
+
+
+
 
   // POST  --> AJOUT
   saveClient(livre): Observable<Livre> {

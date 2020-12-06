@@ -1,17 +1,29 @@
 <ion-header>
+
   <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button></ion-back-button>
+    <div class="container-image">
+        <div class="logo">
+          <img src="../assets/images/logo-readleadsucced.png" />
+        </div>
+        <div class="shopping">
+          <img src="../assets/images/Icon-shopping.png" />
+        </div>
+        
+  </div>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>DetailLivre</ion-title>
+    <ion-title>
+      
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="(livre$ | async) as livre">
   <ion-grid>
     <div class="col col-sm">
-      <h3>{{detailsLivre.auteur}}</h3>
-      <h1>{{detailsLivre.titre}}</h1>
+      <!-- <h3>{{livre.auteur}}</h3> -->
+      <h1>{{livre.titreLivre}}</h1>
       <hr class="solid">
     </div>
     <ion-row>
@@ -35,7 +47,7 @@
               <span *ngIf="detailsLivre.star >=5">
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
-              <p>{{detailsLivre.titre}}</p>
+              <p>{{livre.titreLivre}}</p>
             </div>
             <!--<div class="span-container">
               
@@ -49,7 +61,7 @@
           <ion-col size="7">
             <ion-row>
               <ion-col>
-              <h3>Prix : {{detailsLivre.prix}} €</h3>
+              <h3>Prix : {{livre.prixLivreTtc}} €</h3>
               <h5>Toutes taxes comprises</h5>
               <h3 style="color: green;">En Stock</h3>
             </ion-col>
@@ -77,7 +89,7 @@
         </div>
         <div>
           <p>
-            {{detailsLivre.detail}}
+            {{livre.resumeLivre}}
           </p>
         </div>
       </ion-card>
