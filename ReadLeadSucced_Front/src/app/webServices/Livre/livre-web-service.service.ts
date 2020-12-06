@@ -14,7 +14,7 @@ import { ApiService } from 'src/Shared/api.service';
 export class LivreWebServiceService  extends ApiService {
 
 
-  clientUrl = environment.appUrl + 'api/Livres';
+  clientUrl = environment.appUrl + 'api/Livres/';
 
   constructor(private http: HttpClient) {
     super(http);
@@ -29,21 +29,15 @@ export class LivreWebServiceService  extends ApiService {
     );
   }
 
-  getLivretID(livreID: number): Observable<Livre> {
-    return this.getById<Livre>(this.clientUrl, livreID.toString() )
-      .pipe(
-        retry(1),
-        catchError(this.errorHandler)
-      );
-  }
-
-  getClientID(clientId: number): Observable<Livre> {
+  getLivretID(clientId: number): Observable<Livre> {
     return this.getById<Livre>(this.clientUrl, clientId.toString() )
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
+
+
 
 
 

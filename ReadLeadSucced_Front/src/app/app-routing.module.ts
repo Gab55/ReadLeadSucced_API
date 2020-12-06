@@ -38,9 +38,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/panier/panier.module').then( m => m.PanierPageModule)
   },
   {
-    path: 'livre',
+    path: 'livre/:id',
     loadChildren: () => import('./pages/livre/livre.module').then( m => m.LivrePageModule)
   },
+  // {
+  //   path: 'livres/:id',
+  //   loadChildren: () => import('./pages/livres/livres.module').then( m => m.LivresPageModule)
+  // },
   {
     path: 'livres',
     loadChildren: () => import('./pages/livres/livres.module').then( m => m.LivresPageModule)
@@ -57,11 +61,6 @@ const routes: Routes = [
     path: 'commande',
     loadChildren: () => import('./pages/commande/commande.module').then( m => m.CommandePageModule)
   },
-
-
-
-
-
 
 ];
 
