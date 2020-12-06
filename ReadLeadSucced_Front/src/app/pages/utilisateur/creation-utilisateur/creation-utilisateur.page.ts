@@ -99,13 +99,13 @@ export class CreationUtilisateurPage implements OnInit {
         telephoneClient:  0,
         emailClient: this.form.get(this.emailClient).value,
         loginClient : this.form.value.loginClient,
-        motDePasseClient : this.form.value
+        motDePasseClient : this.form.value.mdpClient
 
       };
 
       this.utilWebService.saveClient(client)
         .subscribe((data) => {
-          this.router.navigate(['livres/']);
+          this.router.navigate(['api/Clients', data.idClient]);
         });
     }
   }
