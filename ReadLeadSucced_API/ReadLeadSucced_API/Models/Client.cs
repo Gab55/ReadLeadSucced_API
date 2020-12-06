@@ -21,6 +21,7 @@ namespace ReadLeadSucced_Data.Models
         public string emailClient { get; set; }
         public DateTime dateNaissanceClient { get; set; }
         public string motDePasseClient { get; set; }
+        
 
         [ForeignKey("idClient")]
         public virtual ICollection<Commande> Commandes { get; set; }

@@ -22,26 +22,28 @@
 
 <ion-content>
   <ion-card>
+    <form [formGroup]="form" (ngSubmit)="login()">
     <ion-card-header>
      <h4>Connexion</h4> 
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label >Email :</ion-label>
-        <ion-input type="mail" placeholder="Adresse email"></ion-input>
+        <ion-label >Identifiant :</ion-label>
+        <ion-input type="" formControlName="identifiant" placeholder="Identifiant"></ion-input>
       </ion-item>
   
       <ion-item>
         <ion-label>Mot de passe :</ion-label>
-        <ion-input  type="password" placeholder="Mot de passe"></ion-input>
+        <ion-input  type="password"  formControlName="motDePasse" placeholder="Mot de passe"></ion-input>
       </ion-item>
   
       <br>
       <br>
-      <ion-button  expand="block" shape="round" fill="outline">Connexion</ion-button>
+      <ion-button (click)="login()"  expand="block" shape="round" fill="outline">Connexion</ion-button>
       <br>
       <ion-button color="tertiary" expand="block" shape="round">Inscription</ion-button>
     </ion-card-content>
+  </form>
   </ion-card>
 </ion-content>
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
@@ -5,4 +6,19 @@
       "/Users/gabrielgiroud/.nuget/packages"
     ]
   }
+=======
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+<<<<<<< HEAD
+      "C:\\Users\\allig\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\allig\\.nuget\\packages",
+=======
+      "C:\\Users\\Sita\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Sita\\.nuget\\packages",
+>>>>>>> master
+      "C:\\Microsoft\\Xamarin\\NuGet"
+    ]
+  }
+>>>>>>> master
 }
