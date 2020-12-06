@@ -1,6 +1,6 @@
 
 
-<ion-content class="" [scrollEvents]="true"  >
+<ion-content class="" [scrollEvents]="true" >
   <ion-slides pager={true} options={slideOpts}>
     <ion-slide>
       <div class="container">
@@ -57,7 +57,7 @@
       </ion-col>
     </ion-row>
     <ion-row size="">
-      <ion-col *ngFor="let livre of livres" size="4" >
+      <ion-col *ngFor="let livre of Livres" size="4" >
         <ion-card >
           <ion-img (click)="detailsLivre(livre)" [src]="livre.url" class="full-image"></ion-img>
           <ion-card-title>{{livre.titre}}</ion-card-title>
@@ -68,3 +68,4 @@
   </ion-grid>
 
 </ion-content>
+
