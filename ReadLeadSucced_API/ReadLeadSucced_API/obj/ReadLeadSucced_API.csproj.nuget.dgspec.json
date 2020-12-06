@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
         "packagesPath": "C:\\Users\\allig\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\obj\\",
+=======
+    "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+        "projectName": "ReadLeadSucced_API",
+        "projectPath": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+        "packagesPath": "C:\\Users\\Sita\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\obj\\",
+>>>>>>> master
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\allig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Sita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> master
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -46,7 +64,14 @@
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
+<<<<<<< HEAD
               "version": "[5.0.0, )"
+=======
+              "version": "[5.0.0, )",
+              "noWarn": [
+                "NU1605"
+              ]
+>>>>>>> master
             },
             "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
               "target": "Package",
@@ -55,6 +80,7 @@
                 "NU1605"
               ]
             },
+<<<<<<< HEAD
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -63,6 +89,8 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+=======
+>>>>>>> master
             "Microsoft.AspNetCore.SpaServices.Extensions": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -114,10 +142,13 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+<<<<<<< HEAD
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.8.0, )"
+=======
+>>>>>>> master
             }
           },
           "imports": [

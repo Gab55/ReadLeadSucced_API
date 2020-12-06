@@ -195,9 +195,6 @@ namespace ReadLeadSucced_API.Migrations
                     b.Property<string>("emailClient")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("loginClient")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("motDePasseClient")
                         .HasColumnType("nvarchar(max)");
 
@@ -262,10 +259,6 @@ namespace ReadLeadSucced_API.Migrations
                     b.Property<int?>("idClient")
                         .HasColumnType("int");
 
-                    b.Property<int>("notationCommentaire")
-                        .HasMaxLength(5)
-                        .HasColumnType("int");
-
                     b.HasKey("idCommentaire");
 
                     b.HasIndex("idClient");
@@ -285,9 +278,6 @@ namespace ReadLeadSucced_API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("emailEditeur")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("nomEditeur")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("rueEditeur")
@@ -378,9 +368,6 @@ namespace ReadLeadSucced_API.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("titreLivre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("urlImageLivre")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("idLivre");

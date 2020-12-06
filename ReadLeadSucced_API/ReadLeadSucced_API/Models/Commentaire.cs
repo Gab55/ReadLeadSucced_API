@@ -13,8 +13,7 @@ namespace ReadLeadSucced_Data.Models
         public int idCommentaire { get; set; }
         [MaxLength(500)]
         public string contenuCommentaire { get; set; }
-        [MaxLength(5)]
-        public int notationCommentaire { get; set; }
+
         public virtual ICollection<LivreCommentaire> LivreCommentaires { get; set; }
     }
 }
