@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
+using ReadLeadSucced_Data.Models.Associations;
 
 namespace ReadLeadSucced_API.Controllers
 {
@@ -44,7 +45,7 @@ namespace ReadLeadSucced_API.Controllers
 
         // PUT: api/Livres/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPost("edit")]
         public async Task<IActionResult> PutLivre(int id, Livre livre)
         {
             if (id != livre.idLivre)
@@ -104,5 +105,8 @@ namespace ReadLeadSucced_API.Controllers
         {
             return _context.Livres.Any(e => e.idLivre == id);
         }
+
+
+
     }
 }

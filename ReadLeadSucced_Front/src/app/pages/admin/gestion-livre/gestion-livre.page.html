@@ -1,108 +1,82 @@
 <ion-header>
+
   <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button></ion-back-button>
+    <div class="container-image">
+        <div class="logo">
+          <img src="../assets/images/logo-readleadsucced.png" />
+        </div>
+        <div class="shopping">
+          <img src="../assets/images/Icon-shopping.png" />
+        </div>
+        
+  </div>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>DetailLivre</ion-title>
+    <ion-title>
+      creation-livre
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <div class="col col-sm">
-      <ion-input aria-placeholder="Auteur"></ion-input>
-      <!--<h3>{{detailsLivre.auteur}}</h3>
-      <h1>{{detailsLivre.titre}}</h1>-->
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <ion-card >
+      <ion-card-header>
+        <h4>
+          <ion-label>Modifier le livre</ion-label>
+        </h4>
+      </ion-card-header>
       <hr class="solid">
-    </div>
-    <ion-row>
-      <ion-card>
-        <ion-row class="">
-          <ion-col size="4">
-            <div class="col col-sm">
-              <!--<ion-img  [src]="detailsLivre.url" class="full-image"></ion-img>
-              <span *ngIf="detailsLivre.star >=1">
-                <ion-icon classe="iconStar" name="star"></ion-icon>
-              </span>
-              <span *ngIf="detailsLivre.star >=2">
-                <ion-icon classe="iconStar" name="star"></ion-icon>
-              </span>
-              <span *ngIf="detailsLivre.star >=3">
-                <ion-icon classe="iconStar" name="star"></ion-icon>
-              </span>
-              <span *ngIf="detailsLivre.star >=4">
-                <ion-icon classe="iconStar" name="star"></ion-icon>
-              </span >
-              <span *ngIf="detailsLivre.star >=5">
-                <ion-icon classe="iconStar" name="star"></ion-icon>
-              </span>
-              <ion-input aria-placeholder="Titre"></ion-input>-->
-              <!--<p>{{detailsLivre.titre}}</p>-->
-            </div>
-            <!--<div class="span-container">
-              
-            </div>-->
-            
-           
-          </ion-col>
-          <ion-col size="1">
-            <div class = "vertical"></div> 
-          </ion-col>
-          <ion-col size="7">
-            <ion-row>
-              <ion-col>
-                <ion-input aria-placeholder="Prix"></ion-input>
-              <!--<h3>Prix : {{detailsLivre.prix}} €</h3>
-              <h5>Toutes taxes comprises</h5>-->
-              <h3 style="color: green;">En Stock</h3>
+      <ion-card-content >
+        <ion-grid>
+          <ion-row *ngIf="(livre$ | async) as livre">
+            <ion-col *ngIf="(categories$ | async)?.length>0">
+    
+              <ion-item lines="full">
+                <ion-label position="floating">Titre</ion-label>
+                <ion-input type="text" placeholder="{{livre.titreLivre}}" formControlName="titreLivre"></ion-input>
+              </ion-item>
+          
+              <ion-item lines="full">
+                <ion-label position="floating">Résumé </ion-label>
+                <ion-input type="text" formControlName="resumerLivre"></ion-input>
+              </ion-item>
+          
+              <ion-item lines="full">
+                <ion-label position="floating">Prix Ht</ion-label>
+                <ion-input type="text" formControlName="prixLivreHt"></ion-input>
+              </ion-item>
+    
+              <ion-item lines="full">
+                <ion-label position="floating">Prix TTC</ion-label>
+                <ion-input  formControlName="prixLivreTtc"></ion-input>
+              </ion-item>
+          
+              <ion-item lines="full">
+                <ion-label position="floating">Stock</ion-label>
+                <ion-input formControlName="stockInvLivre"></ion-input>
+              </ion-item>
+
+              <ion-select placeholder="Catégorie"  interface="popover">
+                <ion-select-option *ngFor="let cate of (categories$ | async)"  value="{{cate.idCategorie}}">{{cate.libelleCategorie}}</ion-select-option>
+              </ion-select>
+    
+              <ion-item lines="full">
+                <ion-label position="floating">Editeur</ion-label>
+                <ion-input type="text" formControlName="idEditeur"></ion-input>
+              </ion-item>
+    
+              <ion-item lines="full">
+                <ion-label position="floating">Url photo</ion-label>
+                <ion-input type="text" formControlName="urlPhoto"></ion-input>
+              </ion-item>
             </ion-col>
-            </ion-row>
-            <ion-row class="ajout">
-              <ion-col size="6">
-                <ion-label>Quantité</ion-label>
-              </ion-col>
-              <ion-col size="6">
-                <ion-input></ion-input>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-button expand="bock">Ajouter au panier</ion-button>
-            </ion-row>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-row>
-    <ion-row>
-      <ion-card>
-        <div class="">
-          <h3>Description</h3>
-          <hr>
-        </div>
-        <div>
-          <p>
-            
-          </p>
-        </div>
-      </ion-card>
-    </ion-row>
-    <ion-row>
-      <ion-card>
-        <div class="">
-          <h3 class="solid">D'autre livre du même auteur ...</h3>
-          <hr>
-        </div>
-        <div>
-          <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> 
-              Cupiditate id debitis blanditiis fuga vitae excepturi dolore quos aliquid,
-              cumque voluptate illo facilis harum possimus nisi nesciunt enim nihil! Maxime, ipsum?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-              Dolorem minima mollitia ipsa at doloremque ipsam expedita explicabo,<br> 
-              qui, tempora sequi voluptate amet perferendis commodi? Ut omnis accusamus rem voluptatibus.<br>
-              Nam.
-          </p>
-        </div>
-      </ion-card>
-    </ion-row>
-  </ion-grid>
+          </ion-row>
+        </ion-grid>
+        <ion-button  expand="block" shape="round" fill="outline" type="submit">Modifier</ion-button>
+        <ion-button  expand="block" shape="round" fill="outline" type="submit">Supprimer</ion-button>
+      </ion-card-content>
+    </ion-card>
+    </form>
 </ion-content>
