@@ -29,7 +29,7 @@ export class LivresPage implements OnInit {
   }
 
   loadLivres() {
-    this.livres$ = this.livreService.getLivres();
+    this.livres$ = this.livreService.getLivre();
   }
 
 

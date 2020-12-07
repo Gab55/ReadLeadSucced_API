@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ReadLeadSucced_API.Models;
-using ReadLeadSucced_API.Services;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
 
@@ -18,42 +15,21 @@ namespace ReadLeadSucced_API.Controllers
     public class ClientsController : ControllerBase
     {
         private readonly AppDbContext _context;
-        private IUserService _userService;
 
-        public ClientsController(AppDbContext context, IUserService userService)
+        public ClientsController(AppDbContext context)
         {
             _context = context;
-            _userService = userService;
-        }
-
-        [HttpPost("authenticate")]
-        public IActionResult Authenticate(AuthenticateRequest model)
-        {
-            var response = _userService.Authenticate(model);
-
-            if (response == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
-
-            return Ok(response);
         }
 
         // GET: api/Clients
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
             return await _context.Clients.ToListAsync();             
         }
 
-        public async Task<ActionResult<IEnumerable<Client>>> GetLoginCommercials()
-        {
-            return await _context.Clients.ToListAsync();
-        }
-
         // GET: api/Clients/5
         [HttpGet("{id}")]
-        [Authorize]
-
         public async Task<ActionResult<Client>> GetClient(int id)
         {
             var client = await _context.Clients.FindAsync(id);
@@ -69,7 +45,6 @@ namespace ReadLeadSucced_API.Controllers
         // PUT: api/Clients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize]
         public async Task<IActionResult> PutClient(int id, Client client)
         {
             if (id != client.idClient)
@@ -101,7 +76,6 @@ namespace ReadLeadSucced_API.Controllers
         // POST: api/Clients
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<Client>> PostClient(Client client)
         {
             _context.Clients.Add(client);
@@ -112,7 +86,6 @@ namespace ReadLeadSucced_API.Controllers
 
         // DELETE: api/Clients/5
         [HttpDelete("{id}")]
-        [Authorize]
         public async Task<IActionResult> DeleteClient(int id)
         {
             var client = await _context.Clients.FindAsync(id);

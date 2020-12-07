@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router'; 
+import { Observable } from 'rxjs';
 import { NavController } from '@ionic/angular';
+
+import { Livre } from 'src/app/models/Livre';
+import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+
 
 @Component({
   selector: 'app-livre',
@@ -8,19 +14,30 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./livre.page.scss'],
 })
 export class LivrePage implements OnInit {
-
+  livre$: Observable<Livre>;
+  livreId: number;
   detailsLivre : any;
-  constructor(private router: Router, public navCtrl: NavController) {
-    this.detailsLivre = this.router.getCurrentNavigation().extras;
+  constructor(private livreService: LivreWebServiceService,
+    private router: Router,
+     public navCtrl: NavController, 
+     private avRoute: ActivatedRoute) {
+
+      const idParam = 'id';
+
+
+
+      if (this.avRoute.snapshot.params[idParam]) {
+        this.livreId = this.avRoute.snapshot.params[idParam];
+      }
+    // this.detailsLivre = this.router.getCurrentNavigation().extras;
    }
 
-  ngOnInit() {
-    const params: any = this.router.getCurrentNavigation().extras;
-    console.log('params', params);
+   ngOnInit() {
+    this.loadLivre();
   }
 
-  getColor(){
-    
+  loadLivre() {
+   this.livre$ = this.livreService.getLivretID(this.livreId);
   }
   
 }

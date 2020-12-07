@@ -1,6 +1,20 @@
+<<<<<<< HEAD
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+        "projectName": "ReadLeadSucced_API",
+        "projectPath": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+        "packagesPath": "C:\\Users\\Sita\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sita\\Documents\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\obj\\",
+=======
     "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj": {}
   },
   "projects": {
@@ -12,12 +26,17 @@
         "projectPath": "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
         "packagesPath": "C:\\Users\\allig\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\obj\\",
+>>>>>>> parent of 718b3a6... Corrections détails livre
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\Sita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\allig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> parent of 718b3a6... Corrections détails livre
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -26,6 +45,159 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+<<<<<<< HEAD
+              "version": "[5.0.0, )",
+              "noWarn": [
+                "NU1605"
+              ]
+=======
+              "version": "[5.0.0, )"
+>>>>>>> parent of 718b3a6... Corrections détails livre
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[5.0.0, )",
+              "noWarn": [
+                "NU1605"
+              ]
+            },
+<<<<<<< HEAD
+=======
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+>>>>>>> parent of 718b3a6... Corrections détails livre
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+<<<<<<< HEAD
+=======
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+>>>>>>> parent of 718b3a6... Corrections détails livre
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+=======
+{
+  "format": 1,
+  "restore": {
+    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj": {}
+  },
+  "projects": {
+    "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj",
+        "projectName": "ReadLeadSucced_API",
+        "projectPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj",
+        "packagesPath": "/Users/gabrielgiroud/.nuget/packages/",
+        "outputPath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/gabrielgiroud/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -138,9 +310,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
   }
+>>>>>>> parent of 7cca777... Merge remote-tracking branch 'origin/master'
 }
