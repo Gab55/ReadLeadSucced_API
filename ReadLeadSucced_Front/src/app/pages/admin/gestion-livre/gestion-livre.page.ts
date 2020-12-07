@@ -96,6 +96,7 @@ export class GestionLivrePage implements OnInit {
 
     if (this.actionType === 'Add') {
      let livre: Livre = {
+       idLivre : this.livreId,
        titreLivre: this.form.get(this.titreLivre).value,
        resumerLivre: this.form.get(this.resumerLivre).value,
        prixLivreHt : this.form.value.prixLivreHt,
