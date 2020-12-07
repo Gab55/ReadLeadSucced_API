@@ -23,6 +23,11 @@ export class ApiService {
     return this.httpClient.patch<T>(url, body, { headers: this.getHeaders() } );
   }
 
+  public delete<T>(url: string, body: string): Observable<T> {
+    return this.httpClient.delete<T>(url, { headers: this.getHeaders() } );
+  }
+
+
   public get<T>(url: string, parameters: { key: string; value: any }[] ): Observable<T> {
     let httpParameters: HttpParams;
     if (parameters != null) {

@@ -81,7 +81,7 @@ namespace ReadLeadSucced_API.Controllers
         }
 
         // DELETE: api/Livres/5
-        [HttpDelete("{id}")]
+        [HttpDelete("delete")]
         public async Task<IActionResult> DeleteLivre(int id)
         {
             var livre = await _context.Livres.FindAsync(id);
