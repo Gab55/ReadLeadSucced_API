@@ -94,12 +94,12 @@ export class CreationUtilisateurPage implements OnInit {
         prenomClient: this.form.get(this.prenomClient).value,
         dateNaissanceClient: new Date(),
         adresseClient :  this.form.value.adresseClient,
-        villeClient :  '',
+        villeClient :  'Nancy',
         codePostalClient :  this.form.value.cpClient,
         telephoneClient:  0,
         emailClient: this.form.get(this.emailClient).value,
         loginClient : this.form.value.loginClient,
-        motDePasseClient : this.form.value
+        motDePasseClient : this.form.value.mdpClient
 
       };
 
