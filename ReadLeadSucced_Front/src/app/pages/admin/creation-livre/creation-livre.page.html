@@ -21,7 +21,7 @@
 
 <ion-content>
   <form [formGroup]="form" (ngSubmit)="save()">
-    <ion-card>
+    <ion-card *ngIf="(categories$ | async)?.length>0">
       <ion-card-header>
         <h4>
           <ion-label>Création du profil</ion-label>
@@ -57,6 +57,10 @@
                 <ion-label position="floating">Stock</ion-label>
                 <ion-input formControlName="stockInvLivre"></ion-input>
               </ion-item>
+
+              <ion-select placeholder="Catégorie"  interface="popover">
+                <ion-select-option *ngFor="let cate of (categories$ | async)"  value="{{cate.idCategorie}}">{{cate.libelleCategorie}}</ion-select-option>
+              </ion-select>
     
               <ion-item lines="full">
                 <ion-label position="floating">Editeur</ion-label>

@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Livre } from 'src/app/models/Livre';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
+import { Categorie } from 'src/app/models/Categorie';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-creation-livre',
@@ -22,13 +25,14 @@ export class CreationLivrePage implements OnInit {
   stockCmdLivre: any;
   idEditeur: any;
   urlPhoto: string;
-
+  categories$: Observable<Categorie[]>;
   postId: number;
   errorMessage: any;
   existingClientPost: Livre;
   
   constructor(private formBuilder: FormBuilder,
     private livreWebService: LivreWebServiceService,
+    private categorieWebService: CategorieWebServiceService,
     private avRoute: ActivatedRoute, private router: Router ) { 
       const idParam = 'id';
       this.actionType = 'Add';
@@ -73,7 +77,13 @@ export class CreationLivrePage implements OnInit {
             this.form.controls[this.urlPhoto].setValue(data.urlPhoto)
           ));
       }
+      this.loadCategorie();
+
      }
+
+     loadCategorie() {
+      this.categories$ = this.categorieWebService.getCategories();
+    }
 
      save(){
        if(!this.form.valid){

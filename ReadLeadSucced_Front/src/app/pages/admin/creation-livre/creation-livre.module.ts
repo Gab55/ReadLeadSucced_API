@@ -8,6 +8,8 @@ import { CreationLivrePageRoutingModule } from './creation-livre-routing.module'
 
 import { CreationLivrePage } from './creation-livre.page';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
+
 
 @NgModule({
   imports: [
@@ -20,6 +22,6 @@ import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-serv
   ],
   declarations: [CreationLivrePage]
   ,
-  providers: [LivreWebServiceService]
+  providers: [LivreWebServiceService,CategorieWebServiceService]
 })
 export class CreationLivrePageModule {}
