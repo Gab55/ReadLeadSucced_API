@@ -64,6 +64,7 @@ this.form.controls['identifiant']
     }
     const identifiantsString = JSON.stringify(identifiants);
     this.loading = true;
+    console.log(identifiantsString);
     this.ConnexionService.authenticate(identifiantsString)
       .pipe(first())
       .subscribe({

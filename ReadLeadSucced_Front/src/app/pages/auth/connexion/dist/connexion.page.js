@@ -51,6 +51,7 @@ var ConnexionPage = /** @class */ (function () {
         };
         var identifiantsString = JSON.stringify(identifiants);
         this.loading = true;
+        console.log(identifiantsString);
         this.ConnexionService.authenticate(identifiantsString)
             .pipe(operators_1.first())
             .subscribe({
