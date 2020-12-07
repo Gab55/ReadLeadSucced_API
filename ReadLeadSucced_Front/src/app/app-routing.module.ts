@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/recherche-utilisateur/recherche-utilisateur.module').then( m => m.RechercheUtilisateurPageModule)
   },
   {
-    path: 'gestion-livre',
+    path: 'admin/gestion-livre/:id',
     loadChildren: () => import('./pages/admin/gestion-livre/gestion-livre.module').then( m => m.GestionLivrePageModule)
   },
   {

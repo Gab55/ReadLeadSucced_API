@@ -98,7 +98,7 @@ export class CreationLivrePage implements OnInit {
           prixLivreTtc: this.form.value.prixLivreTtc,
           stockInvLivre: this.form.value.stockInvLivre,
           idEditeur: this.form.value.idEditeur,       
-           urlPhoto: this.form.get(this.urlPhoto).value
+          urlPhoto: this.form.get(this.urlPhoto).value
   
         };
   

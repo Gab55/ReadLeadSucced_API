@@ -49,6 +49,15 @@ export class LivreWebServiceService extends ApiService {
     );
   }
 
+  updateClient(client): Observable<Livre> {
+    return this.post<Livre>(this.livresUrl + 'edit', JSON.stringify(client))
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+  
+
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

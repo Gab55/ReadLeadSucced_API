@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
+using ReadLeadSucced_Data.Models.Associations;
 
 namespace ReadLeadSucced_API.Controllers
 {
@@ -44,14 +45,9 @@ namespace ReadLeadSucced_API.Controllers
 
         // PUT: api/Livres/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutLivre(int id, Livre livre)
+        [HttpPost("edit")]
+        public async Task<IActionResult> EditLivre(Livre livre)
         {
-            if (id != livre.idLivre)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(livre).State = EntityState.Modified;
 
             try
@@ -60,7 +56,7 @@ namespace ReadLeadSucced_API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LivreExists(id))
+                if (!LivreExists(livre.idLivre))
                 {
                     return NotFound();
                 }
@@ -104,5 +100,8 @@ namespace ReadLeadSucced_API.Controllers
         {
             return _context.Livres.Any(e => e.idLivre == id);
         }
+
+
+
     }
 }
