@@ -18,12 +18,13 @@
 </ion-header>
 
 
-<ion-content>  
+<ion-content *ngIf="(livres$ | async)?.length>0">  
   <ion-list >  
 
-    <ion-card>
+    <ion-card *ngFor="let livres of (livres$ | async)">
       <ion-card-content>
-        <h3>Nom du livre</h3>  
+        <h3>Titre : {{livres.titreLivre}}</h3> 
+        <h3>Stock : {{livres.stockInvLivre}}</h3> 
         <ion-icon slot="end"  name="create-outline"></ion-icon>   
       </ion-card-content>
     </ion-card>

@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef,Component, OnInit } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { Observable } from 'rxjs';
+import { Livre } from 'src/app/models/Livre';
+
 
 @Component({
   selector: 'app-recherche-livre',
@@ -7,9 +13,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RechercheLivrePage implements OnInit {
 
-  constructor() { }
+  livres$: Observable<Livre[]>;
+  // Livres : any[];
+  constructor(private livreService: LivreWebServiceService, 
+    private cd: ChangeDetectorRef) {
+
+   }
 
   ngOnInit() {
+
+    this.loadLivres();
+  }
+
+  loadLivres() {
+    this.livres$ = this.livreService.getLivre();
   }
 
 }
