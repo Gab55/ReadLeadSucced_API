@@ -62,6 +62,10 @@ const routes: Routes = [
     path: 'commande',
     loadChildren: () => import('./pages/commande/commande.module').then( m => m.CommandePageModule)
   },
+  {
+    path: 'creation-categorie',
+    loadChildren: () => import('./pages/admin/creation-categorie/creation-categorie.module').then( m => m.CreationCategoriePageModule)
+  },
 
 ];
 
