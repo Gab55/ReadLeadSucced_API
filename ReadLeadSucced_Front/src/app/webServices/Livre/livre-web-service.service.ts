@@ -11,10 +11,7 @@ import { ApiService } from 'src/Shared/api.service';
 })
 export class LivreWebServiceService extends ApiService {
 
-  livresUrl = environment.appUrl + 'api/Livres';
-
-
-  clientUrl = environment.appUrl + 'api/Livres/';
+  livresUrl = environment.appUrl + 'api/Livres/';
 
   constructor(private http: HttpClient) {
     super(http);
@@ -31,7 +28,7 @@ export class LivreWebServiceService extends ApiService {
 
 
   getLivretID(clientId: number): Observable<Livre> {
-    return this.getById<Livre>(this.clientUrl, clientId.toString() )
+    return this.getById<Livre>(this.livresUrl, clientId.toString() )
       .pipe(
         retry(1),
         catchError(this.errorHandler)
