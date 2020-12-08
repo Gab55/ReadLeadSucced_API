@@ -24,6 +24,7 @@
     <div class="col col-sm">
       <!-- <h3>{{livre.auteur}}</h3> -->
       <h1>{{livre.titreLivre}}</h1>
+      <h3>{{livre.url}}</h3>
       <hr class="solid">
     </div>
     <ion-row>
@@ -31,20 +32,20 @@
         <ion-row class="">
           <ion-col size="4">
             <div class="col col-sm">
-              <ion-img  [src]="detailsLivre.url" class="full-image"></ion-img>
-              <span *ngIf="detailsLivre.star >=1">
+              <ion-img  [src]="livre.urlImageLivre" class="full-image"></ion-img>
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
-              <span *ngIf="detailsLivre.star >=2">
+              <span >
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
-              <span *ngIf="detailsLivre.star >=3">
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
-              <span *ngIf="detailsLivre.star >=4">
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span >
-              <span *ngIf="detailsLivre.star >=5">
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
               <p>{{livre.titreLivre}}</p>
@@ -61,13 +62,16 @@
               <ion-col>
               <h3>Prix : {{livre.prixLivreTtc}} € {{livre.stockInvLivre}}  </h3>
               <h5>Toutes taxes comprises</h5>
-              <h3 style="color: green;" *ngIf="livre.stockInvLivre > 0">En Stock</h3>
-              <h3 style="color: red" *ngIf="livre.stockInvLivre == 0">Indisponible</h3>
+              <h3 style="color: green;" *ngIf="livre.stockInvLivre > 0" >En Stock</h3>
+              <h3 style="color: red" *ngIf="livre.stockInvLivre <= 0">Indisponible</h3>
             </ion-col>
             </ion-row>
             <ion-row class="ajout">
               <ion-col size="6">
                 <ion-label>Quantité : {{livre.stockInvLivre}}</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-input type="number"></ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -85,7 +89,7 @@
         </div>
         <div>
           <p>
-
+            {{livre.resumeLivre}}
           </p>
         </div>
       </ion-card>
@@ -97,9 +101,23 @@
           <hr>
         </div>
         <div>
-          <p>
-            {{livre.resumeLivre}}
-          </p>
+          <ion-slides pager={true} options={slideOpts}>
+            <ion-slide>
+              <div class="container">
+                <img src="../assets/images/montage-rentrée-littéraire.jpg" />
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div class="container">
+                <img src="../assets/images/photoLitteraire.jpeg" />
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div class="container">
+                <img src="../assets/images/Rien-nest-noir-de-Claire-Berest.jpg" />
+              </div>
+            </ion-slide>
+          </ion-slides>
         </div>
       </ion-card>
     </ion-row>
