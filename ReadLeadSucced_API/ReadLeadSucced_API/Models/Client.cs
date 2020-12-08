@@ -10,6 +10,7 @@ namespace ReadLeadSucced_Data.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int idClient { get; set; }
+        public string nomClient { get; set; }
         public string prenomClient { get; set; }
         public string adresseClient { get; set; }
         public string villeClient { get; set; }
