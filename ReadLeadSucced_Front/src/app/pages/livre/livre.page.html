@@ -52,8 +52,6 @@
             <!--<div class="span-container">
               
             </div>-->
-            
-           
           </ion-col>
           <ion-col size="1">
             <div class = "vertical"></div> 
@@ -67,11 +65,8 @@
             </ion-col>
             </ion-row>
             <ion-row class="ajout">
-              <ion-col size="6">
-                <ion-label>Quantité</ion-label>
-              </ion-col>
-              <ion-col size="6">
-                <ion-input></ion-input>
+              <ion-col >
+                <ion-label>Quantité :{{livre.stockInvLivre}} </ion-label>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -89,7 +84,7 @@
         </div>
         <div>
           <p>
-            {{livre.resumeLivre}}
+
           </p>
         </div>
       </ion-card>
@@ -102,13 +97,7 @@
         </div>
         <div>
           <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> 
-              Cupiditate id debitis blanditiis fuga vitae excepturi dolore quos aliquid,
-              cumque voluptate illo facilis harum possimus nisi nesciunt enim nihil! Maxime, ipsum?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-              Dolorem minima mollitia ipsa at doloremque ipsam expedita explicabo,<br> 
-              qui, tempora sequi voluptate amet perferendis commodi? Ut omnis accusamus rem voluptatibus.<br>
-              Nam.
+            {{livre.resumeLivre}}
           </p>
         </div>
       </ion-card>

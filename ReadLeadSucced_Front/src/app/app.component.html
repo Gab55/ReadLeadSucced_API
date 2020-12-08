@@ -18,16 +18,18 @@
               </ion-menu-toggle>
           </ion-list>
           <h6>Catégories</h6>
-          <form [formGroup]="form" (ngSubmit)="searchClient()">
-          <ion-list *ngFor="let cate of categorie">
+          <ion-list *ngFor="let cate of categories$ | async">
                 <ion-menu-toggle auto-hide="true">
-                    <ion-item formControlName="reference" [routerLink]="cate.url" routerDirection="forward">
+                    <ion-item (click)="searchCategorie(cate.idCategorie)" [routerLink]="cate.url" routerDirection="forward">
                         <ion-icon [name]="cate.icon" slot="start"></ion-icon>
-                        {{cate.title}}
+                        {{cate.libelleCategorie}}
                     </ion-item>
                 </ion-menu-toggle>
             </ion-list>
-          </form>
+        <ion-item>
+            <h6>Déconnexion</h6>
+        </ion-item>
+
       </ion-content>
   </ion-menu>
   <ion-router-outlet id="content1"></ion-router-outlet>

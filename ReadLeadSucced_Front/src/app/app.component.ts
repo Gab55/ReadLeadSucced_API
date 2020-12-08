@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 import { SearchLivre } from './search/SearchLivre';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
 import { Livre } from './models/Livre';
+import { Categorie } from './models/Categorie';
 
 
 @Component({
@@ -17,12 +19,14 @@ import { Livre } from './models/Livre';
 })
 export class AppComponent {
   livre$: Observable<Livre[]>;
-  form: FormGroup;
+  categories$: Observable<Categorie[]>;
+
   navigate: any;
   categorie: any;
   constructor(
     private platform: Platform,
     private livreWebService: LivreWebServiceService,
+    private categorieWebService: CategorieWebServiceService,
     private formBuilder: FormBuilder,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar) {
@@ -36,13 +40,13 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    
+    this.loadCategorie();
 
-    this.form = this.formBuilder.group(
-      {
-        reference: ['', []]
-      }
-    )
+  }
 
+  loadCategorie() {
+    this.categories$ = this.categorieWebService.getCategories();
   }
 
   
@@ -73,7 +77,6 @@ export class AppComponent {
       [
         {
           title: "Science-Fiction",
-          url: "/home",
         },
         {
           title: "Policier",
@@ -93,13 +96,14 @@ export class AppComponent {
 
   }
 
-  searchClient() {
+  searchCategorie(idCateg: number) {
     const search: SearchLivre = {
-      idCategorie: this.form.get("reference").value
+      idCategorie: idCateg
     };
 
     const searchString = JSON.stringify(search);
-    this.livre$ = this.livreWebService.searchClient<Livre[]>(searchString);
+    console.log(searchString);
+    this.livreWebService.searchLivre(searchString);
 
   }
 
