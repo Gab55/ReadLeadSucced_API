@@ -47,13 +47,13 @@ export class CreationLivrePage implements OnInit {
       this.form = this.formBuilder.group(
         {
           postId: 0,
-          titreLivre: ['test', [Validators.required]],
-          resumerLivre: ['test', [Validators.required]],
-          prixLivreHt: ['54', [Validators.required]],
-          prixLivreTtc: ['54', [Validators.required]],
-          stockInvLivre: ['54', [Validators.required]],
-          idEditeur: ['1', [Validators.required]],
-          urlPhoto: ['hf', [Validators.required]],
+          titreLivre: ['', [Validators.required]],
+          resumerLivre: ['', [Validators.required]],
+          prixLivreHt: ['', [Validators.required]],
+          prixLivreTtc: ['', [Validators.required]],
+          stockInvLivre: ['', [Validators.required]],
+          idEditeur: ['', [Validators.required]],
+          urlPhoto: ['', [Validators.required]],
           idcategorie: ['', [Validators.required]]
         }
       )

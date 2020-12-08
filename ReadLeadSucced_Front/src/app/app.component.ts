@@ -4,6 +4,11 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Observable } from 'rxjs';
+import { SearchLivre } from './search/SearchLivre';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { Livre } from './models/Livre';
+
 
 @Component({
   selector: 'app-root',
@@ -11,11 +16,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  // categories$: Observable<Categorie>;
+  livre$: Observable<Livre[]>;
+  form: FormGroup;
   navigate: any;
   categorie: any;
   constructor(
     private platform: Platform,
+    private livreWebService: LivreWebServiceService,
+    private formBuilder: FormBuilder,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar) {
     this.sideMenu();
@@ -28,8 +36,16 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+    this.form = this.formBuilder.group(
+      {
+        reference: ['', []]
+      }
+    )
+
   }
 
+  
   sideMenu() {
     this.navigate =
       [
@@ -61,7 +77,7 @@ export class AppComponent {
         },
         {
           title: "Policier",
-          url: "/chat",
+          //url: "/chat",
         },
         {
           title: "Humour",
@@ -77,6 +93,15 @@ export class AppComponent {
 
   }
 
+  searchClient() {
+    const search: SearchLivre = {
+      idCategorie: this.form.get("reference").value
+    };
+
+    const searchString = JSON.stringify(search);
+    this.livre$ = this.livreWebService.searchClient<Livre[]>(searchString);
+
+  }
 
 
 }

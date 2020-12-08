@@ -36,6 +36,15 @@ export class LivreWebServiceService extends ApiService {
   }
 
 
+  searchClient<T>(search: string): Observable<T> {
+    return this.post<T>(this.livresUrl + 'search', search)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+
   // POST  --> AJOUT
   saveClient(livre): Observable<Livre> {
     return this.post<Livre>(this.livresUrl, livre)
