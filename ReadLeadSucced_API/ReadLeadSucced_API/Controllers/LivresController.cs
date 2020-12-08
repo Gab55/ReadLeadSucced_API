@@ -29,6 +29,24 @@ namespace ReadLeadSucced_API.Controllers
             return await _context.Livres.ToListAsync();
         }
 
+
+        // GET: api/Livres
+        [HttpPost("search")]
+        public async Task<ActionResult<IEnumerable<Livre>>> SearchLivres(SearchLivre search)
+        {
+            var req = _context.Livres.Select(l => l);
+
+            if (search.idCategorie.GetValueOrDefault() != 0)
+                req = req.Where(l => l.LivreCategories.Any(c => c.idCategorie == search.idCategorie.Value));
+
+            if (!string.IsNullOrWhiteSpace(search.titre))
+                req = req.Where(l => l.titreLivre.ToLower().Contains(search.titre.ToLower()));
+
+
+            return await req.ToListAsync();
+        }
+
+
         // GET: api/Livres/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Livre>> GetLivre(int id)
@@ -72,29 +90,50 @@ namespace ReadLeadSucced_API.Controllers
         // POST: api/Livres
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Livre>> PostLivre(Livre livre)
+        public async Task<ActionResult<Livre>> PostLivre(EditLivre livre)
         {
-            _context.Livres.Add(livre);
+            _context.Livres.Add((Livre)livre);
             await _context.SaveChangesAsync();
+
+            if (livre.idCategorie.GetValueOrDefault() != 0)
+            {
+                var categ = await _context.Categories.Where(c => c.idCategorie == livre.idCategorie.Value).FirstOrDefaultAsync();
+                if (livre.LivreCategories == null)
+                    livre.LivreCategories = new List<LivreCategorie>();
+
+                livre.LivreCategories.Add(new LivreCategorie()
+                {
+                    Livre = (Livre)livre,
+                    Categorie = categ
+                });
+            await _context.SaveChangesAsync();
+            }
 
             return CreatedAtAction("GetLivre", new { id = livre.idLivre }, livre);
         }
 
         // DELETE: api/Livres/5
-        [HttpDelete("delete")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLivre(int id)
         {
             var livre = await _context.Livres.FindAsync(id);
             if (livre == null)
             {
-                return NotFound();
+                return NotFound();  
             }
+
+            livre.LivreAuteurs.Clear();
+            livre.LivreCategories.Clear();
+            livre.LivreCommandes.Clear();
+            livre.LivreCommentaires.Clear();
+            livre.LivrePaniers.Clear();
 
             _context.Livres.Remove(livre);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
+
 
         private bool LivreExists(int id)
         {

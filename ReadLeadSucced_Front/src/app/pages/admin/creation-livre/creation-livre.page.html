@@ -14,7 +14,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      creation-livre
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -58,7 +58,7 @@
                 <ion-input formControlName="stockInvLivre"></ion-input>
               </ion-item>
 
-              <ion-select placeholder="Catégorie"  interface="popover">
+              <ion-select placeholder="Catégorie"  interface="popover" formControlName="idcategorie">
                 <ion-select-option *ngFor="let cate of (categories$ | async)"  value="{{cate.idCategorie}}">{{cate.libelleCategorie}}</ion-select-option>
               </ion-select>
     

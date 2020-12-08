@@ -31,50 +31,47 @@ export class CreationLivrePage implements OnInit {
   existingClientPost: Livre;
   
   constructor(private formBuilder: FormBuilder,
-    private livreWebService: LivreWebServiceService,
-    private categorieWebService: CategorieWebServiceService,
-    private avRoute: ActivatedRoute, private router: Router ) { 
-      const idParam = 'id';
-      this.actionType = 'Add';
-      this.titreLivre = 'titreLivre';
-      this.resumerLivre = 'resumerLivre';
-      this.prixLivreHt = '';
-      this.prixLivreTtc = '';
-      this.stockInvLivre = '';
-      this.idEditeur = '';
-      this.urlPhoto = 'urlPhoto';
-
-      if (this.avRoute.snapshot.params[idParam]) {
-        this.postId = this.avRoute.snapshot.params[idParam];
+              private livreWebService: LivreWebServiceService,
+              private categorieWebService: CategorieWebServiceService,
+              private avRoute: ActivatedRoute, 
+              private router: Router ) { 
+      if (this.avRoute.snapshot.params['id']) {
+        this.postId = this.avRoute.snapshot.params['id'];
       }
+      this.actionType = 'Add';
 
+      this.createForm();
+     }
+
+    private createForm() {
       this.form = this.formBuilder.group(
         {
           postId: 0,
-          titreLivre: ['', [Validators.required]],
-          resumerLivre: ['', [Validators.required]],
-          prixLivreHt: ['', [Validators.required]],
-          prixLivreTtc: ['', [Validators.required]],
-          stockInvLivre: ['', [Validators.required]],
-          idEditeur: ['', [Validators.required]],
-          urlPhoto: ['', [Validators.required]]
+          titreLivre: ['test', [Validators.required]],
+          resumerLivre: ['test', [Validators.required]],
+          prixLivreHt: ['54', [Validators.required]],
+          prixLivreTtc: ['54', [Validators.required]],
+          stockInvLivre: ['54', [Validators.required]],
+          idEditeur: ['1', [Validators.required]],
+          urlPhoto: ['hf', [Validators.required]],
+          idcategorie: ['', [Validators.required]]
         }
       )
-     }
+    }
 
      ngOnInit(){
       if(this.postId >= 0){
-        this.actionType = 'Add';
         this.livreWebService.getLivretID(this.postId)
           .subscribe(data => (
             this.existingClientPost = data,
-            this.form.controls[this.titreLivre].setValue(data.titreLivre),
-            this.form.controls[this.resumerLivre].setValue(data.resumerLivre),
-            this.form.controls[this.prixLivreHt].setValue(data.prixLivreHt),
-            this.form.controls[this.prixLivreTtc].setValue(data.prixLivreTtc),
-            this.form.controls[this.stockInvLivre].setValue(data.stockInvLivre),
-            this.form.controls[this.idEditeur].setValue(data.idEditeur),
-            this.form.controls[this.urlPhoto].setValue(data.urlPhoto)
+            this.form.controls['titreLivre'].setValue(data.titreLivre),
+            this.form.controls['resumerLivre'].setValue(data.resumerLivre),
+            this.form.controls['prixLivreHt'].setValue(data.prixLivreHt),
+            this.form.controls['prixLivreTtc'].setValue(data.prixLivreTtc),
+            this.form.controls['stockInvLivre'].setValue(data.stockInvLivre),
+            this.form.controls['idEditeur'].setValue(data.idEditeur),
+            this.form.controls['urlPhoto'].setValue(data.urlPhoto),
+            this.form.controls['idcategorie'].setValue(data.idcategorie)
           ));
       }
       this.loadCategorie();
@@ -91,17 +88,8 @@ export class CreationLivrePage implements OnInit {
        }
 
        if (this.actionType === 'Add') {
-        let livre: Livre = {
-          titreLivre: this.form.get(this.titreLivre).value,
-          resumerLivre: this.form.get(this.resumerLivre).value,
-          prixLivreHt : this.form.value.prixLivreHt,
-          prixLivreTtc: this.form.value.prixLivreTtc,
-          stockInvLivre: this.form.value.stockInvLivre,
-          idEditeur: this.form.value.idEditeur,       
-          urlPhoto: this.form.get(this.urlPhoto).value
-  
-        };
-  
+        var livre = Object.assign(new Livre(), this.form.getRawValue());
+console.log(livre);
         this.livreWebService.saveClient(livre)
           .subscribe((data) => {
             this.router.navigate(['/livres']);

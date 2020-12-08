@@ -38,7 +38,7 @@ export class LivreWebServiceService extends ApiService {
 
   // POST  --> AJOUT
   saveClient(livre): Observable<Livre> {
-    return this.post<Livre>(this.livresUrl, JSON.stringify(livre))
+    return this.post<Livre>(this.livresUrl, livre)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -54,12 +54,12 @@ export class LivreWebServiceService extends ApiService {
   }
   
 
-  deleteClient(livre): Observable<Livre> {
-    return this.delete<Livre>(this.livresUrl +'delete',JSON.stringify(livre))
-    .pipe(
-      retry(1),
-      catchError(this.errorHandler)
-    );
+  deleteLivres(clientId: number) {
+    return this.delete(this.livresUrl, clientId.toString() )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
   }
 
 

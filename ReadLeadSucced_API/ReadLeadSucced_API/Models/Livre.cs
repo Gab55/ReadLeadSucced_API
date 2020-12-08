@@ -30,5 +30,20 @@ namespace ReadLeadSucced_Data.Models
         public virtual ICollection<LivreCategorie> LivreCategories { get; set; }
         public virtual ICollection<LivreCommentaire> LivreCommentaires { get; set; }
         public virtual ICollection<LivrePanier> LivrePaniers { get; set; }
+
+
     }
+
+    public class EditLivre : Livre
+    {
+        public int? idCategorie { get; set; }
+    }
+
+    public class SearchLivre
+    {
+        public int? idCategorie { get; set; }
+        public string titre { get; set; }
+
+    }
+
 }

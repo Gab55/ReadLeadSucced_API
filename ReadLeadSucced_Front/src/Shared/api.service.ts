@@ -23,8 +23,9 @@ export class ApiService {
     return this.httpClient.patch<T>(url, body, { headers: this.getHeaders() } );
   }
 
-  public delete<T>(url: string, body: string): Observable<T> {
-    return this.httpClient.delete<T>(url, { headers: this.getHeaders() } );
+  public delete<T>(url: string, id: string): Observable<T> {
+    url = url + id;
+    return this.httpClient.delete<T>(url, { headers: this.getHeaders()} );
   }
 
 
@@ -47,7 +48,7 @@ export class ApiService {
 
   private getHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
-    // headers = headers.set('Access-Control-Allow-Origin', window.location.origin);
+    headers =headers.set('Access-Control-Allow-Origin', window.location.origin);
     headers = headers.set('Content-Type', 'application/json');
     if (localStorage.getItem('token') !== null) {
       headers = headers.set('Authorization', 'Bearer ' + localStorage.getItem('token'));

@@ -115,7 +115,7 @@ export class GestionLivrePage implements OnInit {
   }
 
   deleteLivre() {
-    this.livre$ = this.livreWebService.deleteClient(this.livreId);
+    this.livreWebService.deleteLivres(this.livreId).subscribe();
    }
  
 

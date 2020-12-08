@@ -35,13 +35,12 @@ export class AppComponent {
       [
         {
           title: "Accueil",
-          url: "/home",
+          url: "/Livres",
           icon: "home"
         },
         {
           title: "Recherche",
           url: "/chat",
-          icon: "chatboxes"
         },
         {
           title: "Nos coups de coeurs",
@@ -54,13 +53,30 @@ export class AppComponent {
           icon: "contacts"
         },
       ]
+      this.categorie =
+      [
+        {
+          title: "Science-Fiction",
+          url: "/home",
+        },
+        {
+          title: "Policier",
+          url: "/chat",
+        },
+        {
+          title: "Humour",
+          url: "/contacts",
+          icon: "contacts"
+        },
+        {
+          title: "Sport",
+          url: "/contacts",
+        },
+      ]
 
 
   }
 
-  // loadCategorie() {
-  //   this.categories$ = this.categorieService.getLivretID(this.idCategorie);
-  //  }
 
 
 }
