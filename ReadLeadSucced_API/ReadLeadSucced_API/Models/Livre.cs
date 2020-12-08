@@ -20,6 +20,7 @@ namespace ReadLeadSucced_Data.Models
         public decimal prixLivreTtc { get; set; }
         public int stockInvLivre { get; set; }
         public int stockCmdLivre { get; set; }
+        public string etatLivre { get; set; }
 
         [ForeignKey("idEditeur")]
 
