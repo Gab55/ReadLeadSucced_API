@@ -67,14 +67,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/creation-categorie/creation-categorie.module').then( m => m.CreationCategoriePageModule)
   },
   {
-    path: 'recherche-categorie',
-    loadChildren: () => import('./pages/admin/recherche-categorie/recherche-categorie.module').then( m => m.RechercheCategoriePageModule)
-  },
-  {
-    path: 'gestion-categorie',
+    path: 'gestion-categorie/:id',
     loadChildren: () => import('./pages/admin/gestion-categorie/gestion-categorie.module').then( m => m.GestionCategoriePageModule)
   },
-
+  {
+    path: 'recherche-categorie',
+    loadChildren: () => import('./pages/admin/recherche-categorie/recherche-categorie.module').then(m => m.RechercheCategoriePageModule)
+  }
 ];
 
 @NgModule({

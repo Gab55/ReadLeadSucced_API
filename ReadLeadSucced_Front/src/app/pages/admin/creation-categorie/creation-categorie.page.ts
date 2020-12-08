@@ -63,7 +63,7 @@ export class CreationCategoriePage implements OnInit {
 
       this.categorieWebService.saveCategorie(categorie)
         .subscribe((data) => {
-          this.router.navigate(['/livres'])
+          this.router.navigate(['/recherche-categorie'])
         })
     }
   }
