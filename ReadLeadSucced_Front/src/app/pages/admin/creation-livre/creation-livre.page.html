@@ -19,7 +19,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <form [formGroup]="form" (ngSubmit)="save()">
     <ion-card *ngIf="(categories$ | async)?.length>0">
       <ion-card-header>
@@ -29,7 +29,7 @@
       </ion-card-header>
       <hr class="solid">
       <ion-card-content>
-        <ion-grid>
+        <ion-grid *ngIf="(editeur$ | async)?.length>0">
           <ion-row>
             <ion-col>
     
@@ -57,15 +57,20 @@
                 <ion-label position="floating">Stock</ion-label>
                 <ion-input formControlName="stockInvLivre"></ion-input>
               </ion-item>
-
+              
+            
               <ion-select placeholder="Catégorie"  interface="popover" formControlName="idcategorie">
                 <ion-select-option *ngFor="let cate of (categories$ | async)"  value="{{cate.idCategorie}}">{{cate.libelleCategorie}}</ion-select-option>
               </ion-select>
+
+              <ion-select placeholder="Editeur"  interface="popover" formControlName="idEditeur">
+                <ion-select-option *ngFor="let edi of (editeur$ | async)"  value="{{edi.idEditeur}}">{{edi.nomEditeur}}</ion-select-option>
+              </ion-select>
     
-              <ion-item lines="full">
+              <!-- <ion-item lines="full">
                 <ion-label position="floating">Editeur</ion-label>
                 <ion-input type="text" formControlName="idEditeur"></ion-input>
-              </ion-item>
+              </ion-item> -->
     
               <ion-item lines="full">
                 <ion-label position="floating">Url photo</ion-label>

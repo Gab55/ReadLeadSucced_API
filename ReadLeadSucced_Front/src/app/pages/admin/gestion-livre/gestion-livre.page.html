@@ -14,7 +14,6 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      creation-livre
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -45,17 +44,17 @@
           
               <ion-item lines="full">
                 <ion-label position="floating">Prix Ht</ion-label>
-                <ion-input type="text" placeholder=""  formControlName="prixLivreHt"></ion-input>
+                <ion-input type="text" placeholder="{{livre.prixLivreHt}}"  formControlName="prixLivreHt"></ion-input>
               </ion-item>
     
               <ion-item lines="full">
                 <ion-label position="floating">Prix TTC</ion-label>
-                <ion-input placeholder=""  formControlName="prixLivreTtc"></ion-input>
+                <ion-input placeholder="{{livre.prixLivreTtc}}"  formControlName="prixLivreTtc"></ion-input>
               </ion-item>
           
               <ion-item lines="full">
                 <ion-label position="floating">Stock</ion-label>
-                <ion-input placeholder=""  formControlName="stockInvLivre"></ion-input>
+                <ion-input  placeholder="{{livre.stockInvLivre}}" formControlName="stockInvLivre"></ion-input>
               </ion-item>
 
               <ion-item *ngIf="(categories$ | async)?.length>0">

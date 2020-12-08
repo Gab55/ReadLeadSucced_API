@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Livre } from 'src/app/models/Livre';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
 import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
+import { EditeurWebServiceService } from 'src/app/webServices/editeur/editeur-web-service.service';
+import { Editeur } from 'src/app/models/Editeur';
+
 import { Categorie } from 'src/app/models/Categorie';
 import { Observable } from 'rxjs';
 
@@ -24,7 +27,9 @@ export class CreationLivrePage implements OnInit {
   stockInvLivre: any;
   stockCmdLivre: any;
   idEditeur: any;
+  etatLivre: any;
   urlPhoto: string;
+  editeur$: Observable<Editeur[]>;
   categories$: Observable<Categorie[]>;
   postId: number;
   errorMessage: any;
@@ -33,6 +38,7 @@ export class CreationLivrePage implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private livreWebService: LivreWebServiceService,
               private categorieWebService: CategorieWebServiceService,
+              private editeurWebService: EditeurWebServiceService,
               private avRoute: ActivatedRoute, 
               private router: Router ) { 
       if (this.avRoute.snapshot.params['id']) {
@@ -75,11 +81,16 @@ export class CreationLivrePage implements OnInit {
           ));
       }
       this.loadCategorie();
+      this.loadEditeur();
 
      }
 
      loadCategorie() {
       this.categories$ = this.categorieWebService.getCategories();
+    }
+
+    loadEditeur() {
+      this.editeur$ = this.editeurWebService.getCategories();
     }
 
      save(){

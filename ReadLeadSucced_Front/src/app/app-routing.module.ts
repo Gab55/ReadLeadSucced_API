@@ -56,7 +56,6 @@ const routes: Routes = [
   {
     path: 'admin/creation-livre',
     loadChildren: () => import('./pages/admin/creation-livre/creation-livre.module').then( m => m.CreationLivrePageModule)
-
   },
   {
     path: 'commande',
@@ -71,7 +70,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/gestion-categorie/gestion-categorie.module').then( m => m.GestionCategoriePageModule)
   },
   {
-    path: 'recherche-categorie',
+    path: 'admin/recherche-categorie',
     loadChildren: () => import('./pages/admin/recherche-categorie/recherche-categorie.module').then(m => m.RechercheCategoriePageModule)
   }
 ];
