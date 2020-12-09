@@ -44,14 +44,9 @@ namespace ReadLeadSucced_API.Controllers
 
         // PUT: api/Clients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutClient(int id, Client client)
+        [HttpPost("edit")]
+        public async Task<IActionResult> EditClient(Client client)
         {
-            if (id != client.idClient)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(client).State = EntityState.Modified;
 
             try
@@ -60,7 +55,7 @@ namespace ReadLeadSucced_API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientExists(id))
+                if (!ClientExists(client.idClient))
                 {
                     return NotFound();
                 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router'; 
-import { NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { NavController } from '@ionic/angular';
 import { Client } from 'src/app/models/Client';
 import { UtilisateurWebServiceService } from '../../../webServices/Utilisateur/utilisateur-web-service.service'; 
 
@@ -25,7 +25,9 @@ export class ProfilUtilisateurPage implements OnInit {
   emailClient : string;
   loginClient: string;
   mdpClient : string;
-  livreId: number;
+  idClient: number;
+  existingClientPost: Client;
+
 
   constructor(private profilService: UtilisateurWebServiceService,
     private router: Router,
@@ -47,7 +49,7 @@ export class ProfilUtilisateurPage implements OnInit {
 
 
       if (this.avRoute.snapshot.params[idParam]) {
-        this.livreId = this.avRoute.snapshot.params[idParam];
+        this.idClient = this.avRoute.snapshot.params[idParam];
       }
 
       this.form = this.formBuilder.group(
@@ -68,16 +70,30 @@ export class ProfilUtilisateurPage implements OnInit {
      }
 
      ngOnInit() {
+      if (this.postId >= 0) {
+        this.actionType = 'Add';
+        this.profilService.getClientID(this.postId)
+          .subscribe(data => (
+            this.existingClientPost = data,
+            this.form.controls[this.nomClient].setValue(data.nomClient),
+            this.form.controls[this.prenomClient].setValue(data.prenomClient),
+           // this.form.controls[this.dateNaissance].setValue(data.dateNaissanceClient),
+            this.form.controls[this.adresseClient].setValue(data.adresseClient),
+            this.form.controls[this.villeClient].setValue(data.villeClient),
+            this.form.controls[this.cpClient].setValue(data.codePostalClient),
+           // this.form.controls[this.telephoneClient].setValue(data.Telephone),
+            this.form.controls[this.emailClient].setValue(data.emailClient),
+            this.form.controls[this.mdpClient].setValue(data.motDePasseClient),
+            this.form.controls[this.loginClient].setValue(data.loginClient)
+          ));
+      }
       this.loadLivre();
     }
   
     loadLivre() {
-     this.client$ = this.profilService.getClientID(this.livreId);
+     this.client$ = this.profilService.getClientID(this.idClient);
      console.log(this.client$);
     }
-
-
-
 
     save() {
       if (!this.form.valid) {
@@ -86,6 +102,7 @@ export class ProfilUtilisateurPage implements OnInit {
   
       if (this.actionType === 'Add') {
         let client: Client = {
+          idClient:this.idClient,
           nomClient: this.form.get(this.nomClient).value,
           prenomClient: this.form.get(this.prenomClient).value,
           dateNaissanceClient: new Date(),
@@ -99,7 +116,7 @@ export class ProfilUtilisateurPage implements OnInit {
   
         };
   
-        this.profilService.saveClient(client)
+        this.profilService.updateClient(client)
           .subscribe((data) => {
             this.router.navigate(['livres/']);
           });
