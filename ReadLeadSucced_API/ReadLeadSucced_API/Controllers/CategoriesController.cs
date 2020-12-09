@@ -73,6 +73,31 @@ namespace ReadLeadSucced_API.Controllers
             return NoContent();
         }
 
+        //update
+        [HttpPost("edit")]
+        public async Task<IActionResult> EditLivre(Categorie categorie)
+        {
+            _context.Entry(categorie).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CategorieExists(categorie.idCategorie))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
         // POST: api/Categories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -94,15 +119,20 @@ namespace ReadLeadSucced_API.Controllers
                 return NotFound();
             }
 
+            categorie.LivreCategories.Clear();
+
             _context.Categories.Remove(categorie);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
+
         private bool CategorieExists(int id)
         {
             return _context.Categories.Any(e => e.idCategorie == id);
         }
+
+
     }
 }

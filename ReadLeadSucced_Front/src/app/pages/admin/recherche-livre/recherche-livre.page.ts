@@ -26,7 +26,7 @@ export class RechercheLivrePage implements OnInit {
   }
 
   loadLivres() {
-    this.livres$ = this.livreService.getLivre();
+    this.livres$ = this.livreService.getLivreAsyn();
   }
 
 }

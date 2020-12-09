@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "kfi69hjaVhQ6Hwft8GPcgVCsO+hQIgMW+mH/FVdQHZj0B7vs3Te/Y7JKNNDyXu/eY0zNSMaA2mf4u/NOV79D2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\allig\\source\\repos\\Gab55\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API\\ReadLeadSucced_API.csproj",
+  "projectFilePath": "/Users/gabrielgiroud/Documents/VisualStudio/Projet/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API/ReadLeadSucced_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\allig\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\allig\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -8,6 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpBackend, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './../Shared/login-interceptor.service';
@@ -15,7 +17,8 @@ import { LoginInterceptor } from './../Shared/login-interceptor.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, FormsModule,
+    ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,

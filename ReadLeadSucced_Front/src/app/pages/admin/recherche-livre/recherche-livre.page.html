@@ -22,7 +22,7 @@
   <ion-list >  
 
     <ion-card *ngFor="let livres of (livres$ | async)">
-      <ion-card-content>
+      <ion-card-content [routerLink]="['/admin/gestion-livre/', livres.idLivre]">
         <h3>Titre : {{livres.titreLivre}}</h3> 
         <h3>Stock : {{livres.stockInvLivre}}</h3> 
         <ion-icon slot="end"  name="create-outline"></ion-icon>   

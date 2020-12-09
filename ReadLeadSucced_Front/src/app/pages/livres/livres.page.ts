@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
 
 import { Livre } from 'src/app/models/Livre';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { tap } from 'rxjs/operators';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-serv
 })
 export class LivresPage implements OnInit {
 
-  livres$: Observable<Livre[]>;
+  livres: Livre[];
   // Livres : any[];
   constructor(private livreService: LivreWebServiceService, 
     private cd: ChangeDetectorRef) {
@@ -29,7 +30,10 @@ export class LivresPage implements OnInit {
   }
 
   loadLivres() {
-    this.livres$ = this.livreService.getLivre();
+    this.livreService.getLivre();
+    this.livreService.livres$.pipe(
+      tap(l => this.livres = l)
+    ).subscribe();
   }
 
 

@@ -4,6 +4,13 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Observable } from 'rxjs';
+import { SearchLivre } from './search/SearchLivre';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
+import { Livre } from './models/Livre';
+import { Categorie } from './models/Categorie';
+
 
 @Component({
   selector: 'app-root',
@@ -11,11 +18,16 @@ import { Observable } from 'rxjs';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  // categories$: Observable<Categorie>;
+  livre$: Observable<Livre[]>;
+  categories$: Observable<Categorie[]>;
+
   navigate: any;
   categorie: any;
   constructor(
     private platform: Platform,
+    private livreWebService: LivreWebServiceService,
+    private categorieWebService: CategorieWebServiceService,
+    private formBuilder: FormBuilder,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar) {
     this.sideMenu();
@@ -28,8 +40,16 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    
+    this.loadCategorie();
+
   }
 
+  loadCategorie() {
+    this.categories$ = this.categorieWebService.getCategories();
+  }
+
+  
   sideMenu() {
     this.navigate =
       [
@@ -57,11 +77,10 @@ export class AppComponent {
       [
         {
           title: "Science-Fiction",
-          url: "/home",
         },
         {
           title: "Policier",
-          url: "/chat",
+          //url: "/chat",
         },
         {
           title: "Humour",
@@ -77,6 +96,16 @@ export class AppComponent {
 
   }
 
+  searchCategorie(idCateg: number) {
+    const search: SearchLivre = {
+      idCategorie: idCateg
+    };
+
+    const searchString = JSON.stringify(search);
+    console.log(searchString);
+    this.livreWebService.searchLivre(searchString);
+
+  }
 
 
 }

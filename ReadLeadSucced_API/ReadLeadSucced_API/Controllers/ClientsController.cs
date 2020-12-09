@@ -72,11 +72,6 @@ namespace ReadLeadSucced_API.Controllers
         [Authorize]
         public async Task<IActionResult> PutClient(int id, Client client)
         {
-            if (id != client.idClient)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(client).State = EntityState.Modified;
 
             try
@@ -85,7 +80,7 @@ namespace ReadLeadSucced_API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientExists(id))
+                if (!ClientExists(client.idClient))
                 {
                     return NotFound();
                 }

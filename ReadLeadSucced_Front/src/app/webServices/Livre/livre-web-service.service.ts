@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, tap } from 'rxjs/operators';
 import { Livre } from 'src/app/models/Livre';
+import { SearchLivre } from 'src/app/search/SearchLivre';
 import { environment } from 'src/environments/environment';
 import { ApiService } from 'src/Shared/api.service';
 
@@ -12,14 +13,31 @@ import { ApiService } from 'src/Shared/api.service';
 export class LivreWebServiceService extends ApiService {
 
   livresUrl = environment.appUrl + 'api/Livres/';
+  livres$: Observable<Livre[]>;
 
   constructor(private http: HttpClient) {
     super(http);
    }
 
 
-  getLivre(): Observable<Livre[]> {
+  getLivre() {
+    this.livres$ = this.get<Livre[]>(this.livresUrl, [])
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler),
+      );
+  }
+
+  getLivreAsyn(): Observable<Livre[]> {
     return this.get<Livre[]>(this.livresUrl, [])
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+
+  searchLivre(search: string) {
+    this.livres$ = this.post<Livre[]>(this.livresUrl + 'search', search)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -29,6 +47,15 @@ export class LivreWebServiceService extends ApiService {
 
   getLivretID(clientId: number): Observable<Livre> {
     return this.getById<Livre>(this.livresUrl, clientId.toString() )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+
+  searchClient<T>(search: string): Observable<T> {
+    return this.post<T>(this.livresUrl + 'search', search)
       .pipe(
         retry(1),
         catchError(this.errorHandler)

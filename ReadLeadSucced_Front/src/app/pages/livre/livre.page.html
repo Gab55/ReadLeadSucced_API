@@ -24,6 +24,7 @@
     <div class="col col-sm">
       <!-- <h3>{{livre.auteur}}</h3> -->
       <h1>{{livre.titreLivre}}</h1>
+      <h3>{{livre.url}}</h3>
       <hr class="solid">
     </div>
     <ion-row>
@@ -31,20 +32,20 @@
         <ion-row class="">
           <ion-col size="4">
             <div class="col col-sm">
-              <ion-img  [src]="detailsLivre.url" class="full-image"></ion-img>
-              <span *ngIf="detailsLivre.star >=1">
+              <ion-img  [src]="livre.urlImageLivre" class="full-image"></ion-img>
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
-              <span *ngIf="detailsLivre.star >=2">
+              <span >
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
-              <span *ngIf="detailsLivre.star >=3">
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
-              <span *ngIf="detailsLivre.star >=4">
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span >
-              <span *ngIf="detailsLivre.star >=5">
+              <span>
                 <ion-icon classe="iconStar" name="star"></ion-icon>
               </span>
               <p>{{livre.titreLivre}}</p>
@@ -52,8 +53,6 @@
             <!--<div class="span-container">
               
             </div>-->
-            
-           
           </ion-col>
           <ion-col size="1">
             <div class = "vertical"></div> 
@@ -61,21 +60,22 @@
           <ion-col size="7">
             <ion-row>
               <ion-col>
-              <h3>Prix : {{livre.prixLivreTtc}} €</h3>
+              <h3>Prix : {{livre.prixLivreTtc}} € {{livre.stockInvLivre}}  </h3>
               <h5>Toutes taxes comprises</h5>
-              <h3 style="color: green;">En Stock</h3>
+              <h3 style="color: green;" *ngIf="livre.stockInvLivre > 0" >En Stock</h3>
+              <h3 style="color: red" *ngIf="livre.stockInvLivre <= 0">Indisponible</h3>
             </ion-col>
             </ion-row>
             <ion-row class="ajout">
               <ion-col size="6">
-                <ion-label>Quantité</ion-label>
+                <ion-label>Quantité : {{livre.stockInvLivre}}</ion-label>
               </ion-col>
-              <ion-col size="6">
-                <ion-input></ion-input>
+              <ion-col>
+                <ion-input type="number"></ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-button expand="bock">Ajouter au panier</ion-button>
+              <ion-button expand="bock" *ngIf="livre.stockInvLivre > 0">Ajouter au panier</ion-button>
             </ion-row>
           </ion-col>
         </ion-row>
@@ -101,15 +101,23 @@
           <hr>
         </div>
         <div>
-          <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> 
-              Cupiditate id debitis blanditiis fuga vitae excepturi dolore quos aliquid,
-              cumque voluptate illo facilis harum possimus nisi nesciunt enim nihil! Maxime, ipsum?
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-              Dolorem minima mollitia ipsa at doloremque ipsam expedita explicabo,<br> 
-              qui, tempora sequi voluptate amet perferendis commodi? Ut omnis accusamus rem voluptatibus.<br>
-              Nam.
-          </p>
+          <ion-slides pager={true} options={slideOpts}>
+            <ion-slide>
+              <div class="container">
+                <img src="../assets/images/montage-rentrée-littéraire.jpg" />
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div class="container">
+                <img src="../assets/images/photoLitteraire.jpeg" />
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div class="container">
+                <img src="../assets/images/Rien-nest-noir-de-Claire-Berest.jpg" />
+              </div>
+            </ion-slide>
+          </ion-slides>
         </div>
       </ion-card>
     </ion-row>

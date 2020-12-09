@@ -30,7 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/utilisateur/creation-utilisateur/creation-utilisateur.module').then( m => m.CreationUtilisateurPageModule)
   },
   {
-    path: 'profil-utilisateur',
+    path: 'profil-utilisateur/:id',
     loadChildren: () => import('./pages/utilisateur/profil-utilisateur/profil-utilisateur.module').then( m => m.ProfilUtilisateurPageModule)
   },
   {
@@ -56,7 +56,6 @@ const routes: Routes = [
   {
     path: 'admin/creation-livre',
     loadChildren: () => import('./pages/admin/creation-livre/creation-livre.module').then( m => m.CreationLivrePageModule)
-
   },
   {
     path: 'commande',
@@ -67,14 +66,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/creation-categorie/creation-categorie.module').then( m => m.CreationCategoriePageModule)
   },
   {
-    path: 'recherche-categorie',
-    loadChildren: () => import('./pages/admin/recherche-categorie/recherche-categorie.module').then( m => m.RechercheCategoriePageModule)
-  },
-  {
-    path: 'gestion-categorie',
+    path: 'gestion-categorie/:id',
     loadChildren: () => import('./pages/admin/gestion-categorie/gestion-categorie.module').then( m => m.GestionCategoriePageModule)
   },
-
+  {
+    path: 'admin/recherche-categorie',
+    loadChildren: () => import('./pages/admin/recherche-categorie/recherche-categorie.module').then(m => m.RechercheCategoriePageModule)
+  }
 ];
 
 @NgModule({

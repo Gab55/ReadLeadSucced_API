@@ -38,6 +38,7 @@ export class LivrePage implements OnInit {
 
   loadLivre() {
    this.livre$ = this.livreService.getLivretID(this.livreId);
+   console.log(this.livre$);
   }
   
 }

@@ -34,7 +34,16 @@ export class CategorieWebServiceService extends ApiService {
       );
   }
 
-
+/**
+ * 
+ * getLivretID(clientId: number): Observable<Livre> {
+    return this.getById<Livre>(this.livresUrl, clientId.toString() )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+ */
 
   // POST  --> AJOUT
   saveCategorie(livre): Observable<Categorie> {
@@ -43,6 +52,22 @@ export class CategorieWebServiceService extends ApiService {
       retry(1),
       catchError(this.errorHandler)
     );
+  }
+  //UpDate
+  updateClient(categorie): Observable<Categorie> {
+    return this.post<Categorie>(this.categorieUrl + 'edit', JSON.stringify(categorie))
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+
+  deleteCategorie(categorieId: number) {
+    return this.delete(this.categorieUrl, categorieId.toString() )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
   }
 
   errorHandler(error) {
