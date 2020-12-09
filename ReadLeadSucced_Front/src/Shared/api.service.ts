@@ -41,6 +41,7 @@ export class ApiService {
   public getById<T>(url: string, value: string): Observable<T> {
     return this.httpClient.get<T>(url + value, { headers: this.getHeaders() });
   }
+  
 
   public getpdf<T>(url: string, value: string) {
     return this.httpClient.get<any>(url + value);
@@ -48,7 +49,7 @@ export class ApiService {
 
   private getHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
-    headers =headers.set('Access-Control-Allow-Origin', window.location.origin);
+    headers = headers.set('Access-Control-Allow-Origin', window.location.origin);
     headers = headers.set('Content-Type', 'application/json');
     if (localStorage.getItem('token') !== null) {
       headers = headers.set('Authorization', 'Bearer ' + localStorage.getItem('token'));

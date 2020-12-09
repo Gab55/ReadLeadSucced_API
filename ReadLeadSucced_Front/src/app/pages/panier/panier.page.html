@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>panier</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-col size="12">
+  <ion-content>
+    <ion-card *ngIf="panier$ as panier">
+      <ion-card-header>       
+        <ion-row class="ion-justify-content-between">
+          <h5>Plan associés</h5>
+          <ion-button type="submit" size="small" class="ion-align-self-end" color="primary">Créer</ion-button>
+        </ion-row>
+       
+        <hr class="solid">
+      </ion-card-header>
+      <ion-card-content>
+          <ion-grid class="ion-align-items-center" *ngFor="let p of (panier$ | async)">
+            <ion-row class="ion-align-items-center">
+                <ion-col size="2">
+                  <ion-img src="../assets/images/obama.jpg"></ion-img>
+                </ion-col>
+                <ion-col size="8">
+                  <ion-row class="ion-align-items-center">
+                    <ion-label center text-center>{{p.livre.titreLivre}}</ion-label>
+                  </ion-row>
+                  <ion-row class="ion-align-items-center">
+                    <ion-label center text-center>{{p.livre.livreAuteurs[0].auteur.prenomAuteur}} {{p.livre.livreAuteurs[0].auteur.nomAuteur}}</ion-label> - <ion-label center text-center>{{p.livre.editeur.nomEditeur}}</ion-label>
+                  </ion-row>
+                  <ion-row class="ion-align-items-center">
 
-<ion-content>
-
-</ion-content>
+                  </ion-row>
+                </ion-col>
+                <ion-col size="2">
+                  <ion-icon (click)="deletePanier(p.idLivre,p.idPanier)" name="trash"></ion-icon>
+                </ion-col>
+          </ion-row>
+          </ion-grid>
+      </ion-card-content>
+    </ion-card> 
+  </ion-content>
+</ion-col>

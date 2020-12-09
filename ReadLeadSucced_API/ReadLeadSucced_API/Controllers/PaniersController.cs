@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
+using ReadLeadSucced_Data.Models.Associations;
 
 namespace ReadLeadSucced_API.Controllers
 {
@@ -30,16 +31,55 @@ namespace ReadLeadSucced_API.Controllers
 
         // GET: api/Paniers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Panier>> GetPanier(int id)
+        public async Task<List<LivrePanier>> GetPanier(string id)
         {
-            var panier = await _context.Paniers.FindAsync(id);
+            var listePanier = _context.LivrePaniers.Select(p => p);
 
-            if (panier == null)
+            if (!string.IsNullOrWhiteSpace(id))
             {
-                return NotFound();
+                var idInt = Int32.Parse(id);
+                listePanier = listePanier.Where(p => p.Panier.idClient == idInt);
             }
 
-            return panier;
+          
+
+            return await listePanier.ToListAsync();
+        }
+
+        [HttpPost("delete")]
+        public async Task<IActionResult> DeletePanier([FromBody] LivrePanier livrePanier)
+        {
+            var LivrePaniers = await _context.LivrePaniers.Where(p => p.idLivre == livrePanier.idLivre)
+                                                    .Where(p => p.idPanier == livrePanier.idLivre)
+                                                    .ToListAsync();
+            if(LivrePaniers.Count > 0)
+            {
+                foreach (var LivrePanier in LivrePaniers)
+                {
+                    LivrePaniers.Remove(LivrePanier);
+                }
+                return  Ok();
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost("add")]
+        public async Task<IActionResult> AddPanier([FromBody] LivrePanier livrePanier)
+        {
+            var LivrePaniers = await _context.LivrePaniers.Where(p => p.idLivre == livrePanier.idLivre)
+                                                    .Where(p => p.idPanier == livrePanier.idLivre)
+                                                    .ToListAsync();
+            if (LivrePaniers.Count > 0)
+            {
+                foreach (var LivrePanier in LivrePaniers)
+                {
+                    LivrePaniers.Remove(LivrePanier);
+                }
+                return Ok();
+            }
+
+            return NotFound();
         }
 
         // PUT: api/Paniers/5
@@ -73,16 +113,16 @@ namespace ReadLeadSucced_API.Controllers
             return NoContent();
         }
 
-        // POST: api/Paniers
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Panier>> PostPanier(Panier panier)
-        {
-            _context.Paniers.Add(panier);
-            await _context.SaveChangesAsync();
+        //// POST: api/Paniers
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //public async Task<ActionResult<Panier>> PostPanier(Panier panier)
+        //{
+        //    _context.Paniers.Add(panier);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPanier", new { id = panier.idPanier }, panier);
-        }
+        //    return CreatedAtAction("GetPanier", new { id = panier.idPanier }, panier);
+        //}
 
         // DELETE: api/Paniers/5
         [HttpDelete("{id}")]

@@ -14,7 +14,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using ReadLeadSucced_Data;
 using Microsoft.EntityFrameworkCore;
-
+using ReadLeadSucced_API.Services;
+using ReadLeadSucced_API.Helpers;
 using Newtonsoft;
 
 namespace ReadLeadSucced_API
@@ -33,7 +34,10 @@ namespace ReadLeadSucced_API
         {
             //Jwt Authentication
 
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
+            // configure DI for application services
+            services.AddScoped<IUserService, UserService>();
 
             services.AddCors();
 
@@ -82,7 +86,7 @@ namespace ReadLeadSucced_API
 
             app.UseRouting();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-           
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseAuthentication();
             app.UseAuthorization();

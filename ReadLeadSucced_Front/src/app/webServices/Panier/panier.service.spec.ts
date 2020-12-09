@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UtilisateurWebServiceService } from './utilisateur-web-service.service';
+import { PanierWebService } from './panier.service';
 
 describe('PanierWebService', () => {
-  let service: UtilisateurWebServiceService;
+  let service: PanierWebService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(UtilisateurWebServiceService);
+    service = TestBed.inject(PanierWebService);
   });
 
   it('should be created', () => {

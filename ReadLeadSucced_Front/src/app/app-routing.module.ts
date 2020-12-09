@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'livres',
+    redirectTo: 'auth/connexion',
     pathMatch: 'full'
   },
 
