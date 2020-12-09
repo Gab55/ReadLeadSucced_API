@@ -53,7 +53,7 @@
                 <ion-input  formControlName="prixLivreTtc"></ion-input>
               </ion-item>
           
-              <ion-item lines="full">
+              <ion-item  lines="full">
                 <ion-label position="floating">Stock</ion-label>
                 <ion-input formControlName="stockInvLivre"></ion-input>
               </ion-item>
@@ -67,9 +67,9 @@
                 <ion-select-option *ngFor="let edi of (editeur$ | async)"  value="{{edi.idEditeur}}">{{edi.nomEditeur}}</ion-select-option>
               </ion-select>
     
-              <!-- <ion-item lines="full">
-                <ion-label position="floating">Editeur</ion-label>
-                <ion-input type="text" formControlName="idEditeur"></ion-input>
+              <!-- <ion-item hidden lines="full">
+                <ion-label position="floating">Editeur</ion-label> 
+                <ion-input type="text" formControlName="etatLivre">nouveauté</ion-input>
               </ion-item> -->
     
               <ion-item lines="full">

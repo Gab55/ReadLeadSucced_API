@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="ReadLeadSucced_API/Controllers/ClientsController.cs">
     <Files>
       <File FileName="ReadLeadSucced_API/Models/Livre.cs" Line="24" Column="1" />
-      <File FileName="ReadLeadSucced_API/Controllers/LivresController.cs" Line="88" Column="10" />
+      <File FileName="ReadLeadSucced_API/Controllers/LivresController.cs" />
       <File FileName="ReadLeadSucced_API/Models/Associations/LivreAuteur.cs" />
       <File FileName="ReadLeadSucced_API/web.config" />
       <File FileName="ReadLeadSucced_API/Models/Associations/LivreCategorie.cs" />
@@ -12,19 +12,16 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True" selected="True">
+          <Node name="ReadLeadSucced_API" expanded="True">
             <Node name="ReadLeadSucced_API" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ClientsController.cs" selected="True" />
+              </Node>
               <Node name="Models" expanded="True">
                 <Node name="Associations" expanded="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>livre.idCa</Value>
         </State>
       </Pad>
     </Pads>

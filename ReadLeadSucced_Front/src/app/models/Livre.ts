@@ -8,5 +8,6 @@ export class Livre {
     stockCmdLivre?: number;
     idEditeur: number;
     urlPhoto: string;
+    etatLivre: string;
     idcategorie?: number;
 }

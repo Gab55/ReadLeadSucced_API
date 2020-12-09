@@ -60,6 +60,7 @@ export class CreationLivrePage implements OnInit {
           stockInvLivre: ['', [Validators.required]],
           idEditeur: ['', [Validators.required]],
           urlPhoto: ['', [Validators.required]],
+          // etatLivre: ['', [Validators.required]],
           idcategorie: ['', [Validators.required]]
         }
       )
@@ -77,6 +78,7 @@ export class CreationLivrePage implements OnInit {
             this.form.controls['stockInvLivre'].setValue(data.stockInvLivre),
             this.form.controls['idEditeur'].setValue(data.idEditeur),
             this.form.controls['urlPhoto'].setValue(data.urlPhoto),
+            // this.form.controls['etatLivre'].setValue(data.etatLivre),
             this.form.controls['idcategorie'].setValue(data.idcategorie)
           ));
       }
@@ -99,7 +101,21 @@ export class CreationLivrePage implements OnInit {
        }
 
        if (this.actionType === 'Add') {
-        var livre = Object.assign(new Livre(), this.form.getRawValue());
+        let livre: Livre = {
+          titreLivre: this.form.value.titreLivre,
+          resumerLivre: this.form.value.resumerLivre,
+          prixLivreHt: this.form.value.prixLivreHt ,
+          prixLivreTtc :  this.form.value.prixLivreHt,
+          urlPhoto :  '',
+          stockInvLivre :  this.form.value.stockInvLivre,
+          stockCmdLivre:5,
+          idEditeur:  this.form.value.idEditeur,
+          etatLivre: 'Nouveauté'
+  
+        };
+  
+        
+        // var livre = Object.assign(new Livre(), this.form.getRawValue()); // IMPORTANT TOUT RECUP EN FORMAT JSON
 console.log(livre);
         this.livreWebService.saveClient(livre)
           .subscribe((data) => {
