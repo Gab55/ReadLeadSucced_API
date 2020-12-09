@@ -30,7 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/utilisateur/creation-utilisateur/creation-utilisateur.module').then( m => m.CreationUtilisateurPageModule)
   },
   {
-    path: 'profil-utilisateur',
+    path: 'profil-utilisateur/:id',
     loadChildren: () => import('./pages/utilisateur/profil-utilisateur/profil-utilisateur.module').then( m => m.ProfilUtilisateurPageModule)
   },
   {

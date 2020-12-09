@@ -14,7 +14,7 @@ import { ApiService } from 'src/Shared/api.service';
 export class UtilisateurWebServiceService  extends ApiService {
 
 
-  clientUrl = environment.appUrl + 'api/Clients';
+  clientUrl = environment.appUrl + 'api/Clients/';
 
   constructor(private http: HttpClient) {
     super(http);
@@ -48,6 +48,17 @@ export class UtilisateurWebServiceService  extends ApiService {
       catchError(this.errorHandler)
     );
   }
+
+
+  updateClient(client): Observable<Client> {
+    return this.post<Client>(this.clientUrl + 'edit', JSON.stringify(client))
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+
+
 
 // GESTION DES ERREURS
 errorHandler(error) {

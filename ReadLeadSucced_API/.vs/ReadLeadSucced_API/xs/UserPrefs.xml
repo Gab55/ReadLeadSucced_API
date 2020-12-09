@@ -2,20 +2,21 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="ReadLeadSucced_API/Models/Livre.cs">
     <Files>
       <File FileName="ReadLeadSucced_API/Models/Livre.cs" Line="24" Column="1" />
-      <File FileName="ReadLeadSucced_API/Controllers/LivresController.cs" Line="108" Column="20" />
+      <File FileName="ReadLeadSucced_API/Controllers/LivresController.cs" />
       <File FileName="ReadLeadSucced_API/Models/Associations/LivreAuteur.cs" />
       <File FileName="ReadLeadSucced_API/web.config" />
       <File FileName="ReadLeadSucced_API/Models/Associations/LivreCategorie.cs" />
-      <File FileName="ReadLeadSucced_API/Models/Editeur.cs" Line="18" Column="33" />
+      <File FileName="ReadLeadSucced_API/Models/Editeur.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True" selected="True">
+          <Node name="ReadLeadSucced_API" expanded="True">
             <Node name="ReadLeadSucced_API" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Associations" expanded="True" />
+                <Node name="Livre.cs" selected="True" />
               </Node>
             </Node>
           </Node>

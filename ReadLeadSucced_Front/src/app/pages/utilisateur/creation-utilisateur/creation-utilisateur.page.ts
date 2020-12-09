@@ -79,6 +79,7 @@ export class CreationUtilisateurPage implements OnInit {
           this.form.controls[this.loginClient].setValue(data.loginClient)
         ));
     }
+    
   }
 
 
