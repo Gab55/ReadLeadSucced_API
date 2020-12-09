@@ -102,7 +102,8 @@ export class GestionLivrePage implements OnInit {
        prixLivreHt : this.form.value.prixLivreHt,
        prixLivreTtc: this.form.value.prixLivreTtc,
        stockInvLivre: this.form.value.stockInvLivre,
-       idEditeur: this.form.value.idEditeur,       
+       idEditeur: this.form.value.idEditeur,
+       etatLivre: '',
        urlPhoto: this.form.get(this.urlPhoto).value
 
      };

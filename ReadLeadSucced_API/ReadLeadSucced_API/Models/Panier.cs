@@ -12,7 +12,6 @@ namespace ReadLeadSucced_Data.Models
         [Key]
         public int idPanier { get; set; }
         [MaxLength(500)]
-        public string contenuCommentaire { get; set; }
 
         [ForeignKey("idClient")]
         public int idClient { get; set; }

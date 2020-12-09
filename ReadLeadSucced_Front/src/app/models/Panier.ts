@@ -1,6 +1,5 @@
 export class Panier {
     idPanier: number;
-    contenuCommentaire: string;  
     idClient: number;
 }
 

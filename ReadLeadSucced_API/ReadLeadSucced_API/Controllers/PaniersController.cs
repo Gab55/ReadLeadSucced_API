@@ -64,11 +64,11 @@ namespace ReadLeadSucced_API.Controllers
             return NotFound();
         }
 
-        [HttpPost("add")]
+        [HttpPost]
         public async Task<IActionResult> AddPanier([FromBody] LivrePanier livrePanier)
         {
-            var LivrePaniers = await _context.LivrePaniers.Where(p => p.idLivre == livrePanier.idLivre)
-                                                    .Where(p => p.idPanier == livrePanier.idLivre)
+            var LivrePaniers = await _context.LivrePaniers
+                                                    .Where(p => p.idLivre == livrePanier.idLivre && p.idPanier == livrePanier.idPanier)
                                                     .ToListAsync();
             if (LivrePaniers.Count > 0)
             {
@@ -76,6 +76,7 @@ namespace ReadLeadSucced_API.Controllers
                 {
                     LivrePaniers.Remove(LivrePanier);
                 }
+                await _context.SaveChangesAsync();
                 return Ok();
             }
 

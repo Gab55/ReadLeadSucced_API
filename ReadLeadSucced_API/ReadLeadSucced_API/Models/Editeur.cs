@@ -16,8 +16,5 @@ namespace ReadLeadSucced_Data.Models
         public string emailEditeur { get; set; }
         [MaxLength(10)]
         public int telephoneEditeur { get; set; }
-        public string nomEditeur { get; set; }
-
-
     }
 }
