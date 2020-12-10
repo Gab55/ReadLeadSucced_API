@@ -36,6 +36,20 @@ namespace ReadLeadSucced_Data.Models
 
     }
 
+    public class GetLivre
+    {
+        public int? idLivre { get; set; }
+        public string titreLivre { get; set; }
+        public string resumerLivre { get; set; }
+        public decimal prixLivreHt { get; set; }
+        public decimal prixLivreTtc { get; set; }
+        public int stockInvLivre { get; set; }
+        public int? stockCmdLivre { get; set; }
+        public int idEditeur { get; set; }
+        public string urlPhoto { get; set; }
+        public string etatLivre { get; set; }
+    }
+
     public class EditLivre : Livre
     {
         public int? idCategorie { get; set; }

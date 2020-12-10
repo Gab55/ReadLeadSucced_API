@@ -64,7 +64,7 @@ export class AppComponent {
   }
 
   loadClient() {
-    this.client$ = this.clientWebService.getClientID(this.idClient);
+    this.client$ = this.clientWebService.getClientIDString(this.idClient);
   }
 
   

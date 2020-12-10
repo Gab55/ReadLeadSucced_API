@@ -24,9 +24,16 @@ namespace ReadLeadSucced_API.Controllers
 
         // GET: api/Livres
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Livre>>> GetLivres()
+        public async Task<ActionResult<IEnumerable<GetLivre>>> GetLivres()
         {
-            return await _context.Livres.ToListAsync();
+            return await _context.Livres.Select(l => new GetLivre()
+            {
+                idLivre = l.idLivre,
+                titreLivre = l.titreLivre,
+                stockInvLivre = l.stockInvLivre,
+                urlPhoto = l.urlImageLivre
+
+            }).ToListAsync();
         }
 
 

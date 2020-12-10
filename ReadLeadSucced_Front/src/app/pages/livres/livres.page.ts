@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
-import { Livre } from 'src/app/models/Livre';
+import { Livre, LivreLight } from 'src/app/models/Livre';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
 import { tap } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ import { tap } from 'rxjs/operators';
 })
 export class LivresPage implements OnInit {
 
-  livres: Livre[];
+  livres: LivreLight[];
   // Livres : any[];
   constructor(private livreService: LivreWebServiceService, 
     private cd: ChangeDetectorRef) {
@@ -25,13 +25,12 @@ export class LivresPage implements OnInit {
    }
 
    ngOnInit() {
-
     this.loadLivres();
   }
 
   loadLivres() {
-    this.livreService.getLivre();
-    this.livreService.livres$.pipe(
+    this.livreService.getLivre().subscribe();
+    this.livreService.getLivreLight().pipe(
       tap(l => this.livres = l)
     ).subscribe();
   }

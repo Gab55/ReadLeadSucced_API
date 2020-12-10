@@ -3,7 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
 import { Observable } from 'rxjs';
-import { Livre } from 'src/app/models/Livre';
+import { Livre, LivreLight } from 'src/app/models/Livre';
+import { tap } from 'rxjs/operators';
 
 
 @Component({
@@ -13,20 +14,22 @@ import { Livre } from 'src/app/models/Livre';
 })
 export class RechercheLivrePage implements OnInit {
 
-  livres$: Observable<Livre[]>;
+  livres: LivreLight[];
   // Livres : any[];
   constructor(private livreService: LivreWebServiceService, 
     private cd: ChangeDetectorRef) {
 
    }
 
-  ngOnInit() {
-
+   ngOnInit() {
     this.loadLivres();
   }
 
   loadLivres() {
-    this.livres$ = this.livreService.getLivreAsyn();
+    this.livreService.getLivre().subscribe();
+    this.livreService.getLivreLight().pipe(
+      tap(l => this.livres = l)
+    ).subscribe();
   }
 
 }

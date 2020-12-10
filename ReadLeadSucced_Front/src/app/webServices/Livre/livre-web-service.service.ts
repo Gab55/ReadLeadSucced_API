@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
-import { Livre } from 'src/app/models/Livre';
+import { Livre, LivreLight } from 'src/app/models/Livre';
 import { SearchLivre } from 'src/app/search/SearchLivre';
 import { environment } from 'src/environments/environment';
 import { ApiService } from 'src/Shared/api.service';
@@ -13,7 +13,16 @@ import { ApiService } from 'src/Shared/api.service';
 export class LivreWebServiceService extends ApiService {
 
   livresUrl = environment.appUrl + 'api/Livres/';
-  livres$: Observable<Livre[]>;
+
+  private livres = new BehaviorSubject<LivreLight[]>([]);
+
+  // livres$(): Observable<LivreLight[]> {
+  //   return this.livres.asObservable();
+  // };
+
+  getLivreLight(): Observable<LivreLight[]> {
+    return this.livres.asObservable();
+}
 
   constructor(private http: HttpClient) {
     super(http);
@@ -21,11 +30,18 @@ export class LivreWebServiceService extends ApiService {
 
 
   getLivre() {
-    this.livres$ = this.get<Livre[]>(this.livresUrl, [])
+    return this.get<LivreLight[]>(this.livresUrl, [])
     .pipe(
       retry(1),
       catchError(this.errorHandler),
+      tap(l => this.setLivre(l))
       );
+  }
+
+  setLivre(livre: LivreLight[]) {
+    console.log(this.getLivreLight());
+    this.livres.next(livre);
+    console.log(this.getLivreLight());
   }
 
   getLivreAsyn(): Observable<Livre[]> {
@@ -37,11 +53,14 @@ export class LivreWebServiceService extends ApiService {
   }
 
   searchLivre(search: string) {
-    this.livres$ = this.post<Livre[]>(this.livresUrl + 'search', search)
+    this.post<Livre[]>(this.livresUrl + 'search', search)
     .pipe(
       retry(1),
-      catchError(this.errorHandler)
-    );
+      catchError(this.errorHandler),
+      tap(l => {
+        this.setLivre(l);
+      })
+    ).subscribe();
   }
 
 

@@ -9,7 +9,7 @@ import { Editeur } from 'src/app/models/Editeur';
 
 import { Categorie } from 'src/app/models/Categorie';
 import { Observable } from 'rxjs';
-import { data } from 'jquery';
+// import { data } from 'jquery';
 
 @Component({
   selector: 'app-creation-livre',
@@ -120,6 +120,7 @@ export class CreationLivrePage implements OnInit {
   
         
         var livre = Object.assign(new Livre(), this.form.getRawValue()); // IMPORTANT TOUT RECUP EN FORMAT JSON
+        livre.etatLivre = 'Nouveauté';
         console.log(livre);
         this.livreWebService.saveClient(livre)
           .subscribe((data) => {

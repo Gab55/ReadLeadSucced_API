@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpBackend, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './../Shared/login-interceptor.service';
+import { LivreWebServiceService } from './webServices/Livre/livre-web-service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { LoginInterceptor } from './../Shared/login-interceptor.service';
   providers: [
     StatusBar,
     SplashScreen,
+    LivreWebServiceService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
     { 
       provide: HTTP_INTERCEPTORS,
