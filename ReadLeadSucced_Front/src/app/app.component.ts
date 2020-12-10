@@ -8,8 +8,11 @@ import { SearchLivre } from './search/SearchLivre';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
 import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
+
 import { Livre } from './models/Livre';
 import { Categorie } from './models/Categorie';
+import { Client } from './models/Client';
+import { UtilisateurWebServiceService } from './webServices/Utilisateur/utilisateur-web-service.service';
 
 
 @Component({
@@ -20,12 +23,15 @@ import { Categorie } from './models/Categorie';
 export class AppComponent {
   livre$: Observable<Livre[]>;
   categories$: Observable<Categorie[]>;
+  client$: Observable<Client>;
+  idClient: string;
 
   navigate: any;
   categorie: any;
   constructor(
     private platform: Platform,
     private livreWebService: LivreWebServiceService,
+    private clientWebService: UtilisateurWebServiceService,
     private categorieWebService: CategorieWebServiceService,
     private formBuilder: FormBuilder,
     private splashScreen: SplashScreen,
@@ -40,56 +46,50 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    
-    this.loadCategorie();
+  
 
+    this.loadCategorie();
+    
+    if(localStorage.getItem('id') != null) 
+    {
+      this.idClient = localStorage.getItem('id');
+      this.loadClient();
+    }
+    
+    console.log(this.idClient)
   }
 
   loadCategorie() {
     this.categories$ = this.categorieWebService.getCategories();
   }
 
+  loadClient() {
+    this.client$ = this.clientWebService.getClientID(this.idClient);
+  }
+
   
   sideMenu() {
+    
     this.navigate =
       [
         {
-          title: "Accueil",
-          url: "/Livres",
+          title: "Connexion",
+          url: "/auth/connexion",
           icon: "home"
         },
         {
-          title: "Recherche",
-          url: "/chat",
+          title: "Création compte",
+          url: "/creation-utilisateur",
         },
         {
-          title: "Nos coups de coeurs",
-          url: "/contacts",
+          title: "Catalogue",
+          url: "/livres",
           icon: "contacts"
         },
         {
           title: "Nos nouveautés",
           url: "/contacts",
           icon: "contacts"
-        },
-      ]
-      this.categorie =
-      [
-        {
-          title: "Science-Fiction",
-        },
-        {
-          title: "Policier",
-          //url: "/chat",
-        },
-        {
-          title: "Humour",
-          url: "/contacts",
-          icon: "contacts"
-        },
-        {
-          title: "Sport",
-          url: "/contacts",
         },
       ]
 

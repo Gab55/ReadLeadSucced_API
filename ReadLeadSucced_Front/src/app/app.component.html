@@ -9,6 +9,9 @@
           </ion-toolbar>
       </ion-header>
       <ion-content>
+        <ion-item>
+            <h6>Déconnexion</h6>
+        </ion-item>
           <ion-list *ngFor="let pages of navigate">
               <ion-menu-toggle auto-hide="true">
                   <ion-item [routerLink]="pages.url" routerDirection="forward">

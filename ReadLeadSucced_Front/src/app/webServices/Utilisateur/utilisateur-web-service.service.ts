@@ -30,8 +30,8 @@ export class UtilisateurWebServiceService  extends ApiService {
   }
 
 
-  getClientID(clientId: number): Observable<Client> {
-    return this.getById<Client>(this.clientUrl, clientId.toString() )
+  getClientID(clientId: string): Observable<Client> {
+    return this.getById<Client>(this.clientUrl, clientId )
       .pipe(
         retry(1),
         catchError(this.errorHandler)

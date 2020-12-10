@@ -9,6 +9,7 @@ import { Editeur } from 'src/app/models/Editeur';
 
 import { Categorie } from 'src/app/models/Categorie';
 import { Observable } from 'rxjs';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-creation-livre',
@@ -41,6 +42,9 @@ export class CreationLivrePage implements OnInit {
               private editeurWebService: EditeurWebServiceService,
               private avRoute: ActivatedRoute, 
               private router: Router ) { 
+
+              this.etatLivre = "Nouveauté";
+              
       if (this.avRoute.snapshot.params['id']) {
         this.postId = this.avRoute.snapshot.params['id'];
       }
@@ -78,7 +82,7 @@ export class CreationLivrePage implements OnInit {
             this.form.controls['stockInvLivre'].setValue(data.stockInvLivre),
             this.form.controls['idEditeur'].setValue(data.idEditeur),
             this.form.controls['urlPhoto'].setValue(data.urlPhoto),
-            // this.form.controls['etatLivre'].setValue(data.etatLivre),
+            this.form.controls[this.etatLivre].setValue(data.etatLivre),
             this.form.controls['idcategorie'].setValue(data.idcategorie)
           ));
       }
@@ -101,22 +105,22 @@ export class CreationLivrePage implements OnInit {
        }
 
        if (this.actionType === 'Add') {
-        let livre: Livre = {
-          titreLivre: this.form.value.titreLivre,
-          resumerLivre: this.form.value.resumerLivre,
-          prixLivreHt: this.form.value.prixLivreHt ,
-          prixLivreTtc :  this.form.value.prixLivreHt,
-          urlPhoto :  '',
-          stockInvLivre :  this.form.value.stockInvLivre,
-          stockCmdLivre:5,
-          idEditeur:  this.form.value.idEditeur,
-          etatLivre: 'Nouveauté'
+        // let livre: Livre = {
+        //   titreLivre: this.form.value.titreLivre,
+        //   resumerLivre: this.form.value.resumerLivre,
+        //   prixLivreHt: this.form.value.prixLivreHt ,
+        //   prixLivreTtc :  this.form.value.prixLivreHt,
+        //   urlPhoto :  '',
+        //   stockInvLivre :  this.form.value.stockInvLivre,
+        //   stockCmdLivre:5,
+        //   idEditeur:  this.form.value.idEditeur,
+        //   etatLivre: 'Nouveauté'
   
-        };
+        // };
   
         
-        // var livre = Object.assign(new Livre(), this.form.getRawValue()); // IMPORTANT TOUT RECUP EN FORMAT JSON
-console.log(livre);
+        var livre = Object.assign(new Livre(), this.form.getRawValue()); // IMPORTANT TOUT RECUP EN FORMAT JSON
+        console.log(livre);
         this.livreWebService.saveClient(livre)
           .subscribe((data) => {
             this.router.navigate(['/livres']);

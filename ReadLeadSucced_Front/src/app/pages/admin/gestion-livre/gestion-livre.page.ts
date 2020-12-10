@@ -59,6 +59,8 @@ export class GestionLivrePage implements OnInit {
           prixLivreTtc: ['', [Validators.required]],
           stockInvLivre: ['', [Validators.required]],
           idEditeur: ['', [Validators.required]],
+          idcategorie: ['', [Validators.required]],
+
           urlPhoto: ['', [Validators.required]]
         }
       )
@@ -76,15 +78,21 @@ export class GestionLivrePage implements OnInit {
           this.form.controls[this.prixLivreTtc].setValue(data.prixLivreTtc),
           this.form.controls[this.stockInvLivre].setValue(data.stockInvLivre),
           this.form.controls[this.idEditeur].setValue(data.idEditeur),
+          this.form.controls['idcategorie'].setValue(data.idcategorie),
           this.form.controls[this.urlPhoto].setValue(data.urlPhoto)
         ));
     }
 
     this.loadLivre();
+    this.loadCategorie();
   }
 
   loadLivre() {
    this.livre$ = this.livreWebService.getLivretID(this.livreId);
+  }
+
+  loadCategorie() {
+    this.categories$ = this.categorieWebService.getCategories();
   }
 
 
@@ -107,7 +115,7 @@ export class GestionLivrePage implements OnInit {
        urlPhoto: this.form.get(this.urlPhoto).value
 
      };
-
+     
      this.livreWebService.updateClient(livre)
        .subscribe((data) => {
          this.router.navigate(['/livres']);

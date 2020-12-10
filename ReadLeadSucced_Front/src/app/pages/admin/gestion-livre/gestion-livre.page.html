@@ -18,9 +18,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content  *ngIf="(livre$ | async) as livre">
+<ion-content >
   <form [formGroup]="form" (ngSubmit)="save()">
-    <ion-card >
+    <ion-card  *ngIf="(livre$ | async) as livre">
       <ion-card-header>
         <h4>
           <ion-label>Modifier le livre</ion-label>
@@ -28,7 +28,7 @@
       </ion-card-header>
       <hr class="solid">
       <ion-card-content>
-        <ion-grid>
+        <ion-grid *ngIf="(categories$ | async)?.length>0">
           <ion-row >
             <ion-col>
     
@@ -57,11 +57,9 @@
                 <ion-input  placeholder="{{livre.stockInvLivre}}" formControlName="stockInvLivre"></ion-input>
               </ion-item>
 
-              <ion-item *ngIf="(categories$ | async)?.length>0">
-                <ion-select placeholder="Catégorie"  interface="popover">
-                  <ion-select-option *ngFor="let cate of (categories$ | async)"  value="{{cate.idCategorie}}">{{cate.libelleCategorie}}</ion-select-option>
-                </ion-select>
-              </ion-item>
+              <ion-select placeholder="Catégorie"  interface="popover" formControlName="idcategorie">
+                <ion-select-option *ngFor="let cate of (categories$ | async)"  value="{{cate.idCategorie}}">{{cate.libelleCategorie}}</ion-select-option>
+              </ion-select>
 
     
               <ion-item lines="full">
