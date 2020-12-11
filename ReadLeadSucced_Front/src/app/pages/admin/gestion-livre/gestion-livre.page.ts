@@ -24,6 +24,7 @@ export class GestionLivrePage implements OnInit {
   prixLivreTtc: any;
   stockInvLivre: any;
   stockCmdLivre: any;
+  idcategorie: any;
   idEditeur: any;
   urlPhoto: string;
   categories$: Observable<Categorie[]>;
@@ -59,9 +60,9 @@ export class GestionLivrePage implements OnInit {
           prixLivreTtc: ['', [Validators.required]],
           stockInvLivre: ['', [Validators.required]],
           idEditeur: ['', [Validators.required]],
-          idcategorie: ['', [Validators.required]],
-
-          urlPhoto: ['', [Validators.required]]
+          urlPhoto: ['', [Validators.required]],
+          // etatLivre: ['', [Validators.required]],
+          idcategorie: ['', [Validators.required]]
         }
       )
    }
@@ -72,14 +73,15 @@ export class GestionLivrePage implements OnInit {
       this.livreWebService.getLivretID(this.postId)
         .subscribe(data => (
           this.existingClientPost = data,
-          this.form.controls[this.titreLivre].setValue(data.titreLivre),
-          this.form.controls[this.resumerLivre].setValue(data.resumerLivre),
-          this.form.controls[this.prixLivreHt].setValue(data.prixLivreHt),
-          this.form.controls[this.prixLivreTtc].setValue(data.prixLivreTtc),
-          this.form.controls[this.stockInvLivre].setValue(data.stockInvLivre),
-          this.form.controls[this.idEditeur].setValue(data.idEditeur),
-          this.form.controls['idcategorie'].setValue(data.idcategorie),
-          this.form.controls[this.urlPhoto].setValue(data.urlPhoto)
+          this.form.controls['titreLivre'].setValue(data.titreLivre),
+          this.form.controls['resumerLivre'].setValue(data.resumerLivre),
+          this.form.controls['prixLivreHt'].setValue(data.prixLivreHt),
+          this.form.controls['prixLivreTtc'].setValue(data.prixLivreTtc),
+          this.form.controls['stockInvLivre'].setValue(data.stockInvLivre),
+          this.form.controls['idEditeur'].setValue(data.idEditeur),
+          this.form.controls['urlPhoto'].setValue(data.urlPhoto),
+         // this.form.controls[this.etatLivre].setValue(data.etatLivre),
+          this.form.controls['idcategorie'].setValue(data.idcategorie)
         ));
     }
 
@@ -116,6 +118,7 @@ export class GestionLivrePage implements OnInit {
 
     //  };
      var livre = Object.assign(new Livre(), this.form.getRawValue()); // IMPORTANT TOUT RECUP EN FORMAT JSON
+     idLivre : this.livreId,
      livre.etatLivre = 'Nouveauté';
      console.log(livre);
      this.livreWebService.updateClient(livre)

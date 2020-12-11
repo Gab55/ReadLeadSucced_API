@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Livre } from 'src/app/models/Livre';
+import { Livre,LivreLight } from 'src/app/models/Livre';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
 import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
 import { EditeurWebServiceService } from 'src/app/webServices/editeur/editeur-web-service.service';
