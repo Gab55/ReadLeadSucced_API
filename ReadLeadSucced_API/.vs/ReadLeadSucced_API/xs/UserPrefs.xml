@@ -9,9 +9,11 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True" selected="True">
+          <Node name="ReadLeadSucced_API" expanded="True">
             <Node name="ReadLeadSucced_API" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="LivresController.cs" selected="True" />
+              </Node>
               <Node name="Models" expanded="True">
                 <Node name="Associations" expanded="True" />
               </Node>

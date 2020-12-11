@@ -38,6 +38,7 @@ export class GestionLivrePage implements OnInit {
     private categorieWebService: CategorieWebServiceService,
     private avRoute: ActivatedRoute, private router: Router ) { 
       const idParam = 'id';
+      this.idLivre ='',
       this.actionType = 'Add';
       this.titreLivre = 'titreLivre';
       this.resumerLivre = 'resumerLivre';
@@ -103,19 +104,22 @@ export class GestionLivrePage implements OnInit {
     }
 
     if (this.actionType === 'Add') {
-    //  let livre: Livre = {
-    //    idLivre : this.livreId,
-    //    titreLivre: this.form.get(this.titreLivre).value,
-    //    resumerLivre: this.form.get(this.resumerLivre).value,
-    //    prixLivreHt : this.form.value.prixLivreHt,
-    //    prixLivreTtc: this.form.value.prixLivreTtc,
-    //    stockInvLivre: this.form.value.stockInvLivre,
-    //    idEditeur: this.form.value.idEditeur,
-    //    etatLivre: '',
-    //    urlPhoto: this.form.get(this.urlPhoto).value
+     // let livre: Livre = {
+     //   titreLivre: this.form.value.titreLivre,
+     //   resumerLivre: this.form.value.resumerLivre,
+     //   prixLivreHt: this.form.value.prixLivreHt ,
+     //   prixLivreTtc :  this.form.value.prixLivreHt,
+     //   urlPhoto :  '',
+     //   stockInvLivre :  this.form.value.stockInvLivre,
+     //   stockCmdLivre:5,
+     //   idEditeur:  this.form.value.idEditeur,
+     //   etatLivre: 'Nouveauté'
 
-    //  };
+     // };
+
+     
      var livre = Object.assign(new Livre(), this.form.getRawValue()); // IMPORTANT TOUT RECUP EN FORMAT JSON
+     livre.idLivre = this.livreId,
      livre.etatLivre = 'Nouveauté';
      console.log(livre);
      this.livreWebService.updateClient(livre)
