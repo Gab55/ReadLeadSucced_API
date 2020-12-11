@@ -71,27 +71,25 @@ namespace ReadLeadSucced_API.Controllers
         // PUT: api/Livres/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("edit")]
-        public async Task<IActionResult> EditLivre(Livre livre)
+        public async Task<ActionResult<Livre>> EditLivre(EditLivre livre)
         {
             _context.Entry(livre).State = EntityState.Modified;
 
+            await _context.SaveChangesAsync();
 
-            try
+            if (livre.idCategorie.GetValueOrDefault() != 0)
             {
+                var categ = await _context.Categories.Where(c => c.idCategorie == livre.idCategorie.Value).FirstOrDefaultAsync();
+                if (livre.LivreCategories == null)
+                    livre.LivreCategories = new List<LivreCategorie>();
+
+                livre.LivreCategories.Add(new LivreCategorie()
+                {
+                    Livre = (Livre)livre,
+                    Categorie = categ
+                });
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!LivreExists(livre.idLivre))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
             return NoContent();
         }
 

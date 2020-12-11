@@ -103,19 +103,21 @@ export class GestionLivrePage implements OnInit {
     }
 
     if (this.actionType === 'Add') {
-     let livre: Livre = {
-       idLivre : this.livreId,
-       titreLivre: this.form.get(this.titreLivre).value,
-       resumerLivre: this.form.get(this.resumerLivre).value,
-       prixLivreHt : this.form.value.prixLivreHt,
-       prixLivreTtc: this.form.value.prixLivreTtc,
-       stockInvLivre: this.form.value.stockInvLivre,
-       idEditeur: this.form.value.idEditeur,
-       etatLivre: '',
-       urlPhoto: this.form.get(this.urlPhoto).value
+    //  let livre: Livre = {
+    //    idLivre : this.livreId,
+    //    titreLivre: this.form.get(this.titreLivre).value,
+    //    resumerLivre: this.form.get(this.resumerLivre).value,
+    //    prixLivreHt : this.form.value.prixLivreHt,
+    //    prixLivreTtc: this.form.value.prixLivreTtc,
+    //    stockInvLivre: this.form.value.stockInvLivre,
+    //    idEditeur: this.form.value.idEditeur,
+    //    etatLivre: '',
+    //    urlPhoto: this.form.get(this.urlPhoto).value
 
-     };
-     
+    //  };
+     var livre = Object.assign(new Livre(), this.form.getRawValue()); // IMPORTANT TOUT RECUP EN FORMAT JSON
+     livre.etatLivre = 'Nouveauté';
+     console.log(livre);
      this.livreWebService.updateClient(livre)
        .subscribe((data) => {
          this.router.navigate(['/livres']);
