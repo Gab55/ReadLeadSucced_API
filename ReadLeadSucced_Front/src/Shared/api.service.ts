@@ -52,7 +52,6 @@ export class ApiService {
     headers = headers.set('Access-Control-Allow-Origin', window.location.origin);
     headers = headers.set('Content-Type', 'application/json');
     if (localStorage.getItem('token') !== null) {
-      headers = headers.set('User', 'Bearer ' + localStorage.getItem('token'));
       headers = headers.set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     }
     return headers;
