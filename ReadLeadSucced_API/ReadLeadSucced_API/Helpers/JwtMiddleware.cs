@@ -27,12 +27,12 @@ namespace ReadLeadSucced_API.Helpers
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
-                attachUserToContext(context, userService, token);
+                await AttachUserToContextAsync(context, userService, token);
 
             await _next(context);
         }
 
-        private void attachUserToContext(HttpContext context, IUserService userService, string token)
+        private async Task AttachUserToContextAsync(HttpContext context, IUserService userService, string token)
         {
             try
             {
@@ -49,10 +49,10 @@ namespace ReadLeadSucced_API.Helpers
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "idClient").Value);
 
                 // attach user to context on successful jwt validation
-                context.Items["User"] = userService.GetById(userId);
+                context.Items["Client"] = await userService.GetByIdAsync(userId);
             }
             catch
             {

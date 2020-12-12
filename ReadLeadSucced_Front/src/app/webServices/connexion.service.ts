@@ -11,7 +11,6 @@ import { ApiService } from '../../Shared/api.service';
 export class ConnexionService extends ApiService {
 
   connexionUrl = environment.appUrl + 'api/clients/authenticate/';
-  userValue
 
   constructor(private http: HttpClient) {
     super(http);

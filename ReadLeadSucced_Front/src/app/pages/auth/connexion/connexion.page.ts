@@ -31,8 +31,9 @@ export class ConnexionPage implements OnInit {
     private ConnexionService: ConnexionService
 
   ) {
-    if (this.ConnexionService.userValue) {
-      this.router.navigate(['/']);
+
+    if (localStorage.getItem('id') != null) {
+      this.router.navigate(['/livres']);
     }
 
     this.form = this.formBuilder.group({

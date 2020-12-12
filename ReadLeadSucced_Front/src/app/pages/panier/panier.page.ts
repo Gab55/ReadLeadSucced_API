@@ -25,5 +25,6 @@ export class PanierPage implements OnInit {
 
   deletePanier(idLivre, idPanier) {
     this.pService.deletePanier(idLivre, idPanier)
+    this.loadPanier();
   }
 }
