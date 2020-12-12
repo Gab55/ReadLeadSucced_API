@@ -49,16 +49,14 @@ namespace ReadLeadSucced_API.Controllers
         [HttpPost("delete")]
         public async Task<IActionResult> DeletePanier([FromBody] LivrePanier livrePanier)
         {
-            var LivrePaniers = await _context.LivrePaniers.Where(p => p.idLivre == livrePanier.idLivre)
-                                                    .Where(p => p.idPanier == livrePanier.idLivre)
+            var LivrePaniers = await _context.LivrePaniers
+                                                    .Where(p => p.idLivre == livrePanier.idLivre && p.idPanier == livrePanier.idPanier)
                                                     .ToListAsync();
-            if(LivrePaniers.Count > 0)
+            if (LivrePaniers.Count > 0)
             {
-                foreach (var LivrePanier in LivrePaniers)
-                {
-                    LivrePaniers.Remove(LivrePanier);
-                }
-                return  Ok();
+                _context.LivrePaniers.RemoveRange(LivrePaniers);
+                await _context.SaveChangesAsync();
+                return Ok();
             }
 
             return NotFound();
@@ -67,20 +65,9 @@ namespace ReadLeadSucced_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPanier([FromBody] LivrePanier livrePanier)
         {
-            var LivrePaniers = await _context.LivrePaniers
-                                                    .Where(p => p.idLivre == livrePanier.idLivre && p.idPanier == livrePanier.idPanier)
-                                                    .ToListAsync();
-            if (LivrePaniers.Count > 0)
-            {
-                foreach (var LivrePanier in LivrePaniers)
-                {
-                    LivrePaniers.Remove(LivrePanier);
-                }
+                _context.LivrePaniers.Add(livrePanier);
                 await _context.SaveChangesAsync();
                 return Ok();
-            }
-
-            return NotFound();
         }
 
         // PUT: api/Paniers/5
