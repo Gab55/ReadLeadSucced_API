@@ -48,9 +48,6 @@ export class UtilisateurWebServiceService  extends ApiService {
       );
   }
  
-
-
-
   // POST  --> AJOUT
   saveClient(client): Observable<Client> {
     return this.post<Client>(this.clientUrl, JSON.stringify(client))

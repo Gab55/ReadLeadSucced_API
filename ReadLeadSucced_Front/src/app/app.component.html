@@ -8,9 +8,9 @@
               <ion-title>Menu</ion-title>
           </ion-toolbar>
       </ion-header>
-      <ion-content>
+      <ion-content *ngIf="(client$ | async) as client">
         <ion-item>
-            <h6>Déconnexion</h6>
+            <h6>Bonjour {{client.nomClient}} </h6>
         </ion-item>
           <ion-list *ngFor="let pages of navigate">
               <ion-menu-toggle auto-hide="true">
