@@ -2,6 +2,23 @@ ion-content{
     --background: #d7d8da !important;
 }
 
+ion-button{
+    position: relative;
+    left: 10%;
+    margin-bottom: 10px;
+    width: 60vw;
+}
+
+
+
+ion-icon{
+    color: yellow;
+    width: 20px;
+    margin: auto;
+    vertical-align: middle;
+    visibility: visible !important;
+}
+
 hr {
     //border: 2px solid red !important;
     height: 5px !important;
@@ -11,7 +28,7 @@ hr {
     font-size: 1em !important;
     opacity: 1 !important;
     visibility: visible !important;
-  }
+}
 
 h2
 {
@@ -35,22 +52,8 @@ h2
     width: 150px;
     height: 300px;
 }
-/*.ajout
-{
-    margin-top: 200px;*
-}*/
-ion-button
-{
-    width: 60vw;
-}
-ion-icon
-{
-    color: yellow;
-    width: 20px;
-    margin: auto;
-    vertical-align: middle;
-    visibility: visible !important;
-}
+
+
 .span-container
 {
     margin-top: 1px; 
