@@ -76,17 +76,47 @@
       </ion-col>
     </ion-row>
 
-    <ion-row size="" *ngIf="livres?.length>0">
+    <!--<ion-row size="" *ngIf="livres?.length>0">
       <ion-col  size="4" *ngFor="let livre of livres" >
         <ion-card  [routerLink]="['/livre/', livre.idLivre]">
 
-            <!-- <ion-img (click)="detailsLivre(livre)" [src]="livre.url" class="full-image"></ion-img> -->
+            <ion-img (click)="detailsLivre(livre)" [src]="livre.urlPhoto" class="full-image"></ion-img>
             <ion-card-title>{{livre.titreLivre}}</ion-card-title>
 
 
         </ion-card>
       </ion-col>
       
+    </ion-row>-->
+    <ion-row *ngIf="livres?.length>0">
+      <ion-col size="4" *ngFor="let livre of livres">
+        <ion-card [routerLink]="['/livre/', livre.idLivre]">
+        <div class="container">
+          <ion-img [src]="livre.urlPhoto" class="full-image"></ion-img>
+        </div>
+        <div class="span-container">
+          <span>
+            <ion-icon classe="iconStar" name="star"></ion-icon>
+          </span>
+          <span>
+            <ion-icon classe="iconStar" name="star"></ion-icon>
+          </span>
+          <span>
+            <ion-icon classe="iconStar" name="star"></ion-icon>
+          </span>
+          <span>
+            <ion-icon classe="iconStar" name="star"></ion-icon>
+          </span>
+          <span>
+            <ion-icon classe="iconStar" name="star"></ion-icon>
+          </span>
+        </div>
+        <p>{{livre.titreLivre}}</p>
+        </ion-card>
+      </ion-col>
+      <ion-col size="8">
+
+      </ion-col>
     </ion-row>
   </ion-grid>
 
