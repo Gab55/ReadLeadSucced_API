@@ -74,11 +74,6 @@ export class AppComponent {
     this.navigate =
       [
         {
-          title: "Connexion",
-          url: "/auth/connexion",
-          icon: "home"
-        },
-        {
           title: "Création compte",
           url: "/creation-utilisateur",
         },
