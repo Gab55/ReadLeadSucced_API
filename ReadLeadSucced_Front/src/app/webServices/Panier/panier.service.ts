@@ -37,11 +37,9 @@ export class PanierWebService  extends ApiService {
     );
   }
 
-
-
   // POST  --> AJOUT
-  savePanier(Panier): Observable<Panier> {
-    return this.post<Panier>(this.PanierUrl, JSON.stringify(Panier))
+  addPanier(idLivre: number, idPanier: number): Observable<LivrePaniers> {
+    return this.post<LivrePaniers>(this.PanierUrl, JSON.stringify({idLivre, idPanier}))
     .pipe(
       retry(1),
       catchError(this.errorHandler)

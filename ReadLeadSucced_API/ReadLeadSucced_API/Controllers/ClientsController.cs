@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ReadLeadSucced_API.Helpers;
 using ReadLeadSucced_API.Models;
 using ReadLeadSucced_API.Services;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
+
 
 namespace ReadLeadSucced_API.Controllers
 {
@@ -51,9 +52,9 @@ namespace ReadLeadSucced_API.Controllers
         }
 
         // GET: api/Clients/5
-        [HttpGet("{id}")]
         [Authorize]
-
+        [HttpGet("{id}")]
+      
         public async Task<ActionResult<Client>> GetClient(int id)
         {
             var client = await _context.Clients.FindAsync(id);
@@ -68,8 +69,8 @@ namespace ReadLeadSucced_API.Controllers
 
         // PUT: api/Clients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
         [Authorize]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutClient(int id, Client client)
         {
             _context.Entry(client).State = EntityState.Modified;
@@ -95,8 +96,8 @@ namespace ReadLeadSucced_API.Controllers
 
         // POST: api/Clients
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
         [Authorize]
+        [HttpPost]
         public async Task<ActionResult<Client>> PostClient(Client client)
         {
             _context.Clients.Add(client);
@@ -106,8 +107,8 @@ namespace ReadLeadSucced_API.Controllers
         }
 
         // DELETE: api/Clients/5
-        [HttpDelete("{id}")]
         [Authorize]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClient(int id)
         {
             var client = await _context.Clients.FindAsync(id);

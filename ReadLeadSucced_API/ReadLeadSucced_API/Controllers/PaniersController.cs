@@ -13,7 +13,6 @@ using ReadLeadSucced_Data.Models.Associations;
 namespace ReadLeadSucced_API.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
     public class PaniersController : ControllerBase
     {
@@ -25,6 +24,7 @@ namespace ReadLeadSucced_API.Controllers
         }
 
         // GET: api/Paniers
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Panier>>> GetPaniers()
         {
@@ -32,6 +32,7 @@ namespace ReadLeadSucced_API.Controllers
         }
 
         // GET: api/Paniers/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<List<LivrePanier>> GetPanier(string id)
         {
@@ -48,6 +49,7 @@ namespace ReadLeadSucced_API.Controllers
             return await listePanier.ToListAsync();
         }
 
+        [Authorize]
         [HttpPost("delete")]
         public async Task<IActionResult> DeletePanier([FromBody] LivrePanier livrePanier)
         {
@@ -64,6 +66,7 @@ namespace ReadLeadSucced_API.Controllers
             return NotFound();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddPanier([FromBody] LivrePanier livrePanier)
         {
@@ -74,6 +77,7 @@ namespace ReadLeadSucced_API.Controllers
 
         // PUT: api/Paniers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPanier(int id, Panier panier)
         {
@@ -115,6 +119,7 @@ namespace ReadLeadSucced_API.Controllers
         //}
 
         // DELETE: api/Paniers/5
+            [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePanier(int id)
         {
