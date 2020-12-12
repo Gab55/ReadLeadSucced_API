@@ -21,7 +21,7 @@ namespace ReadLeadSucced_API.Services
     {
         Task<AuthenticateResponse> Authenticate(AuthenticateRequest model);
         IEnumerable<Client> GetAll();
-        Client GetById(int id);
+        Task<Client> GetByIdAsync(int id);
     }
 
     public class UserService : IUserService
@@ -57,10 +57,13 @@ namespace ReadLeadSucced_API.Services
             return _Clients;
         }
 
-        public Client GetById(int id)
+        public async Task<Client> GetByIdAsync(int id)
         {
+            List<Client> Clients = await _context.Clients.ToListAsync();
+            _Clients = Clients;
+            var Client = _Clients.SingleOrDefault(x => x.idClient == id);
 
-            return _Clients.FirstOrDefault(x => x.idClient == id);
+            return Client;
         }
 
         // helper methods
