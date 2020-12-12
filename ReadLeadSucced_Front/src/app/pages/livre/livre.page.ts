@@ -6,6 +6,7 @@ import { NavController } from '@ionic/angular';
 
 import { Livre } from 'src/app/models/Livre';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
+import { PanierWebService } from '../../webServices/Panier/panier.service';
 
 
 @Component({
@@ -17,8 +18,10 @@ export class LivrePage implements OnInit {
   livre$: Observable<Livre>;
   livreId: number;
   detailsLivre : any;
-  constructor(private livreService: LivreWebServiceService,
-    private router: Router,
+  constructor(
+     private livreService: LivreWebServiceService,
+     private pService: PanierWebService,
+     private router: Router,
      public navCtrl: NavController, 
      private avRoute: ActivatedRoute) {
 
@@ -38,7 +41,10 @@ export class LivrePage implements OnInit {
 
   loadLivre() {
    this.livre$ = this.livreService.getLivretID(this.livreId);
-   console.log(this.livre$);
+  }
+
+  addBasket(idLivre, idPanier) {
+    this.pService.addPanier(idLivre, idPanier)
   }
   
 }

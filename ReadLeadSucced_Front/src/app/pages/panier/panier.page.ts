@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Panier, LivrePaniers } from './../../../app/models/Panier';
 import { PanierWebService } from './../../../app/webServices/Panier/panier.service';
 
@@ -10,6 +11,7 @@ import { PanierWebService } from './../../../app/webServices/Panier/panier.servi
 })
 export class PanierPage implements OnInit {
   idClient: string = null;
+  panierVide: boolean;
   panier$: Observable<LivrePaniers[]>;
   constructor(private pService: PanierWebService) { }
 
@@ -20,7 +22,11 @@ export class PanierPage implements OnInit {
   }
 
   loadPanier() {
-    this.panier$ = this.pService.getPanier(this.idClient);
+    this.panier$ = this.pService.getPanier(this.idClient).pipe(
+      tap(p => {
+        this.panierVide = p[0] != undefined ? false : true; 
+      } 
+    ));
   }
 
   deletePanier(idLivre, idPanier) {

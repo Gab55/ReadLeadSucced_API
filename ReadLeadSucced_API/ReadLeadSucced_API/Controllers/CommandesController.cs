@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ReadLeadSucced_API.Helpers;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
 
 namespace ReadLeadSucced_API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CommandesController : ControllerBase
