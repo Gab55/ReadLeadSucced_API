@@ -5,51 +5,50 @@
               <img src="../assets/images/logo-readleadsucced.png" />
             </div>
             <div class="shopping">
-              <img src="../assets/images/Icon-shopping.png"  [routerLink]="['/panier']"routerDirection="forward"/>
+              <img *ngIf="idClient != null" src="../assets/images/Icon-shopping.png"  [routerLink]="['/panier']"routerDirection="forward"/>
             </div>
       </div>
         <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button mode="md" style="color: white;"></ion-menu-button>
         </ion-buttons>
         <ion-title>
           
         </ion-title>
       </ion-toolbar>
   <ion-menu side="start" menuId="first" contentId="content1">
-      <ion-header *ngIf="(client$ | async) as client">
+      <ion-header *ngIf="idClient != null">
           <ion-toolbar>
-              <ion-title>Bonjour {{client.prenomClient}} </ion-title>
+              <ion-title>Bonjour, {{client.prenomClient}} </ion-title>
           </ion-toolbar>
       </ion-header>
+      <ion-header  *ngIf="idClient == null">
+        <ion-toolbar  class="ion-align-items-center" [routerLink]="['/auth/connexion']">
+            <ion-title><ion-icon style="color: white; zoom: 1.50;" name="person"></ion-icon> Bonjour, Identifiez-vous </ion-title>
+            
+        </ion-toolbar>
+    </ion-header>
       <ion-content>
-        <!-- <div class="menu-connexion">
-            <ion-item > -->
-                <h5 [routerLink]="['/auth/connexion']" routerDirection="forward">Identifiez-vous</h5>
-                <hr class="solid">
-            <!-- </ion-item>
-        </div> -->
           <ion-list *ngFor="let pages of navigate">
               <ion-menu-toggle auto-hide="true">
                   <ion-item [routerLink]="pages.url" routerDirection="forward">
-                      <ion-icon [name]="pages.icon" slot="start"></ion-icon>
                       {{pages.title}}
                   </ion-item>
               </ion-menu-toggle>
           </ion-list>
           <hr class="solid" style="margin-top: 20px;">
-          <h5>Catégories :</h5>
+          <h5 style="font-weight: bold;">Catégories :</h5>
           
           <ion-list *ngFor="let cate of categories$ | async">
                 <ion-menu-toggle auto-hide="true">
                     <ion-item (click)="searchCategorie(cate.idCategorie)" [routerLink]="cate.url" routerDirection="forward">
-                        <ion-icon [name]="cate.icon" slot="start"></ion-icon>
+    
                         {{cate.libelleCategorie}}
                     </ion-item>
                 </ion-menu-toggle>
             </ion-list>
         <br>
         <br>
-        <div class="menu-deconnexion">
+        <div *ngIf="idClient != null" (click)="logOut()" class="menu-deconnexion">
             <h4>Déconnexion</h4>
         </div>
 

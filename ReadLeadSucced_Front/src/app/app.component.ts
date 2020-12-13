@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,6 +13,7 @@ import { Livre } from './models/Livre';
 import { Categorie } from './models/Categorie';
 import { Client } from './models/Client';
 import { UtilisateurWebServiceService } from './webServices/Utilisateur/utilisateur-web-service.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -35,6 +36,8 @@ export class AppComponent {
     private categorieWebService: CategorieWebServiceService,
     private formBuilder: FormBuilder,
     private splashScreen: SplashScreen,
+    private router: Router,
+    private zone: NgZone,
     private statusBar: StatusBar) {
     this.sideMenu();
     // this.loadCategorie();
@@ -50,13 +53,12 @@ export class AppComponent {
 
     this.loadCategorie();
     
-    if(localStorage.getItem('id') != null) 
+    if(localStorage.getItem('id') != 'null') 
     {
       this.idClient = localStorage.getItem('id');
       this.loadClient();
     }
     
-    console.log(this.idClient)
   }
 
   loadCategorie() {
@@ -65,7 +67,6 @@ export class AppComponent {
 
   loadClient() {
     this.client$ = this.clientWebService.getClientIDString(this.idClient);
-    console.log(this.idClient);
   }
 
   
@@ -98,9 +99,17 @@ export class AppComponent {
     };
 
     const searchString = JSON.stringify(search);
-    console.log(searchString);
     this.livreWebService.searchLivre(searchString);
 
+  }
+
+  logOut() {
+    localStorage.setItem('token', null);
+    localStorage.setItem('id', null);
+    this.router.navigateByUrl('auth/connexion');
+    this.zone.run(() => {
+      console.log('force update the screen');
+    });
   }
 
 

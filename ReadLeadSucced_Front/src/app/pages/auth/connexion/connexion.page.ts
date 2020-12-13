@@ -32,7 +32,7 @@ export class ConnexionPage implements OnInit {
 
   ) {
 
-    if (localStorage.getItem('id') != null) {
+    if (localStorage.getItem('id') != 'null') {
       this.router.navigate(['/livres']);
     }
 
