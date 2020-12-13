@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ValidateEqualModule } from 'ng-validate-equal';
 
 import { HttpBackend, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './../Shared/login-interceptor.service';
@@ -22,7 +21,7 @@ registerLocaleData(localeFr);
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ValidateEqualModule,HttpClientModule, FormsModule,
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, FormsModule,
     ReactiveFormsModule],
   providers: [
     StatusBar,

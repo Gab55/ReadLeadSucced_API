@@ -20,19 +20,26 @@ export class LivresPage implements OnInit {
   livres: Livre[];
   // Livres : any[];
   constructor(private livreService: LivreWebServiceService, 
-    private cd: ChangeDetectorRef) {
+    private cd: ChangeDetectorRef,
+    private router: Router) {
 
    }
 
    ngOnInit() {
     this.loadLivres();
+    this.reLoad();
   }
 
   loadLivres() {
-
     this.livreService.getLivre().pipe(
       tap(l => this.livres = l)
     ).subscribe();
+    
+  }
+
+  reLoad(){
+    this.router.navigate([this.router.url])
+    console.log(this.router.url)
   }
 
 

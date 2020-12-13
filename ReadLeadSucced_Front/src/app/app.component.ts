@@ -79,20 +79,6 @@ export class AppComponent  {
   
   sideMenu() {
     
-    this.navigate =
-      [
-        {
-          title: "Catalogue",
-          url: "/livres",
-          icon: "contacts"
-        },
-        {
-          title: "Nos nouveautés",
-          url: "/contacts",
-          icon: "contacts"
-        },
-      ]
-
       this.navigateAdmin =
       [
         {
@@ -116,6 +102,7 @@ export class AppComponent  {
 
     const searchString = JSON.stringify(search);
     this.livreWebService.searchLivre(searchString);
+    
 
   }
 

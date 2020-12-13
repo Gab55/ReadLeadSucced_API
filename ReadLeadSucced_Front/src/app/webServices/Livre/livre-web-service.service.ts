@@ -79,6 +79,7 @@ export class LivreWebServiceService extends ApiService {
         retry(1),
         catchError(this.errorHandler)
       );
+      
   }
 
 
