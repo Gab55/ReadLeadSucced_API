@@ -24,7 +24,8 @@
       <ion-content>
         <!-- <div class="menu-connexion">
             <ion-item > -->
-                <h5 [routerLink]="['/auth/connexion']" routerDirection="forward">Identifiez-vous</h5>
+                <h5 *ngIf="(localStorage != null)" [routerLink]="['/auth/connexion']" routerDirection="forward">Identifiez-vous</h5>
+                <h5 *ngIf="(localStorage == null)" [routerLink]="['creation-utilisateur']" routerDirection="forward">Création compte</h5>
                 <hr class="solid">
             <!-- </ion-item>
         </div> -->

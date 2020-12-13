@@ -1,26 +1,25 @@
 ﻿<Properties StartupConfiguration="{DC0603E5-D42B-4978-9DEF-C4872739268B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ReadLeadSucced_API/ReadLeadSucced_API.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ReadLeadSucced_API/Models/Associations/LivreCategorie.cs">
     <Files>
       <File FileName="ReadLeadSucced_API/Models/Associations/LivreCategorie.cs" Line="1" Column="1" />
-      <File FileName="ReadLeadSucced_API/Models/Editeur.cs" />
-      <File FileName="ReadLeadSucced_API/Controllers/LivresController.cs" />
-      <File FileName="ReadLeadSucced_API/Startup.cs" />
-      <File FileName="ReadLeadSucced_API/Controllers/ClientsController.cs" />
-      <File FileName="ReadLeadSucced_API/Controllers/PaniersController.cs" />
-      <File FileName="ReadLeadSucced_API/ReadLeadSucced_API.csproj" Line="10" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True" selected="True">
+          <Node name="ReadLeadSucced_API" expanded="True">
             <Node name="ReadLeadSucced_API" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="Associations" expanded="True" />
+                <Node name="Associations" expanded="True">
+                  <Node name="LivreCategorie.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

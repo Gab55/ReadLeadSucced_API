@@ -54,6 +54,8 @@ export class AppComponent {
     {
       this.idClient = localStorage.getItem('id');
       this.loadClient();
+      return localStorage.getItem('id');
+
     }
     
     console.log(this.idClient)
@@ -73,10 +75,6 @@ export class AppComponent {
     
     this.navigate =
       [
-        {
-          title: "Création compte",
-          url: "/creation-utilisateur",
-        },
         {
           title: "Catalogue",
           url: "/livres",
