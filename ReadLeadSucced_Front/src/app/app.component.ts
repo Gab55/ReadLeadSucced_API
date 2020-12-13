@@ -1,6 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-
-import { MenuController, Platform } from '@ionic/angular';
+import { MenuController, NavController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Observable } from 'rxjs';
@@ -14,7 +13,7 @@ import { Categorie } from './models/Categorie';
 import { Client } from './models/Client';
 import { UtilisateurWebServiceService } from './webServices/Utilisateur/utilisateur-web-service.service';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
+
 
 
 @Component({
@@ -40,6 +39,7 @@ export class AppComponent  {
     private splashScreen: SplashScreen,
     private router: Router,
     private zone: NgZone,
+    public navCtrl: NavController,
     private statusBar: StatusBar,
     private menuCtrl: MenuController) {
       this.sideMenu();
@@ -70,11 +70,15 @@ export class AppComponent  {
 
   loadCategorie() {
     this.categories$ = this.categorieWebService.getCategories();
+
   }
 
   loadClient() {
     this.client$ = this.clientWebService.getClientIDString(this.idClient);
+
   }
+
+ 
 
   
   sideMenu() {
@@ -99,12 +103,18 @@ export class AppComponent  {
     const search: SearchLivre = {
       idCategorie: idCateg
     };
-
     const searchString = JSON.stringify(search);
     this.livreWebService.searchLivre(searchString);
-    
+
+    this.navCtrl.navigateRoot('livres')
+    // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+
+
 
   }
+
+
+
 
   logOut() {
     localStorage.setItem('token', null);
@@ -113,6 +123,7 @@ export class AppComponent  {
     this.menuCtrl.close();
     this.router.navigateByUrl('auth/connexion');
     }
+
 
 
 }

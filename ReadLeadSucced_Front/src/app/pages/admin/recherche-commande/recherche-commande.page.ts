@@ -10,7 +10,7 @@ import { Commande } from 'src/app/models/Commande';
 @Component({
   selector: 'app-recherche-commande',
   templateUrl: './recherche-commande.page.html',
-  styleUrls: ['./recherche-commande.page.scss'],
+  styleUrls: ['./recherche-commande.page.scss','./../../../app.component.scss'],
 })
 export class RechercheCommandePage implements OnInit{
 

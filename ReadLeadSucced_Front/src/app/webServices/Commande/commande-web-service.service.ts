@@ -11,7 +11,7 @@ import { ApiService } from 'src/Shared/api.service';
 })
 export class CommandeWebServiceService extends ApiService {
 
-  categorieUrl = environment.appUrl + 'api/Commande/';
+  categorieUrl = environment.appUrl + 'api/Commandes/';
 
     constructor(private http: HttpClient) {
       super(http);

@@ -27,20 +27,15 @@ export class LivresPage implements OnInit {
 
    ngOnInit() {
     this.loadLivres();
-    this.reLoad();
+
   }
 
   loadLivres() {
     this.livreService.getLivre().pipe(
       tap(l => this.livres = l)
     ).subscribe();
-    
   }
 
-  reLoad(){
-    this.router.navigate([this.router.url])
-    console.log(this.router.url)
-  }
 
 
 }

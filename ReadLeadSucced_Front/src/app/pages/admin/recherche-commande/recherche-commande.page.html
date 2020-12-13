@@ -6,7 +6,7 @@
   <ion-list >  
     <ion-card *ngFor="let commande of (commande$ | async)">
       <ion-card-content>
-        <h2 class="solid">Commande : {{commande.etatCommande}}</h2>  
+        <h2 class="solid">Commande numéro : {{commande.idCommande}} est {{commande.etatCommande}}</h2>  
         <ion-icon slot="end"  name="create-outline"></ion-icon> 
         <ion-row>
           <ion-col size="6">
