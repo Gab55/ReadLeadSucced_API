@@ -58,7 +58,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/creation-livre/creation-livre.module').then( m => m.CreationLivrePageModule)
   },
   {
-    path: 'commande',
+    path: 'commande/:id',
     loadChildren: () => import('./pages/commande/commande.module').then( m => m.CommandePageModule)
   },
   {
