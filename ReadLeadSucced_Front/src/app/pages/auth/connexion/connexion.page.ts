@@ -74,6 +74,7 @@ this.form.controls['identifiant']
           if(log != undefined) {
             localStorage.setItem('token', newObj.result.token);
             localStorage.setItem('id', newObj.result.idClient);
+            localStorage.setItem('idPanier', newObj.result.idPanier);
             this.router.navigate(['livres']);
           }
         },

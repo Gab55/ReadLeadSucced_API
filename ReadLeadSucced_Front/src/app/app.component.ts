@@ -14,6 +14,7 @@ import { Categorie } from './models/Categorie';
 import { Client } from './models/Client';
 import { UtilisateurWebServiceService } from './webServices/Utilisateur/utilisateur-web-service.service';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 
 @Component({

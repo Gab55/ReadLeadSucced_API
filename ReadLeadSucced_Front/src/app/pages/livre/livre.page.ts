@@ -17,6 +17,7 @@ import { PanierWebService } from '../../webServices/Panier/panier.service';
 export class LivrePage implements OnInit {
   livre$: Observable<Livre>;
   livreId: number;
+  idPanier: number;
   detailsLivre : any;
   constructor(
      private livreService: LivreWebServiceService,
@@ -26,6 +27,7 @@ export class LivrePage implements OnInit {
      private avRoute: ActivatedRoute) {
 
       const idParam = 'id';
+     
 
 
 
@@ -36,6 +38,7 @@ export class LivrePage implements OnInit {
    }
 
    ngOnInit() {
+    this.idPanier = localStorage.getItem('idPanier') != 'null' ? parseInt(localStorage.getItem('idPanier'), 10) : null;
     this.loadLivre();
   }
 
@@ -43,8 +46,8 @@ export class LivrePage implements OnInit {
    this.livre$ = this.livreService.getLivretID(this.livreId);
   }
 
-  addBasket(idLivre, idPanier) {
-    this.pService.addPanier(idLivre, idPanier)
+  addBasket(idLivre) {
+    this.pService.addPanier(idLivre, this.idPanier)
   }
   
 }
