@@ -10,6 +10,22 @@ ion-title{
   color:white;
 }
 
+// ion-content {
+//   --ion-background-color: linear-gradient(#485563, #29323c);
+// }
+
+ion-card {
+    
+  --ion-background-color:white;
+  color: #29323c;
+}
+
+
+.card-up{
+  position: relative;
+  top: 50px;
+  }
+
 h5{
   position: relative;
   left: 10%;
