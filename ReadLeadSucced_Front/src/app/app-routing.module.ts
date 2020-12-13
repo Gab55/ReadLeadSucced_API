@@ -72,6 +72,14 @@ const routes: Routes = [
   {
     path: 'admin/recherche-categorie',
     loadChildren: () => import('./pages/admin/recherche-categorie/recherche-categorie.module').then(m => m.RechercheCategoriePageModule)
+  },
+  {
+    path: 'validation-commande',
+    loadChildren: () => import('./pages/validation-commande/validation-commande.module').then( m => m.ValidationCommandePageModule)
+  },
+  {
+    path: 'admin/recherche-commande',
+    loadChildren: () => import('./pages/admin/recherche-commande/recherche-commande.module').then( m => m.RechercheCommandePageModule)
   }
 ];
 
