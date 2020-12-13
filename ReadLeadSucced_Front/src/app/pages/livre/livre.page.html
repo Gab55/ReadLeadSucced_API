@@ -2,19 +2,22 @@
 <ion-content *ngIf="(livre$ | async) as livre">
   <div class="card-up">
   <ion-grid>
-    <ion-row>
-    <ion-card>
-      <div class="col col-sm">
-        <ion-item lines="none">
-          <h3>{{livre.titreLivre}}</h3>
-        </ion-item> 
-        <hr class="solid">
-        <ion-item lines="none">
-            {{livre.editeur.nomEditeur}}
-      </ion-item>
-      </div>
-    </ion-card>
-  </ion-row>
+
+      <ion-card>
+          <ion-row>
+            <div>
+              <ion-item lines="none">
+                <h3>{{livre.titreLivre}}</h3>
+              </ion-item> 
+            </div>
+              <hr class="solid">
+              <div>
+              <ion-item lines="none">
+                  {{livre.editeur.nomEditeur}}
+            </ion-item>
+          </div>
+        </ion-row>
+      </ion-card>
     <ion-row>
       <ion-card>
         <ion-row>

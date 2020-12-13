@@ -15,7 +15,7 @@
           <ion-grid class="ion-align-items-center" *ngFor="let p of (panier$ | async)">
             <ion-row class="ion-align-items-center">
                 <ion-col size="2">
-                  <ion-img src="../assets/images/obama.jpg"></ion-img>
+                  <ion-img [src]="p.livre.urlImageLivre"></ion-img>
                 </ion-col>
                 <ion-col size="8">
                   <ion-row class="ion-align-items-center">
