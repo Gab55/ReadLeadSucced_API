@@ -30,9 +30,6 @@ export class LivrePage implements OnInit {
 
       const idParam = 'id';
      
-
-
-
       if (this.avRoute.snapshot.params[idParam]) {
         this.livreId = this.avRoute.snapshot.params[idParam];
       }

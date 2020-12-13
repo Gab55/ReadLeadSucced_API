@@ -31,7 +31,8 @@ namespace ReadLeadSucced_API.Controllers
                 idLivre = l.idLivre,
                 titreLivre = l.titreLivre,
                 stockInvLivre = l.stockInvLivre,
-                urlPhoto = l.urlImageLivre
+                urlPhoto = l.urlImageLivre,
+                prixLivreTtc = l.prixLivreTtc
 
             }).ToListAsync();
         }

@@ -39,6 +39,24 @@ namespace ReadLeadSucced_API.Controllers
             return Ok(response);
         }
 
+        // POST: api/Clients
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Client>> PostClient(Client client)
+        {
+            _context.Clients.Add(client);
+            await _context.SaveChangesAsync();
+
+            _context.Paniers.Add(new Panier()
+            {
+                idClient = client.idClient,
+            });
+            await _context.SaveChangesAsync();
+
+
+            return Ok();
+        }
+
         // GET: api/Clients
         [HttpGet]
         [Authorize]
@@ -93,18 +111,6 @@ namespace ReadLeadSucced_API.Controllers
             }
 
             return NoContent();
-        }
-
-        // POST: api/Clients
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize]
-        [HttpPost]
-        public async Task<ActionResult<Client>> PostClient(Client client)
-        {
-            _context.Clients.Add(client);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetClient", new { id = client.idClient }, client);
         }
 
         // DELETE: api/Clients/5

@@ -54,8 +54,11 @@
                 <ion-input type="text"></ion-input>
               </ion-col>
             </ion-row>
-            <ion-row>
-              <ion-button (click)="addBasket(livre.idLivre)" expand="bock" *ngIf="livre.stockInvLivre > 0">Ajouter au panier</ion-button>
+            <ion-row *ngIf="livre.stockInvLivre > 0">
+              <ion-button (click)="addBasket(livre.idLivre)" expand="bock" >Ajouter au panier</ion-button>
+            </ion-row>
+            <ion-row *ngIf="!livre.stockInvLivre > 0">
+              <ion-button style="background-color: gray!important;" disabled="true" expand="bock" >Ajouter au panier</ion-button>
             </ion-row>
           </ion-col>
         </ion-row>

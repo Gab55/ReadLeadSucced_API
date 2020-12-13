@@ -30,7 +30,7 @@ export class LivreWebServiceService extends ApiService {
 
 
   getLivre() {
-    return this.get<LivreLight[]>(this.livresUrl, [])
+    return this.get<Livre[]>(this.livresUrl, [])
     .pipe(
       retry(1),
       catchError(this.errorHandler),

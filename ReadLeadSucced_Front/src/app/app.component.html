@@ -1,6 +1,6 @@
 <ion-app>
     <ion-toolbar>
-            <div class="ion-justify-content-center logo">
+            <div [routerLink]="['/livres']"routerDirection="forward" class="ion-justify-content-center logo">
               <img src="../assets/images/logo-readleadsucced.png" />
             </div>
 
@@ -9,9 +9,6 @@
         <ion-buttons slot="start">
           <ion-menu-button mode="md" style="color: white;"></ion-menu-button>
         </ion-buttons>
-        <ion-title>
-          
-        </ion-title>
       </ion-toolbar>
   <ion-menu side="start" menuId="first" contentId="content1" *ngIf="(client$ | async) as client">
       <ion-header *ngIf="idClient != null">

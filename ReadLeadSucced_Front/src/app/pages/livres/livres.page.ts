@@ -17,7 +17,7 @@ import { tap } from 'rxjs/operators';
 })
 export class LivresPage implements OnInit {
 
-  livres: LivreLight[];
+  livres: Livre[];
   // Livres : any[];
   constructor(private livreService: LivreWebServiceService, 
     private cd: ChangeDetectorRef) {
@@ -29,8 +29,8 @@ export class LivresPage implements OnInit {
   }
 
   loadLivres() {
-    this.livreService.getLivre().subscribe();
-    this.livreService.getLivreLight().pipe(
+
+    this.livreService.getLivre().pipe(
       tap(l => this.livres = l)
     ).subscribe();
   }

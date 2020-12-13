@@ -22,7 +22,7 @@ import { tap } from 'rxjs/operators';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit  {
+export class AppComponent  {
   livre$: Observable<Livre[]>;
   categories$: Observable<Categorie[]>;
   client$: Observable<Client>;
@@ -43,12 +43,10 @@ export class AppComponent implements OnInit  {
     private statusBar: StatusBar,
     private menuCtrl: MenuController) {
       this.sideMenu();
+      this.initializeApp();
   }
 
-  ngOnInit() {
-    // this.loadCategorie();
-    this.initializeApp();
-  }
+
 
 
   initializeApp() {
@@ -125,8 +123,7 @@ export class AppComponent implements OnInit  {
     localStorage.setItem('token', null);
     localStorage.setItem('id', null);
     localStorage.setItem('idPanier', null);
-    this.menuCtrl.toggle();
-    this.ngOnInit();
+    this.menuCtrl.close();
     this.router.navigateByUrl('auth/connexion');
     }
 

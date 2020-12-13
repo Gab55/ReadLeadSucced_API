@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>commande</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content *ngIf="(client$ | async) as client">
+  <ion-card *ngIf="panier$ as panier">
+    <ion-card-header *ngFor="let p of (panier$ | async)">
+      <ion-card-subtitle>Commande</ion-card-subtitle>
+      <!--<ion-card-title>Contenu de la commande</ion-card-title>-->
+      <ion-label center text-center>{{p.livre.titreLivre}}</ion-label>
+    </ion-card-header>
+  
+    <ion-card-content>
+      détail commande
+    </ion-card-content>
+    
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>information de livraison</ion-card-subtitle>
+      <p>{{client.nomClient}} {{client.prenomClient}}</p>
+      <p>{{client.adresseClient}} {{client.codePostalClient}} {{client.villeClient}}</p>
+      <!--<ion-card-title>Contenu de la commande</ion-card-title>-->
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-label></ion-label>
+      <ion-button color="success">Passer la commande</ion-button>
+    </ion-card-content>
+    
+  </ion-card>
 </ion-content>

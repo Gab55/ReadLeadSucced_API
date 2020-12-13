@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReadLeadSucced_Data;
 
 namespace ReadLeadSucced_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201213184410_addFieldsPanier")]
+    partial class addFieldsPanier
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -398,11 +400,11 @@ namespace ReadLeadSucced_API.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("int");
 
-                    b.Property<decimal>("prixHtPanier")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<double>("prixHtPanier")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("prixTtcPanier")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<double>("prixTtcPanier")
+                        .HasColumnType("float");
 
                     b.Property<int>("quantitePanier")
                         .HasColumnType("int");
