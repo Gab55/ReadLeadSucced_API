@@ -29,6 +29,7 @@ export class AppComponent implements OnInit  {
   idClient: string;
 
   navigate: any;
+  navigateAdmin: any;
   categorie: any;
   constructor(
     private platform: Platform,
@@ -91,6 +92,19 @@ export class AppComponent implements OnInit  {
           title: "Nos nouveautés",
           url: "/contacts",
           icon: "contacts"
+        },
+      ]
+
+      this.navigateAdmin =
+      [
+        {
+          title: "Categories",
+          url: "/admin/creation-categorie",
+          icon: "contacts"
+        },
+        {
+          title: "Commandes",
+          url: "admin/recherche-commande",
         },
       ]
 

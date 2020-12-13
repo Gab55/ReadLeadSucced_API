@@ -5,8 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginInterceptor } from './../../../../Shared/login-interceptor.service';
-
-
 import { ConnexionPageRoutingModule } from './connexion-routing.module';
 import { ConnexionPage } from './connexion.page';
 

@@ -11,11 +11,11 @@ import { ApiService } from 'src/Shared/api.service';
 })
 export class CategorieWebServiceService extends ApiService {
 
-  categorieUrl = environment.appUrl + 'api/Categories/';
+    categorieUrl = environment.appUrl + 'api/Categories/';
 
-  constructor(private http: HttpClient) {
-    super(http);
-   }
+      constructor(private http: HttpClient) {
+        super(http);
+      }
 
   getCategories(): Observable<Categorie[]> {
     return this.get<Categorie[]>(this.categorieUrl, [])

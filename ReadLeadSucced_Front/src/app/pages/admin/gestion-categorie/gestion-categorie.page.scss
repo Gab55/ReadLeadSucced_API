@@ -1,17 +1,15 @@
-ion-content{
-    --background: #d7d8da !important;
+ion-content {
+    --ion-background-color: linear-gradient(#485563, #29323c);
 }
 
-hr {
-    //border: 2px solid red !important;
-    height: 5px !important;
-    width: 700px !important;
-    background: grey !important;
-    display: block !important;
-    font-size: 1em !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
+
+ion-button{
+    position: relative;
+    left: 10%;
+    margin-bottom: 10px;
+    width: 60vw;
+}
+
 
 h2
 {

@@ -2,6 +2,7 @@
 
 
 <ion-content *ngIf="(categorie$ | async)?.length>0">  
+  <div class="card-up">
   <ion-list >  
 
     <ion-card *ngFor="let categorie of (categorie$ | async)">
@@ -19,5 +20,5 @@
       </ion-card-content>
     </ion-card>
   </ion-list>  
-
+</div>
 </ion-content>  
