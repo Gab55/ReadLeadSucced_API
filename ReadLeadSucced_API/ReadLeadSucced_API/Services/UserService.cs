@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
 using ReadLeadSucced_API.Models;
+using ReadLeadSucced_Data.Models.Associations;
 using ReadLeadSucced_Data;
 
 namespace ReadLeadSucced_API.Services
@@ -29,6 +30,7 @@ namespace ReadLeadSucced_API.Services
         private readonly AppDbContext _context;
         private readonly AppSettings _appSettings;
         private List<Client> _Clients;
+        private List<Panier> _Paniers;
 
         public UserService(AppDbContext context, IOptions<AppSettings> appSettings)
         {
@@ -45,10 +47,14 @@ namespace ReadLeadSucced_API.Services
             // return null if user not found
             if (Client == null) return null;
 
+            List<Panier> Paniers = await _context.Paniers.ToListAsync();
+            _Paniers = Paniers;
+            var Panier = _Paniers.SingleOrDefault(x => x.idClient == Client.idClient);
+
             // authentication successful so generate jwt token
             var token = generateJwtToken(Client);
 
-            return new AuthenticateResponse(Client, token);
+            return new AuthenticateResponse(Client, token, Panier);
         }
 
         public IEnumerable<Client> GetAll()

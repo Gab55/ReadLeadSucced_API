@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
+import { pipe } from 'rxjs';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Panier, LivrePaniers } from './../../../app/models/Panier';
@@ -13,7 +15,7 @@ export class PanierPage implements OnInit {
   idClient: string = null;
   panierVide: boolean;
   panier$: Observable<LivrePaniers[]>;
-  constructor(private pService: PanierWebService) { }
+  constructor(private pService: PanierWebService, private toastController: ToastController) { }
 
   ngOnInit() {
 
@@ -29,8 +31,24 @@ export class PanierPage implements OnInit {
     ));
   }
 
+  async showToast() {
+    const toast = await this.toastController.create({
+      color: 'dark',
+      duration: 2000,
+      message: 'Suppression effectué'
+    });
+
+    await toast.present();
+}
+
   deletePanier(idLivre, idPanier) {
-    this.pService.deletePanier(idLivre, idPanier)
-    this.loadPanier();
+    this.pService.deletePanier(idLivre, idPanier).subscribe(
+      pipe(
+       () => {
+        this.loadPanier();
+        this.showToast();
+       }
+      )
+    );
   }
 }

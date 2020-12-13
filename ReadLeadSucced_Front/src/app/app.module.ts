@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpBackend, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './../Shared/login-interceptor.service';
 import { LivreWebServiceService } from './webServices/Livre/livre-web-service.service';
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +32,8 @@ import { LivreWebServiceService } from './webServices/Livre/livre-web-service.se
       provide: HTTP_INTERCEPTORS,
       useClass: LoginInterceptor,
       multi: true 
-    }
+    },
+    { provide: LOCALE_ID, useValue: 'fr-FR'}
   ],
   bootstrap: [AppComponent]
 })

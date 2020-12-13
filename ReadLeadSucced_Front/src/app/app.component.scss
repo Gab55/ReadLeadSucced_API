@@ -23,7 +23,7 @@ ion-card {
 
 .card-up{
   position: relative;
-  top: 50px;
+  top: 60px;
   }
 
 h5{
@@ -48,12 +48,13 @@ h5{
   display: flex;
   justify-content:center;
   align-items: center;
-  padding-top: 7px;
 }
 
 .logo{
   width: 15%;
   height: 15%;
+  margin-right: 60%;
+  margin-left: 40%;
 }
 
 .shopping{

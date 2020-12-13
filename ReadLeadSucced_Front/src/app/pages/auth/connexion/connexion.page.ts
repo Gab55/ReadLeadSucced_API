@@ -32,7 +32,7 @@ export class ConnexionPage implements OnInit {
 
   ) {
 
-    if (localStorage.getItem('id') != null) {
+    if (localStorage.getItem('id') != 'null') {
       this.router.navigate(['/livres']);
     }
 
@@ -74,6 +74,7 @@ this.form.controls['identifiant']
           if(log != undefined) {
             localStorage.setItem('token', newObj.result.token);
             localStorage.setItem('id', newObj.result.idClient);
+            localStorage.setItem('idPanier', newObj.result.idPanier);
             this.router.navigate(['livres']);
           }
         },

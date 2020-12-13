@@ -72,7 +72,7 @@
       <ion-col size="4" *ngFor="let livre of livres">
         <ion-card [routerLink]="['/livre/', livre.idLivre]">
         <div class="container">
-          <ion-img [src]="livre.urlPhoto" class="full-image"></ion-img>
+          <ion-img style="height: 170px" [src]="livre.urlPhoto" class="full-image"></ion-img>
         </div>
         <div class="span-container">
           <span>
@@ -91,7 +91,7 @@
             <ion-icon classe="iconStar" name="star"></ion-icon>
           </span>
         </div>
-        <p>{{livre.titreLivre}}</p>
+        <ion-item style="font-size: x-small;" lines="none">{{livre.prixLivreTtc | currency:'EUR':'symbol':undefined:'fr-FR' }}</ion-item>
         </ion-card>
       </ion-col>
       <ion-col size="8">
