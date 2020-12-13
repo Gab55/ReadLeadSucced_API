@@ -3,6 +3,7 @@
 
 <ion-content *ngIf="(client$ | async) as client">
   <form [formGroup]="form" (ngSubmit)="save()">
+<div class="card-up">
 <ion-card>
   <ion-card-header>
     <h4>
@@ -32,7 +33,7 @@
 
           <ion-item lines="full">
             <ion-label position="floating">Code postal</ion-label>
-            <ion-input placeholder="{{client.cpClient}}" formControlName="cpClient"></ion-input>
+            <ion-input placeholder="{{client.codePostalClient}}" formControlName="cpClient"></ion-input>
           </ion-item>
       
           <ion-item lines="full">
@@ -47,7 +48,7 @@
 
           <ion-item lines="full">
             <ion-label position="floating">Mot de passe</ion-label>
-            <ion-input type="text" placeholder="{{client.mdpClient}}" formControlName="mdpClient"></ion-input>
+            <ion-input type="password"  formControlName="mdpClient"></ion-input>
           </ion-item>
         
 
@@ -57,6 +58,7 @@
     <ion-button  expand="block" shape="round" fill="outline" type="submit">Modifier</ion-button>
   </ion-card-content>
 </ion-card>
+</div>
 </form>
 </ion-content>
 
