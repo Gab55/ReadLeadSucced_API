@@ -5,16 +5,20 @@
     <ion-row>
     <ion-card>
       <div class="col col-sm">
-        <h3>{{livre.titreLivre}}</h3>
+        <ion-item lines="none">
+          <h3>{{livre.titreLivre}}</h3>
+        </ion-item> 
         <hr class="solid">
-        <div style="padding-left: 10px;">{{livre.editeur.nomEditeur}}</div>      
+        <ion-item lines="none">
+            {{livre.editeur.nomEditeur}}
+      </ion-item>
       </div>
     </ion-card>
   </ion-row>
     <ion-row>
       <ion-card>
-        <ion-row class="">
-          <ion-col class="   ion-justify-content-center" size="4">
+        <ion-row>
+          <ion-col class="ion-justify-content-center" size="4">
               <ion-img  [src]="livre.urlImageLivre" class="full-image"></ion-img>
               <span>
                 <ion-icon style="zoom: 1.2" classe="iconStar" name="star"></ion-icon>
@@ -57,7 +61,7 @@
     <ion-row>
       <ion-card>
         <div class="">
-          <ion-item style="border-style: none;">
+          <ion-item lines="none">
             <h3>Description</h3>
           </ion-item>
           <hr class="solid">
