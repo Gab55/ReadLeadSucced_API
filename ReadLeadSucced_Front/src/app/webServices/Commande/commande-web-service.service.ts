@@ -34,6 +34,14 @@ getCommandeID(clientId: number): Observable<Commande> {
     );
 }
 
+saveCommande(commande): Observable<Commande> {
+  return this.post<Commande>(this.categorieUrl, JSON.stringify(commande))
+  .pipe(
+    retry(1),
+    catchError(this.errorHandler)
+  );
+}
+
 errorHandler(error) {
   let errorMessage = '';
   if (error.error instanceof ErrorEvent) {
