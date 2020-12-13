@@ -15,6 +15,11 @@ namespace ReadLeadSucced_Data.Models
 
         [ForeignKey("idClient")]
         public int idClient { get; set; }
+        public int quantitePanier { get; set; }
+        [Column(TypeName = "decimal(10, 2)")]
+        public double prixHtPanier { get; set; }
+        [Column(TypeName = "decimal(10, 2)")]
+        public double prixTtcPanier { get; set; }
 
         public virtual Client Client { get; set; }
 
