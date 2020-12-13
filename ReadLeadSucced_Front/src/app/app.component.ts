@@ -65,6 +65,7 @@ export class AppComponent {
 
   loadClient() {
     this.client$ = this.clientWebService.getClientIDString(this.idClient);
+    console.log(this.idClient);
   }
 
   
@@ -72,11 +73,6 @@ export class AppComponent {
     
     this.navigate =
       [
-        {
-          title: "Connexion",
-          url: "/auth/connexion",
-          icon: "home"
-        },
         {
           title: "Création compte",
           url: "/creation-utilisateur",
