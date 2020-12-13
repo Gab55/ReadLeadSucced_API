@@ -12,22 +12,28 @@ ion-slide{
     flex-direction: column;
 }
 
-ion-content{
-    --background: #000000 !important;
+
+ion-content {
+  --ion-background-color: linear-gradient(#485563, #29323c);
 }
 
-hr {
-    border:         none;
-    border-left:    1px solid hsla(200, 10%, 50%,100) !important;
-    //border: 2px solid red !important;
-    height: 5px !important;
-    width: 700px !important;
-    background: #383a3e !important;
-    display: block !important;
-    font-size: 2em !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
+ion-card {
+    
+  --ion-background-color:white;
+  color: #29323c;
+}
+// hr {
+//     border:         none;
+//     border-left:    1px solid hsla(200, 10%, 50%,100) !important;
+//     //border: 2px solid red !important;
+//     height: 5px !important;
+//     width: 700px !important;
+//     background: #383a3e !important;
+//     display: block !important;
+//     font-size: 2em !important;
+//     opacity: 1 !important;
+//     visibility: visible !important;
+//   }
 ion-card{
     display: flex;
     flex-direction: column;
