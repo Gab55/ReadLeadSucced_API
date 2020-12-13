@@ -1,6 +1,6 @@
-import { Component, NgZone } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Observable } from 'rxjs';
@@ -22,7 +22,7 @@ import { tap } from 'rxjs/operators';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit  {
   livre$: Observable<Livre[]>;
   categories$: Observable<Categorie[]>;
   client$: Observable<Client>;
@@ -39,11 +39,16 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private router: Router,
     private zone: NgZone,
-    private statusBar: StatusBar) {
-    this.sideMenu();
+    private statusBar: StatusBar,
+    private menuCtrl: MenuController) {
+      this.sideMenu();
+  }
+
+  ngOnInit() {
     // this.loadCategorie();
     this.initializeApp();
   }
+
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -105,11 +110,11 @@ export class AppComponent {
   logOut() {
     localStorage.setItem('token', null);
     localStorage.setItem('id', null);
+    localStorage.setItem('idPanier', null);
+    this.menuCtrl.toggle();
+    this.ngOnInit();
     this.router.navigateByUrl('auth/connexion');
-    this.zone.run(() => {
-      console.log('force update the screen');
-    });
-  }
+    }
 
 
 }

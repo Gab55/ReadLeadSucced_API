@@ -1,13 +1,11 @@
 <ion-app>
     <ion-toolbar>
-        <div class="container-image">
-            <div class="logo">
+            <div class="ion-justify-content-center logo">
               <img src="../assets/images/logo-readleadsucced.png" />
             </div>
-            <div class="shopping">
-              <img *ngIf="idClient != null" src="../assets/images/Icon-shopping.png"  [routerLink]="['/panier']"routerDirection="forward"/>
-            </div>
-      </div>
+
+        <ion-buttons [routerLink]="['/panier']"routerDirection="forward" slot="end" *ngIf="idClient != null"><ion-icon style="zoom:2.0;" style="color: white;" slot="start" name="basket"></ion-icon></ion-buttons>
+
         <ion-buttons slot="start">
           <ion-menu-button mode="md" style="color: white;"></ion-menu-button>
         </ion-buttons>
