@@ -5,7 +5,7 @@
   <div class="card-up">
   <ion-list >  
     <ion-card *ngFor="let commande of (commande$ | async)">
-      <ion-card-content>
+      <ion-card-content [routerLink]="['/admin/gestion-commande/', commande.idCommande]">
         <h2 class="solid">Commande numéro : {{commande.idCommande}} est {{commande.etatCommande}}</h2>  
         <ion-icon slot="end"  name="create-outline"></ion-icon> 
         <ion-row>

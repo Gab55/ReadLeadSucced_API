@@ -38,6 +38,7 @@ namespace ReadLeadSucced_API
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ILibraireService, LibraireService>();
 
             services.AddCors();
 

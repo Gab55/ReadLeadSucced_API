@@ -106,7 +106,7 @@ export class CreationUtilisateurPage implements OnInit {
 
       this.utilWebService.saveClient(client)
         .subscribe((data) => {
-          this.router.navigate(['livres/']);
+          this.router.navigate(['auth/connexion']);
         });
     }
   }

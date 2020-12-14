@@ -80,6 +80,10 @@ const routes: Routes = [
   {
     path: 'admin/recherche-commande',
     loadChildren: () => import('./pages/admin/recherche-commande/recherche-commande.module').then( m => m.RechercheCommandePageModule)
+  },
+  {
+    path: 'admin/gestion-commande/:id',
+    loadChildren: () => import('./pages/admin/gestion-commande/gestion-commande.module').then( m => m.GestionCommandePageModule)
   }
 ];
 

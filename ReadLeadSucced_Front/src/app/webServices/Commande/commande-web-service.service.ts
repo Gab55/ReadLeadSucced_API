@@ -11,14 +11,14 @@ import { ApiService } from 'src/Shared/api.service';
 })
 export class CommandeWebServiceService extends ApiService {
 
-  categorieUrl = environment.appUrl + 'api/Commandes/';
+  commandeUrl = environment.appUrl + 'api/Commandes/';
 
     constructor(private http: HttpClient) {
       super(http);
     }
 
     getCategories(): Observable<Commande[]> {
-      return this.get<Commande[]>(this.categorieUrl, [])
+      return this.get<Commande[]>(this.commandeUrl, [])
       .pipe(
         retry(1),
         catchError(this.errorHandler)
@@ -27,7 +27,7 @@ export class CommandeWebServiceService extends ApiService {
 
 
 getCommandeID(clientId: number): Observable<Commande> {
-  return this.getById<Commande>(this.categorieUrl, clientId.toString() )
+  return this.getById<Commande>(this.commandeUrl, clientId.toString() )
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -35,7 +35,17 @@ getCommandeID(clientId: number): Observable<Commande> {
 }
 
 saveCommande(commande): Observable<Commande> {
-  return this.post<Commande>(this.categorieUrl, JSON.stringify(commande))
+  return this.post<Commande>(this.commandeUrl, JSON.stringify(commande))
+  .pipe(
+    retry(1),
+    catchError(this.errorHandler)
+  );
+}
+
+
+
+updateClient(client): Observable<Commande> {
+  return this.post<Commande>(this.commandeUrl + 'edit', JSON.stringify(client))
   .pipe(
     retry(1),
     catchError(this.errorHandler)
