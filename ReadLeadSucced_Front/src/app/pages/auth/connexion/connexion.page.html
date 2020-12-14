@@ -23,18 +23,32 @@
 <ion-content>
   <ion-card>
     <form [formGroup]="form" (ngSubmit)="login()">
-    <ion-card-header>
-     <h4>Connexion</h4> 
+    <ion-card-header class="ion-justify-content-center">
+     <h4 style="margin-left: 34%; margin-right: 34%;">Connexion</h4> 
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label >Identifiant :</ion-label>
-        <ion-input type="" formControlName="identifiant" placeholder="Identifiant"></ion-input>
+        <ion-col size="6">
+          <ion-label >Identifiant :</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-input type="" formControlName="identifiant" placeholder="Identifiant"></ion-input>
+        </ion-col>
       </ion-item>
   
       <ion-item>
-        <ion-label>Mot de passe :</ion-label>
-        <ion-input  type="password"  formControlName="motDePasse" placeholder="Mot de passe"></ion-input>
+        <ion-col size="6">
+          <ion-label>Mot de passe :</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-input  type="password"  formControlName="motDePasse" placeholder="Mot de passe"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col size="10">
+          <ion-label>Connexion libraire :</ion-label>
+        </ion-col>
+        <ion-checkbox slot="end" formControlName="isLibraire" color="danger"></ion-checkbox>
       </ion-item>
   
       <br>

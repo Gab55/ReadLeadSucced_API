@@ -54,6 +54,9 @@ export class ApiService {
     if (localStorage.getItem('token') !== null) {
       headers = headers.set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     }
+    if (localStorage.getItem('tokenLibraire') !== null) {
+      headers = headers.set('AuthorizationLibraire', 'Bearer ' + localStorage.getItem('tokenLibraire'));
+    }
     return headers;
   }
 

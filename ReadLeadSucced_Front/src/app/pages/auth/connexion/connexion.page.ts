@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,ReactiveFormsModule, FormControl,FormArray,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MenuController, ToastController } from '@ionic/angular';
 import { first } from 'rxjs/operators';
 import { ConnexionService } from '../../../webServices/connexion.service'
 
@@ -28,8 +29,9 @@ export class ConnexionPage implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private ConnexionService: ConnexionService
-
+    private ConnexionService: ConnexionService,
+    private menuCtrl: MenuController,
+    private toastController: ToastController,
   ) {
 
     if (localStorage.getItem('id') != 'null') {
@@ -38,11 +40,22 @@ export class ConnexionPage implements OnInit {
 
     this.form = this.formBuilder.group({
       identifiant: ['', Validators.required],
+      isLibraire: [''],
       motDePasse: ['', Validators.required]
     })
 
     
   }
+
+  async showToast() {
+    const toast = await this.toastController.create({
+      color: 'danger',
+      duration: 4000,
+      message: 'Identifiant ou mot de passe incorrect'
+    });
+
+    await toast.present();
+}
 
   ngOnInit() {
 this.form.controls['identifiant']
@@ -63,19 +76,24 @@ this.form.controls['identifiant']
        password: this.form.get("motDePasse").value
 
     }
+
     const identifiantsString = JSON.stringify(identifiants);
     this.loading = true;
-    console.log(identifiantsString);
-    this.ConnexionService.authenticate(identifiantsString)
+    if(this.f.isLibraire) {
+      this.ConnexionService.authenticateLibraire(identifiantsString)
       .pipe(first())
       .subscribe({
         next: (log) => {
           const newObj: any = log;
-          if(log != undefined) {
-            localStorage.setItem('token', newObj.result.token);
-            localStorage.setItem('id', newObj.result.idClient);
-            localStorage.setItem('idPanier', newObj.result.idPanier);
-            this.router.navigate(['livres']);
+          if(newObj.result != null) {
+            localStorage.setItem('tokenLibraire', newObj.result.tokenLibraire);
+            localStorage.setItem('id', newObj.result.idLibraire);
+            this.router.navigateByUrl('auth/connexion', { skipLocationChange: true }).then(() => {
+              this.router.navigate(['/livres']);
+          }); 
+          }
+          else{
+            this.showToast();
           }
         },
         error: error => {
@@ -83,6 +101,32 @@ this.form.controls['identifiant']
           this.loading = false;
         }
       });
+    } 
+    else {
+      this.ConnexionService.authenticate(identifiantsString)
+      .pipe(first())
+      .subscribe({
+        next: (log) => {
+          const newObj: any = log;
+          if(newObj.result != null) {
+            localStorage.setItem('token', newObj.result.token);
+
+            localStorage.setItem('id', newObj.result.idClient);
+            localStorage.setItem('idPanier', newObj.result.idPanier);
+            this.router.navigateByUrl('auth/connexion', { skipLocationChange: true }).then(() => {
+              this.router.navigate(['/livres']);
+          }); 
+          }
+          else{
+            this.showToast();
+          }
+        },
+        error: error => {
+          this.error = error;
+          this.loading = false;
+        }
+      });
+    }
   }
 
 }

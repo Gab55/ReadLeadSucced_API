@@ -11,7 +11,6 @@ using ReadLeadSucced_Data.Models;
 
 namespace ReadLeadSucced_API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CommandesController : ControllerBase
@@ -24,6 +23,7 @@ namespace ReadLeadSucced_API.Controllers
         }
 
         // GET: api/Commandes
+        [AuthorizeLibraire]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Commande>>> GetCommandes()
         {
