@@ -23,7 +23,9 @@ export class LoginInterceptor implements HttpInterceptor {
         if (err.status === 401) {
           // Dans le cas ou l'utilisateur n'est pas authoriser à appeler l'API il sera automatiquement déconnecté
           localStorage.setItem('token', null);
+          localStorage.setItem('tokenLibraire', null);
           localStorage.setItem('id', null);
+          localStorage.setItem('idPanier', null);
           this.router.navigate(['auth/connexion']);
         } else {
           const message = 'Erreur de tout type. Majoritairement 500';

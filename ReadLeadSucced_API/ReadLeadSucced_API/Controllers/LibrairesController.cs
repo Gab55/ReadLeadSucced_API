@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ReadLeadSucced_API.Models;
+using ReadLeadSucced_API.Services;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
 
@@ -15,11 +17,25 @@ namespace ReadLeadSucced_API.Controllers
     public class LibrairesController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private ILibraireService _libraireService;
 
-        public LibrairesController(AppDbContext context)
+        public LibrairesController(AppDbContext context, ILibraireService libraireService)
         {
             _context = context;
+            _libraireService = libraireService;
         }
+
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(AuthenticateRequest model)
+        {
+            var response = _libraireService.Authenticate(model);
+
+            if (response == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+
+            return Ok(response);
+        }
+
 
         // GET: api/Libraires
         [HttpGet]

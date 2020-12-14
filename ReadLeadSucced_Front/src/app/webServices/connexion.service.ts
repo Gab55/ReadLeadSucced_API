@@ -11,6 +11,7 @@ import { ApiService } from '../../Shared/api.service';
 export class ConnexionService extends ApiService {
 
   connexionUrl = environment.appUrl + 'api/clients/authenticate/';
+  connexionLibraireUrl = environment.appUrl + 'api/libraires/authenticate/';
 
   constructor(private http: HttpClient) {
     super(http);
@@ -19,6 +20,14 @@ export class ConnexionService extends ApiService {
   
     authenticate<T>(identifiants: string): Observable<T> {
       return this.post<T>(this.connexionUrl, identifiants)
+        .pipe(
+          retry(1),
+          catchError(this.errorHandler)
+        );
+    }
+
+    authenticateLibraire<T>(identifiants: string): Observable<T> {
+      return this.post<T>(this.connexionLibraireUrl, identifiants)
         .pipe(
           retry(1),
           catchError(this.errorHandler)
