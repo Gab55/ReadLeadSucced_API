@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RechercheCommandePageRoutingModule } from './recherche-commande-routing.module';
 
 import { RechercheCommandePage } from './recherche-commande.page';
+import { CommandeWebServiceService } from 'src/app/webServices/Commande/commande-web-service.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { RechercheCommandePage } from './recherche-commande.page';
     IonicModule,
     RechercheCommandePageRoutingModule
   ],
-  declarations: [RechercheCommandePage]
+  declarations: [RechercheCommandePage],
+  providers: [CommandeWebServiceService]
 })
 export class RechercheCommandePageModule {}

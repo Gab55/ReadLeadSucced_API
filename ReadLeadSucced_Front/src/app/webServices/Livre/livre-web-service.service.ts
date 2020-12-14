@@ -61,7 +61,10 @@ export class LivreWebServiceService extends ApiService {
         this.setLivre(l);
       })
     ).subscribe();
+
+
   }
+
 
 
   getLivretID(clientId: number): Observable<Livre> {
@@ -79,6 +82,7 @@ export class LivreWebServiceService extends ApiService {
         retry(1),
         catchError(this.errorHandler)
       );
+      
   }
 
 
@@ -124,3 +128,4 @@ export class LivreWebServiceService extends ApiService {
 
   
 }
+

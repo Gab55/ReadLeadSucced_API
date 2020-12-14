@@ -1,6 +1,7 @@
 
 
 <ion-content >
+  <div class="card-up">
   <form [formGroup]="form" (ngSubmit)="save()">
     <ion-card  *ngIf="(livre$ | async) as livre">
       <ion-card-header>
@@ -56,7 +57,7 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col  >
+            <ion-col>
               <ion-button  expand="block" shape="round" fill="outline" type="submit">Modifier</ion-button>
               <ion-button  expand="block" shape="round" fill="outline" (click)="deleteLivre()">Supprimer</ion-button>
             </ion-col>
@@ -66,4 +67,5 @@
       </ion-card-content>
     </ion-card>
   </form>
+  </div>
 </ion-content>

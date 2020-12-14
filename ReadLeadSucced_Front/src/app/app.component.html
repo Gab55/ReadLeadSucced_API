@@ -22,11 +22,15 @@
             
         </ion-toolbar>
     </ion-header>
-      <ion-content>
-          <ion-list *ngFor="let pages of navigate">
+      <ion-content *ngIf="idClient != null">
+          <ion-list>
               <ion-menu-toggle auto-hide="true">
-                  <ion-item [routerLink]="pages.url" routerDirection="forward">
-                      {{pages.title}}
+                  <ion-item routerDirection="forward">
+                    <ion-label position="floating" [routerLink]="['/livres/']">Catalogue</ion-label>
+                  </ion-item>
+
+                  <ion-item routerDirection="forward">
+                    <ion-label position="floating" [routerLink]="['/profil-utilisateur/', client.idClient]">Votre compte</ion-label>
                   </ion-item>
               </ion-menu-toggle>
           </ion-list>
@@ -36,7 +40,6 @@
           <ion-list *ngFor="let cate of categories$ | async">
                 <ion-menu-toggle auto-hide="true">
                     <ion-item (click)="searchCategorie(cate.idCategorie)" [routerLink]="cate.url" routerDirection="forward">
-    
                         {{cate.libelleCategorie}}
                     </ion-item>
                 </ion-menu-toggle>
@@ -46,8 +49,25 @@
         <div *ngIf="idClient != null || idLibraire != null" (click)="logOut()" class="menu-deconnexion">
             <h4>Déconnexion</h4>
         </div>
-
       </ion-content>
+
+      <ion-content *ngIf="idLibraire != null">
+        <ion-list *ngFor="let pages of navigateAdmin">
+            <ion-menu-toggle auto-hide="true">
+                <ion-item [routerLink]="pages.url" routerDirection="forward">
+                    {{pages.title}}
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+      <br>
+      <br>
+      <div *ngIf="idLibraire != null" (click)="logOut()" class="menu-deconnexion">
+          <h4>Déconnexion</h4>
+      </div>
+    </ion-content>
+
+
+
   </ion-menu>
   <ion-menu side="start" menuId="first" contentId="content1" *ngIf="(libraire$ | async) as libraire">
     <ion-header *ngIf="idLibraire != null">

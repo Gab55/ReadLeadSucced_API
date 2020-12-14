@@ -1,6 +1,5 @@
+import { MenuController, NavController, Platform } from '@ionic/angular';
 import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
-
-import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Observable } from 'rxjs';
@@ -19,6 +18,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -34,6 +34,7 @@ export class AppComponent implements OnDestroy {
   mySubscription: any;
 
   navigate: any;
+  navigateAdmin: any;
   categorie: any;
   constructor(
     private platform: Platform,
@@ -45,6 +46,7 @@ export class AppComponent implements OnDestroy {
     private splashScreen: SplashScreen,
     private router: Router,
     private zone: NgZone,
+    public navCtrl: NavController,
     private statusBar: StatusBar,
     private menuCtrl: MenuController) {
       this.sideMenu();
@@ -95,10 +97,12 @@ export class AppComponent implements OnDestroy {
 
   loadCategorie() {
     this.categories$ = this.categorieWebService.getCategories();
+
   }
 
   loadClient() {
     this.client$ = this.clientWebService.getClientIDString(this.idClient);
+
   }
 
   loadLibraire() {
@@ -108,17 +112,16 @@ export class AppComponent implements OnDestroy {
   
   sideMenu() {
     
-    this.navigate =
+      this.navigateAdmin =
       [
         {
-          title: "Catalogue",
-          url: "/livres",
+          title: "Categories",
+          url: "/admin/creation-categorie",
           icon: "contacts"
         },
         {
-          title: "Nos nouveautés",
-          url: "/contacts",
-          icon: "contacts"
+          title: "Commandes",
+          url: "admin/recherche-commande",
         },
       ]
     
@@ -129,11 +132,18 @@ export class AppComponent implements OnDestroy {
     const search: SearchLivre = {
       idCategorie: idCateg
     };
-
     const searchString = JSON.stringify(search);
     this.livreWebService.searchLivre(searchString);
 
+    this.navCtrl.navigateRoot('livres')
+    // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+
+
+
   }
+
+
+
 
   logOut() {
     localStorage.setItem('token', null);

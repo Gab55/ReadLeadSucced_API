@@ -38,10 +38,10 @@ export class LivresPage implements OnInit, OnDestroy {
    ngOnInit() {
 
     this.loadLivres();
+
   }
 
   loadLivres() {
-
     this.livreService.getLivre().pipe(
       tap(l => this.livres = l)
     ).subscribe();
