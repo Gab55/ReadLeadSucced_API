@@ -94,7 +94,7 @@
         
         <ion-list *ngFor="let cate of categories$ | async">
               <ion-menu-toggle auto-hide="true">
-                  <ion-item (click)="searchCategorie(cate.idCategorie)" [routerLink]="cate.url" routerDirection="forward">
+                  <ion-item (click)="searchCategorie(cate.idCategorie)" [routerLink]="cate.url" routerDirection="root">
   
                       {{cate.libelleCategorie}}
                   </ion-item>
