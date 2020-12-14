@@ -1,9 +1,48 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menu-admin</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+<ion-content>  
+  <div class="card-up">
+    <ion-card >
+      <ion-card-header>       
+        <ion-row class="ion-justify-content-center ion-align-items-center">
+          <h4>Menu administrateur</h4>
+        </ion-row>
+        <hr class="solid">
+      </ion-card-header>
+    </ion-card> 
 
-</ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card [routerLink]="['/admin/recherche-livre']" routerDirection="forward">
+            <ion-card-header>
+              <h6>Liste des livres</h6>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col>          
+          <ion-card  [routerLink]="['/admin/recherche-categorie']" routerDirection="forward">
+            <ion-card-header>
+              <h6>Liste des catégories</h6>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header  [routerLink]="['/admin/recherche-commande']"  routerDirection="forward" >
+              <h6>Liste des commandes</h6>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col>          
+          <ion-card>
+            <ion-card-header [routerLink]="['/admin/recherche-utilisateur']" routerDirection="forward">
+              <h6>Liste des clients</h6>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</div>
+</ion-content>  

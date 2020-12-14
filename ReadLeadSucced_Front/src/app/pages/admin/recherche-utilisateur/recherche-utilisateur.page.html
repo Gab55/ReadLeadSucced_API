@@ -1,7 +1,6 @@
 
-
-
 <ion-content *ngIf="(client$ | async)?.length>0">  
+  <div class="card-up">
   <ion-list >  
 
     <ion-card *ngFor="let cli of (client$ | async)">
@@ -14,8 +13,6 @@
       </ion-card-content>
     </ion-card>
 
-
-   
   </ion-list>  
-
+</div>
 </ion-content>  
