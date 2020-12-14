@@ -7,10 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="(client$ | async) as client">
+<ion-content  *ngIf="(client$ | async) as client" >
+  <form  [formGroup]="form" (ngSubmit)="save()">
   <ion-card *ngIf="panier$ as panier">
     <ion-card-header *ngFor="let p of (panier$ | async)">
       <ion-card-subtitle>Commande</ion-card-subtitle>
+      <ion-label center text-center></ion-label>
       <!--<ion-card-title>Contenu de la commande</ion-card-title>-->
       <ion-label center text-center>{{p.livre.titreLivre}}</ion-label>
     </ion-card-header>
@@ -27,11 +29,27 @@
       <p>{{client.adresseClient}} {{client.codePostalClient}} {{client.villeClient}}</p>
       <!--<ion-card-title>Contenu de la commande</ion-card-title>-->
     </ion-card-header>
-  
-    <ion-card-content>
-      <ion-label></ion-label>
-      <ion-button color="success">Passer la commande</ion-button>
-    </ion-card-content>
     
   </ion-card>
+  
+  
+  <ion-card>
+    <ion-label>CB</ion-label>
+     <ion-card-content>
+       <ion-item>
+         <ion-label >N° de carte :</ion-label>
+         <ion-input type="text"  placeholder="Ex: 8542-7845-1546-4877" ng-maxlength="16"></ion-input>
+       </ion-item>
+   
+       <ion-item>
+         <ion-label>Code de sécurité :</ion-label>
+         <ion-input  type="text" formControlName="codeS"  placeholder="Ex: 458"></ion-input>
+       </ion-item>
+   
+       <br>
+       <br>
+     </ion-card-content>
+    <ion-button color="success" expand="block" type="submit">Passer la commande</ion-button>
+  </ion-card>
+  </form>
 </ion-content>
