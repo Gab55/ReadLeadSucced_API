@@ -84,6 +84,10 @@ const routes: Routes = [
   {
     path: 'admin/gestion-commande/:id',
     loadChildren: () => import('./pages/admin/gestion-commande/gestion-commande.module').then( m => m.GestionCommandePageModule)
+  },
+  {
+    path: 'menu-admin',
+    loadChildren: () => import('./pages/admin/menu-admin/menu-admin.module').then( m => m.MenuAdminPageModule)
   }
 ];
 
