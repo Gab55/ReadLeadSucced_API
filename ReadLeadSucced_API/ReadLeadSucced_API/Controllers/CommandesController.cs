@@ -46,14 +46,10 @@ namespace ReadLeadSucced_API.Controllers
 
         // PUT: api/Commandes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCommande(int id, Commande commande)
+        //update
+        [HttpPost("edit")]
+        public async Task<IActionResult> EditLivre(Commande commande)
         {
-            if (id != commande.idCommande)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(commande).State = EntityState.Modified;
 
             try
@@ -62,7 +58,7 @@ namespace ReadLeadSucced_API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CommandeExists(id))
+                if (!CommandeExists(commande.idCommande))
                 {
                     return NotFound();
                 }

@@ -1,11 +1,11 @@
 
-<ion-content *ngIf="(categorie$ | async) as categorie">
+<ion-content *ngIf="(commande$ | async) as commande">
   <div class="card-up">
   <form [formGroup]="form" (ngSubmit)="update()">
     <ion-card >
       <ion-card-header>
         <h4>
-          <ion-label>Modifier la catégorie</ion-label>
+          <ion-label>Modifier l'état de la commande</ion-label>
         </h4>
       </ion-card-header>
       <hr class="solid">
@@ -13,17 +13,16 @@
         <ion-grid>
           <ion-row >
             <ion-col>
-    
               <ion-item lines="full">
                 <ion-label position="floating">Libellé </ion-label>
-                <ion-input type="text" placeholder="{{categorie.libelleCategorie}}" formControlName="LibelleCategorie"></ion-input>
+                <ion-input type="text" placeholder="{{commande.etatCommande}}" formControlName="EtatCommande"></ion-input>
               </ion-item>
              </ion-col> 
           </ion-row>
           <ion-row>
             <ion-col >
               <ion-button  expand="block" shape="round" fill="outline" type="submit" class="success">Modifier</ion-button>
-              <ion-button  expand="block" shape="round" fill="outline" (click)="deleteCategorie()">Supprimer</ion-button>
+              <!-- <ion-button  expand="block" shape="round" fill="outline" (click)="deleteCategorie()">Supprimer</ion-button> -->
             </ion-col>
           </ion-row>
         </ion-grid>
