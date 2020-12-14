@@ -79,7 +79,7 @@ this.form.controls['identifiant']
 
     const identifiantsString = JSON.stringify(identifiants);
     this.loading = true;
-    if(this.f.isLibraire) {
+    if(this.f.isLibraire.value) {
       this.ConnexionService.authenticateLibraire(identifiantsString)
       .pipe(first())
       .subscribe({
