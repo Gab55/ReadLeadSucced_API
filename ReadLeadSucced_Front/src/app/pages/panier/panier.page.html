@@ -1,6 +1,6 @@
 
 <ion-col size="12">
-  <ion-content *ngIf="panier$ as panier">
+  <ion-content *ngIf="(panier$ | async ) as panier">
     <div class="card-up">
     <ion-card>
       <ion-card-header>       
@@ -19,17 +19,25 @@
                 </ion-col>
                 <ion-col size="8">
                   <ion-row class="ion-align-items-center">
-                    <ion-label style="text-decoration: underline;" center text-center>{{p.livre.titreLivre + " "}}</ion-label>
+                    <ion-label style="text-decoration: underline;" [routerLink]="['/livre/', p.livre.idLivre]" center text-center>{{p.livre.titreLivre + " "}}</ion-label>
                   </ion-row>
                   <ion-row class="ion-align-items-center">
                     <ion-label center text-center>{{p.livre.livreAuteurs[0].auteur.prenomAuteur}} {{p.livre.livreAuteurs[0].auteur.nomAuteur}} </ion-label>
                   </ion-row>
                   <ion-row class="ion-align-items-center">
-
+                    <ion-item>
+                      <ion-label>Quantité : </ion-label>
+                      <ion-input [(ngModel)]="p.quantite" type="number" (ngModelChange)="updatePanier(p.idLivre,p.idPanier,p.quantite)"></ion-input>
+                    </ion-item>
                   </ion-row>
                 </ion-col>
                 <ion-col size="2">
-                  <ion-icon style="zoom:2.0;" color="danger" (click)="deletePanier(p.idLivre,p.idPanier)" name="trash"></ion-icon>
+                  <ion-row>
+                    <ion-icon style="zoom:2.0;" color="danger" (click)="deletePanier(p.idLivre,p.idPanier)" name="trash"></ion-icon>
+                  </ion-row>
+                  <ion-row>
+                    {{p.prixTtc | currency:'EUR':'symbol':undefined:'fr-FR'}}
+                  </ion-row>
                 </ion-col>
           </ion-row>
           </ion-grid>
@@ -59,18 +67,18 @@
         </ion-row>
       </ion-card-content>
     </ion-card> 
-    <ion-card *ngIf="!this.panierVide &&">
+    <ion-card *ngIf="!this.panierVide">
       <ion-card-content >
         <hr class="solid">
         <ion-row>
-          <ion-col size="6">
-            <ion-item>
-              {{panier.prixHtPanier}}
+          <ion-col size="5">
+            <ion-item style="font-size: x-small;">
+             Total hors taxes : <br/> {{panier[0].prixHtPanier | currency:'EUR':'symbol':undefined:'fr-FR'}}
             </ion-item>
           </ion-col>
-          <ion-col size="6">
-            <ion-item>
-              {{panier.prixTtcPanier}}
+          <ion-col size="7">
+            <ion-item style="font-size: x-small;">
+              Total toutes taxes comprises :  <br/>{{panier[0].prixTtcPanier | currency:'EUR':'symbol':undefined:'fr-FR'}}
             </ion-item>
           </ion-col>
         </ion-row>

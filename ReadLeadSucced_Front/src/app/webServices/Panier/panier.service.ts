@@ -47,8 +47,16 @@ export class PanierWebService  extends ApiService {
   }
 
   // POST  --> AJOUT
-  addPanier(idLivre: number, idPanier: number): Observable<LivrePaniers> {
-    return this.post<LivrePaniers>(this.PanierUrl, JSON.stringify({idLivre, idPanier}))
+  addPanier(idLivre: number, idPanier: number, quantite: number): Observable<LivrePaniers> {
+    return this.post<LivrePaniers>(this.PanierUrl, JSON.stringify({idLivre, idPanier, quantite}))
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+
+  updatePanier(idLivre: number, idPanier: number, quantite: number): Observable<LivrePaniers> {
+    return this.put<LivrePaniers>(this.PanierUrl, JSON.stringify({idLivre, idPanier, quantite}))
     .pipe(
       retry(1),
       catchError(this.errorHandler)

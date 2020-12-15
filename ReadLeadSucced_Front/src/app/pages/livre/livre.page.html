@@ -46,14 +46,12 @@
               <h3 style="margin-top: 10px;">Prix : {{livre.prixLivreTtc | currency:'EUR':'symbol':undefined:'fr-FR' }} <br/> <div style="font-size: x-small;">Toutes taxes comprises</div>  </h3>
               
               <h3 style="color: green;" *ngIf="livre.stockInvLivre > 0" >En Stock</h3>
-              <h3 style="color: red" *ngIf="livre.stockInvLivre <= 0">Indisponible</h3>
-              <ion-label>Quantité : {{livre.stockInvLivre}}</ion-label>
-            <ion-row class="ajout">
-
-              <ion-col>
-                <ion-input type="text"></ion-input>
-              </ion-col>
-            </ion-row>
+              <h3 style="color: red" *ngIf="livre.stockInvLivre <= 0">En réaprovisionement</h3>
+              <ion-label>Stock disponible : {{livre.stockInvLivre}}</ion-label><br/>
+              <ion-item>
+                <ion-label>Quantité : </ion-label>
+                <ion-input [(ngModel)]="quantite" type="number"></ion-input>
+              </ion-item>
             <ion-row *ngIf="livre.stockInvLivre > 0">
               <ion-button (click)="addBasket(livre.idLivre)" expand="bock" >Ajouter au panier</ion-button>
             </ion-row>

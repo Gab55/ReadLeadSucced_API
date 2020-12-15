@@ -19,6 +19,7 @@ export class LivrePage implements OnInit {
   livre$: Observable<Livre>;
   livreId: number;
   idPanier: number;
+  quantite: number = 1;
   detailsLivre : any;
   constructor(
      private livreService: LivreWebServiceService,
@@ -56,7 +57,7 @@ export class LivrePage implements OnInit {
   }
 
   addBasket(idLivre) {
-    this.pService.addPanier(idLivre, this.idPanier).subscribe(
+    this.pService.addPanier(idLivre, this.idPanier, this.quantite).subscribe(
       pipe(
         () => {
           this.showToast();
