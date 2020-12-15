@@ -23,9 +23,13 @@ namespace ReadLeadSucced_API.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Categorie>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<SearchCategoeie>>> GetCategories()
         {
-            return await _context.Categories.ToListAsync();
+             return await _context.Categories.Select(c => new SearchCategoeie()
+                {
+                 idCategorie = c.idCategorie,
+                 LibelleCategorie = c.LibelleCategorie
+               }).ToListAsync();
         }
 
         // GET: api/Categories/5

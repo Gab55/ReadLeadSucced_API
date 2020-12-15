@@ -23,7 +23,7 @@ namespace ReadLeadSucced_API.Controllers
         }
 
         // GET: api/Livres
-        [HttpGet]
+        [HttpGet("home/{id}")]
         //public async Task<ActionResult<IEnumerable<GetLivre>>> GetLivres()
         //{
         //    return await _context.Livres.Select(l => new GetLivre()
@@ -37,7 +37,7 @@ namespace ReadLeadSucced_API.Controllers
         //    }).ToListAsync();
         //}
 
-        public async Task<ActionResult<IEnumerable<GetLivreTop>>> GetLivres()
+        public async Task<ActionResult<IEnumerable<GetLivreTop>>> GetLivresHome(int id)
         {
 
 
@@ -50,38 +50,92 @@ namespace ReadLeadSucced_API.Controllers
             //                                        }).toList
 
 
-            var items = _context.LivreCommandes.GroupBy(u => new { 
-                                                        u.Livre.titreLivre, 
-                                                        u.Livre.idLivre, 
-                                                        u.Livre.resumeLivre, 
-                                                        u.Livre.prixLivreHt, 
-                                                        u.Livre.prixLivreTtc, 
-                                                        u.Livre.stockInvLivre, 
-                                                        u.Livre.stockCmdLivre, 
-                                                        u.Livre.Editeur.idEditeur,
-                                                        u.Livre.urlImageLivre,
-                                                        u.Livre.etatLivre
-                                                        })
-                                                     .Select(x => new GetLivreTop
-                                                     {
-                                                         idLivre = x.Key.idLivre,
-                                                         titreLivre = x.Key.titreLivre,
-                                                         resumerLivre = x.Key.resumeLivre,
-                                                         prixLivreHt = x.Key.prixLivreHt,
-                                                         prixLivreTtc = x.Key.prixLivreTtc,
-                                                         stockInvLivre = x.Key.stockInvLivre,
-                                                         stockCmdLivre = x.Key.stockCmdLivre,
-                                                         idEditeur = x.Key.idEditeur,
-                                                         etatLivre = x.Key.etatLivre,
-                                                         urlPhoto = x.Key.urlImageLivre,
-                                                         nbVenteLivre = x.Count()
+            if (id == 1)
+            {
+                var items = _context.LivreCommandes.GroupBy(u => new {
+                    u.Livre.titreLivre,
+                    u.Livre.idLivre,
+                    u.Livre.resumeLivre,
+                    u.Livre.prixLivreHt,
+                    u.Livre.prixLivreTtc,
+                    u.Livre.stockInvLivre,
+                    u.Livre.stockCmdLivre,
+                    u.Livre.Editeur.idEditeur,
+                    u.Livre.urlImageLivre,
+                    u.Livre.etatLivre
+                })
+                                         .Select(x => new GetLivreTop
+                                         {
+                                             idLivre = x.Key.idLivre,
+                                             titreLivre = x.Key.titreLivre,
+                                             resumerLivre = x.Key.resumeLivre,
+                                             prixLivreHt = x.Key.prixLivreHt,
+                                             prixLivreTtc = x.Key.prixLivreTtc,
+                                             stockInvLivre = x.Key.stockInvLivre,
+                                             stockCmdLivre = x.Key.stockCmdLivre,
+                                             idEditeur = x.Key.idEditeur,
+                                             etatLivre = x.Key.etatLivre,
+                                             urlPhoto = x.Key.urlImageLivre,
+                                             nbVenteLivre = x.Count()
 
 
-                                                     })
-                                                     .OrderByDescending(x => x.nbVenteLivre)
-                                                     .Take(10);
+                                         })
+                                         .OrderByDescending(x => x.nbVenteLivre)
+                                         .Take(10);
 
-             return await items.ToListAsync(); // ToList forces execution
+                return await items.ToListAsync(); // ToList forces execution
+            }
+            else
+            {
+                var items = _context.Livres.Select(x => new GetLivreTop
+                {
+                    idLivre = x.idLivre,
+                    titreLivre = x.titreLivre,
+                    resumerLivre = x.resumeLivre,
+                    prixLivreHt = x.prixLivreHt,
+                    prixLivreTtc = x.prixLivreTtc,
+                    stockInvLivre = x.stockInvLivre,
+                    stockCmdLivre = x.stockCmdLivre,
+                    etatLivre = x.etatLivre,
+                    urlPhoto = x.urlImageLivre,
+                    nbVenteLivre = 0
+
+
+                });
+                return await items.ToListAsync();
+            }
+
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<GetLivreTop>>> GetLivres()
+        {
+
+
+            //var listeLivre = _context.LivreCommandes.GroupBy(l => l.Livre.titreLivre)
+            //                                        .Select(l => new LivreCommande() 
+            //                                        {
+            //                                          idCommande = Convert.ToInt32(l.Key),
+            //                                          idCommandeCount = l.Count()
+
+            //                                        }).toList
+
+                var items = _context.Livres.Select(x => new GetLivreTop
+                {
+                    idLivre = x.idLivre,
+                    titreLivre = x.titreLivre,
+                    resumerLivre = x.resumeLivre,
+                    prixLivreHt = x.prixLivreHt,
+                    prixLivreTtc = x.prixLivreTtc,
+                    stockInvLivre = x.stockInvLivre,
+                    stockCmdLivre = x.stockCmdLivre,
+                    etatLivre = x.etatLivre,
+                    urlPhoto = x.urlImageLivre,
+                    nbVenteLivre = 0
+
+
+                });
+                return await items.ToListAsync();
+            
 
         }
 
@@ -115,6 +169,26 @@ namespace ReadLeadSucced_API.Controllers
             }
 
             return livre;
+        }
+
+        // GET: api/Livres/5
+        [HttpGet("images/{id}")]
+        public async Task<ActionResult<IEnumerable<GetLivreImage>>> GetLivreImage(int id)
+        {
+            var livre =  _context.Livres.Select(x => new GetLivreImage
+            {
+                idLivre = x.idLivre,
+                urlPhoto = x.urlImageLivre,
+                idEditeur = x.Editeur.idEditeur
+
+            }).Where(p => p.idEditeur == id);
+
+            if (livre == null)
+            {
+                return NotFound();
+            }
+
+            return await livre.ToListAsync();
         }
 
         // PUT: api/Livres/5

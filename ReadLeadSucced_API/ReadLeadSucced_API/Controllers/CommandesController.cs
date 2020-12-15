@@ -25,9 +25,19 @@ namespace ReadLeadSucced_API.Controllers
         // GET: api/Commandes
         [AuthorizeLibraire]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Commande>>> GetCommandes()
+        public async Task<ActionResult<IEnumerable<SearchCommande>>> GetCommandes()
         {
-            return await _context.Commandes.ToListAsync();
+            return await _context.Commandes.Select(c => new SearchCommande()
+            {
+                idCommande = c.idCommande,
+                dateCommande = c.dateCommande,
+                prixTotalHt = c.prixTotalHt,
+                prixTotalTtc = c.prixTotalTtc,
+                etatCommande = c.etatCommande,
+                idClient = c.idClient
+
+
+            }).ToListAsync();
         }
 
         // GET: api/Commandes/5

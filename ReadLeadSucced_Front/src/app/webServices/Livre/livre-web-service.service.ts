@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
-import { Livre, LivreLight } from 'src/app/models/Livre';
+import { Livre, LivreAutheur, LivreLight } from 'src/app/models/Livre';
 import { SearchLivre } from 'src/app/search/SearchLivre';
 import { environment } from 'src/environments/environment';
 import { ApiService } from 'src/Shared/api.service';
@@ -13,6 +13,8 @@ import { ApiService } from 'src/Shared/api.service';
 export class LivreWebServiceService extends ApiService {
 
   livresUrl = environment.appUrl + 'api/Livres/';
+  livresHomeUrl = environment.appUrl + 'api/Livres/home/';
+  livreAutheurUrl = environment.appUrl + 'api/Livres/images/';
 
   private livres = new BehaviorSubject<LivreLight[]>([]);
 
@@ -53,8 +55,8 @@ export class LivreWebServiceService extends ApiService {
   }
 
 
-  getLivreAsynRev(): Observable<LivreLight[]> {
-    return this.get<LivreLight[]>(this.livresUrl, [])
+  getLivreAsynRev(bool: string): Observable<LivreLight[]> {
+    return this.getById<LivreLight[]>(this.livresHomeUrl, bool)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -76,6 +78,14 @@ export class LivreWebServiceService extends ApiService {
 
   getLivretID(clientId: number): Observable<Livre> {
     return this.getById<Livre>(this.livresUrl, clientId.toString() )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+  getLivretAutheur(clientId: string): Observable<LivreAutheur[]> {
+    return this.getById<LivreAutheur[]>(this.livreAutheurUrl, clientId.toString() )
       .pipe(
         retry(1),
         catchError(this.errorHandler)

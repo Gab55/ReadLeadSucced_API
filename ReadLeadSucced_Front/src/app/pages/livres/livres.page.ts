@@ -24,6 +24,7 @@ export class LivresPage implements OnInit, OnDestroy {
 
   catgerorie: Categorie[];
   livres$: Observable<LivreLight[]>;
+  livresGen$: Observable<LivreLight[]>;
  // livres: LivreLight[];
   categerieId : number;
   // Livres : any[];
@@ -68,12 +69,14 @@ export class LivresPage implements OnInit, OnDestroy {
       idCategorie: this.categerieId
     };
     const searchString = JSON.stringify(search);
-    this.livres$= this.livreService.searchClient<Livre[]>(searchString);
+    this.livres$ = this.livreService.searchClient<Livre[]>(searchString);
   }
 
   loadLivres() {
-
-    this.livres$ = this.livreService.getLivreAsynRev();
+    var bool = "0";
+    this.livres$ = this.livreService.getLivreAsynRev(bool);
+    var bool = "1";
+    this.livresGen$ = this.livreService.getLivreAsynRev(bool);
 
 
     // this.livreService.getLivre().pipe(
