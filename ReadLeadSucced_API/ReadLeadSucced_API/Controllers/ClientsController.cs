@@ -60,9 +60,24 @@ namespace ReadLeadSucced_API.Controllers
         // GET: api/Clients
         [HttpGet]
         [AuthorizeLibraire]
-        public async Task<ActionResult<IEnumerable<Client>>> GetClients()
+        public async Task<ActionResult<IEnumerable<SearchClient>>> GetClients()
         {
-            return await _context.Clients.ToListAsync();
+            return await _context.Clients.Select(c => new SearchClient()
+            {
+                idClient = c.idClient,
+                nomClient = c.nomClient,
+                prenomClient = c.prenomClient,
+                adresseClient = c.adresseClient,
+                villeClient = c.villeClient,
+                codePostalClient = c.codePostalClient,
+                telephoneClient = c.telephoneClient,
+                emailClient = c.emailClient,
+                dateNaissanceClient = c.dateNaissanceClient,
+                motDePasseClient = c.motDePasseClient,
+                loginClient = c.loginClient
+
+
+            }).ToListAsync();
         }
 
         public async Task<ActionResult<IEnumerable<Client>>> GetLoginCommercials()

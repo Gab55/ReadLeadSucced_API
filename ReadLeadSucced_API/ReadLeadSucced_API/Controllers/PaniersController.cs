@@ -26,9 +26,19 @@ namespace ReadLeadSucced_API.Controllers
         // GET: api/Paniers
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Panier>>> GetPaniers()
+        public async Task<ActionResult<IEnumerable<SearchPanier>>> GetPaniers()
         {
-            return await _context.Paniers.ToListAsync();
+
+            return await _context.Paniers.Select(p => new SearchPanier()
+            {
+                idPanier = p.idPanier,
+                idClient = p.idClient,
+                quantitePanier = p.quantitePanier,
+                prixHtPanier = p.prixHtPanier,
+                prixTtcPanier = p.prixTtcPanier
+
+            }).ToListAsync();
+
         }
 
         // GET: api/Paniers/5
