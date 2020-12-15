@@ -15,14 +15,23 @@ export class PanierWebService  extends ApiService {
 
 
   PanierUrl = environment.appUrl + 'api/Paniers/';
+  PanierLivresUrl = environment.appUrl + 'api/Paniers/Livres/';
 
   constructor(private http: HttpClient) {
     super(http);
   }
 
 
-  getPanier(PanierId: string): Observable<LivrePaniers[]> {
-    return this.getById<LivrePaniers[]>(this.PanierUrl, PanierId )
+  getPanierLivres(PanierId: string): Observable<LivrePaniers[]> {
+    return this.getById<LivrePaniers[]>(this.PanierLivresUrl, PanierId )
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+  getPanier(ClientId: string): Observable<Panier> {
+    return this.getById<Panier>(this.PanierUrl, ClientId )
       .pipe(
         retry(1),
         catchError(this.errorHandler)

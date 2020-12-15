@@ -14,8 +14,11 @@ import { PanierWebService } from './../../../app/webServices/Panier/panier.servi
 export class PanierPage implements OnInit {
   idClient: string = null;
   panierVide: boolean;
-  panier$: Observable<LivrePaniers[]>;
-  constructor(private pService: PanierWebService, private toastController: ToastController) { }
+  panier$: Observable<Panier>;
+  panierLivres$: Observable<LivrePaniers[]>;
+  constructor(private pService: PanierWebService, private toastController: ToastController) {
+    this.loadPanier();
+   }
 
   ngOnInit() {
 
@@ -24,11 +27,14 @@ export class PanierPage implements OnInit {
   }
 
   loadPanier() {
-    this.panier$ = this.pService.getPanier(this.idClient).pipe(
+    this.panierLivres$ = this.pService.getPanierLivres(this.idClient).pipe(
       tap(p => {
         this.panierVide = p[0] != undefined ? false : true; 
       } 
     ));
+
+    this.panier$ = this.pService.getPanier(this.idClient);
+    
   }
 
   async showToast() {
