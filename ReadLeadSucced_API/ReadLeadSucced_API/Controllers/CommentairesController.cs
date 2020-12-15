@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReadLeadSucced_Data;
 using ReadLeadSucced_Data.Models;
+using ReadLeadSucced_Data.Models.Associations;
 
 namespace ReadLeadSucced_API.Controllers
 {
@@ -30,16 +31,23 @@ namespace ReadLeadSucced_API.Controllers
 
         // GET: api/Commentaires/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Commentaire>> GetCommentaire(int id)
+        public async Task<ActionResult<IEnumerable<Commentaire>>> GetCommentaire(int id)
         {
-            var commentaire = await _context.Commentaires.FindAsync(id);
+            var Commentaires =  _context.Commentaires.Join(_context.LivreCommentaires,
+                                                                c => c.idCommentaire,
+                                                                lc => lc.idCommentaire,
+                                                                (c, lc) => new {commentaire = c, livrecommentaire = lc })
+                                                          .Where(clc => clc.livrecommentaire.idLivre == id)
+                                                          .Select(clc => clc.commentaire);
 
-            if (commentaire == null)
+            //.Where(c => c.LivreCommentaires.idLivre == id);
+
+            if (Commentaires == null)
             {
                 return NotFound();
             }
 
-            return commentaire;
+            return await Commentaires.ToListAsync();
         }
 
         // PUT: api/Commentaires/5
@@ -76,12 +84,22 @@ namespace ReadLeadSucced_API.Controllers
         // POST: api/Commentaires
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Commentaire>> PostCommentaire(Commentaire commentaire)
+        public async Task<ActionResult<CommentaireId>> PostCommentaire(CommentaireId commentaire)
         {
             _context.Commentaires.Add(commentaire);
+
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCommentaire", new { id = commentaire.idCommentaire }, commentaire);
+            CreatedAtAction("GetCommentaire", new { id = commentaire.idCommentaire }, commentaire);
+            _context.LivreCommentaires.Add(new LivreCommentaire
+                                            {
+                                                idCommentaire = commentaire.idCommentaire,
+                                                idLivre = commentaire.idLivre
+                                            });
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
         // DELETE: api/Commentaires/5
