@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, pipe } from 'rxjs';
 import { NavController, ToastController } from '@ionic/angular';
 
-import { Livre } from 'src/app/models/Livre';
+import { Livre, LivreAutheur } from 'src/app/models/Livre';
 import { Commentaire } from 'src/app/models/Commentaire';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
 import { CommentaireService } from 'src/app/webServices/Commentaire/commentaire-web-service.service';
@@ -20,8 +20,10 @@ import { catchError, tap } from 'rxjs/operators';
 export class LivrePage implements OnInit {
   livre$: Observable<Livre>;
   commentaires$: Observable<Commentaire[]>;
+  livresAutheur$: Observable<LivreAutheur[]>;
   livreId: number;
   idPanier: number;
+  idEditeur: number;
   contenuCommentaire: string;
   anonymeCommentaire: boolean;
   noteCommentaire: number;
@@ -69,8 +71,17 @@ export class LivrePage implements OnInit {
   }
 
   loadLivre() {
-   this.livre$ = this.livreService.getLivretID(this.livreId)
+   var newObj: any;
+   this.livre$ = this.livreService.getLivretID(this.livreId).pipe(
+     tap(p =>  {newObj = p, this.loadLivreAutheur(newObj.editeur.idEditeur)})
+     
+   )
   }
+
+  loadLivreAutheur(id) {
+    var idAutheur = id.toString();
+    this.livresAutheur$ = this.livreService.getLivretAutheur(idAutheur)
+   }
 
   async showToast() {
       const toast = await this.toastController.create({

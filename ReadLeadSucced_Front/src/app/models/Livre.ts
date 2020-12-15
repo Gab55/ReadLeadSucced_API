@@ -14,3 +14,9 @@ export class Livre extends LivreLight {
     etatLivre: string;
     idcategorie?: number;
 }
+
+export class LivreAutheur {
+    idLivre: number;
+    idEditeur: number;
+    urlPhoto: string;
+}
