@@ -35,9 +35,9 @@
               </ion-menu-toggle>
           </ion-list>
           <hr class="solid" style="margin-top: 20px;">
-          <h5 style="font-weight: bold;">Catégories :</h5>
+          <h5 style="font-weight: bold;" *ngIf="(categorie$ | async)?.length>0">Catégories :</h5>
           
-          <ion-list *ngFor="let cate of categories$ | async">
+          <ion-list *ngFor="let cate of (categories$ | async)">
                 <ion-menu-toggle auto-hide="true">
                     <ion-item (click)="searchCategorie(cate.idCategorie)" [routerLink]="cate.url" routerDirection="forward">
                         {{cate.libelleCategorie}}
@@ -103,12 +103,11 @@
             </ion-menu-toggle>
         </ion-list>
         <hr class="solid" style="margin-top: 20px;">
-        <h5 style="font-weight: bold;">Catégories :</h5>
+        <h5 style="font-weight: bold;" *ngIf="(categorie$ | async)?.length>0">Catégories :</h5>
         
-        <ion-list *ngFor="let cate of categories$ | async">
+        <ion-list *ngFor="let cate of (categories$ | async)">
               <ion-menu-toggle auto-hide="true">
                   <ion-item (click)="searchCategorie(cate.idCategorie)" [routerLink]="cate.url" routerDirection="root">
-  
                       {{cate.libelleCategorie}}
                   </ion-item>
               </ion-menu-toggle>
