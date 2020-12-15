@@ -26,4 +26,18 @@ namespace ReadLeadSucced_Data.Models
         public virtual ICollection<CommandeLibraire> CommandeLibraires { get; set; }
         public virtual ICollection<LivreCommande> LivreCommandes { get; set; }
     }
+
+    public class SearchCommande
+    {
+        public int idCommande { get; set; }
+        public DateTime dateCommande { get; set; }
+  
+        public decimal prixTotalHt { get; set; }
+
+        public decimal prixTotalTtc { get; set; }
+        public string etatCommande { get; set; }
+        public int idClient { get; set; }
+    }
+
+
 }

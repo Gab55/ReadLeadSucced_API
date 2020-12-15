@@ -55,6 +55,12 @@ namespace ReadLeadSucced_Data.Models
         public int nbVenteLivre { get; set; }
     }
 
+    public class GetLivreImage
+    {
+        public int idLivre { get; set; }
+        public int idEditeur { get; set; }
+        public string urlPhoto { get; set; }
+    }
 
     public class EditLivre : Livre
     {

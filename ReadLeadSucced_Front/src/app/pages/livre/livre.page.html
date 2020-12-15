@@ -84,20 +84,10 @@
           <hr>
         </div>
         <div>
-          <ion-slides pager={true} options={slideOpts}>
-            <ion-slide>
-              <div class="container">
-                <img src="../assets/images/montage-rentrée-littéraire.jpg" />
-              </div>
-            </ion-slide>
-            <ion-slide>
-              <div class="container">
-                <img src="../assets/images/photoLitteraire.jpeg" />
-              </div>
-            </ion-slide>
-            <ion-slide>
-              <div class="container">
-                <img src="../assets/images/Rien-nest-noir-de-Claire-Berest.jpg" />
+          <ion-slides *ngIf="(livresAutheur$ | async) as livresAutheur" pager={true} options={slideOpts}>
+            <ion-slide *ngFor="let l of livresAutheur">
+              <div class="container" [routerLink]="['/livre/', l.idLivre]">
+                <img [src]="l.urlPhoto" />
               </div>
             </ion-slide>
           </ion-slides>

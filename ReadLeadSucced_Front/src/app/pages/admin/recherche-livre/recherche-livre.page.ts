@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class RechercheLivrePage implements OnInit {
 
-  livres: LivreLight[];
+  livres$: Observable<LivreLight[]>;
   // Livres : any[];
   constructor(private livreService: LivreWebServiceService, 
     private cd: ChangeDetectorRef,
@@ -35,9 +35,7 @@ export class RechercheLivrePage implements OnInit {
 
   loadLivres() {
   //  this.livreService.getLivre().subscribe();
-    this.livreService.getLivreLight().pipe(
-      tap(l => this.livres = l)
-    ).subscribe();
+  this.livres$ = this.livreService.getLivreAsynRev();
 
   //   let currentUrl = this.router.url;
   //   this.router.routeReuseStrategy.shouldReuseRoute = () => false;

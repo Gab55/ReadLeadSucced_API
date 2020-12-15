@@ -43,6 +43,22 @@
           </ion-card>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header  [routerLink]="['/admin/creation-livre']"  routerDirection="forward" >
+              <h6>Créer un livre</h6>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col>          
+          <ion-card>
+            <ion-card-header [routerLink]="['/admin/creation-categorie']" routerDirection="forward">
+              <h6>Créer catégorie</h6>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
     </ion-grid>
 </div>
 </ion-content>  

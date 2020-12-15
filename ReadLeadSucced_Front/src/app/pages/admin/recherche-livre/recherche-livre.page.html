@@ -1,10 +1,10 @@
 
 
-<ion-content *ngIf="livres?.length>0">  
+<ion-content *ngIf="(livres$| async)?.length>0">  
   <div class="card-up">
   <ion-list >  
 
-    <ion-card *ngFor="let livres of livres">
+    <ion-card *ngFor="let livre of (livres$ | async)">
       <ion-card-content [routerLink]="['/admin/gestion-livre/', livres.idLivre]">
         <h3>Titre : {{livres.titreLivre}}</h3> 
         <h3>Stock : {{livres.stockInvLivre}}</h3> 
@@ -12,8 +12,6 @@
       </ion-card-content>
     </ion-card>
 
-
-   
   </ion-list>  
 </div>
 </ion-content>  

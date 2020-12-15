@@ -2,3 +2,19 @@
 ReadLeadSucced_API/.vs/ReadLeadSucced_API/v16/.suo
 
 ReadLeadSucced_API/ReadLeadSucced_API/debug.log
+
+ReadLeadSucced_API/.vs/ReadLeadSucced_API/config/applicationhost.config
+
+ReadLeadSucced_API/.vs/ReadLeadSucced_API/DesignTimeBuild/.dtbcache.v2
+
+ReadLeadSucced_API/ReadLeadSucced_API/bin/Debug/net5.0/ReadLeadSucced_API.deps.json
+
+ReadLeadSucced_API/ReadLeadSucced_API/bin/Debug/net5.0/ReadLeadSucced_API.dll
+
+ReadLeadSucced_API/ReadLeadSucced_API/bin/Debug/net5.0/ReadLeadSucced_API.pdb
+
+ReadLeadSucced_API/ReadLeadSucced_API/bin/Debug/net5.0/ReadLeadSucced_API.runtimeconfig.dev.json
+
+ReadLeadSucced_API/ReadLeadSucced_API/bin/Debug/net5.0/ref/ReadLeadSucced_API.dll
+
+ReadLeadSucced_API/ReadLeadSucced_API/Controllers/CategoriesController.cs

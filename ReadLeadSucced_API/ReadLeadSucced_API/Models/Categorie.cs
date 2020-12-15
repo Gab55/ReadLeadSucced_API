@@ -16,4 +16,11 @@ namespace ReadLeadSucced_Data.Models
 
         public virtual ICollection<LivreCategorie> LivreCategories { get; set; }
     }
+
+    public class SearchCategoeie
+    {
+        public int? idCategorie { get; set; }
+        public string LibelleCategorie { get; set; }
+
+    }
 }

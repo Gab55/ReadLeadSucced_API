@@ -41,6 +41,9 @@ export class ApiService {
   public getById<T>(url: string, value: string): Observable<T> {
     return this.httpClient.get<T>(url + value, { headers: this.getHeaders() });
   }
+  public getByBool<T>(url: string, value: Boolean): Observable<T> {
+    return this.httpClient.get<T>(url + value, { headers: this.getHeaders() });
+  }
   
 
   public getpdf<T>(url: string, value: string) {

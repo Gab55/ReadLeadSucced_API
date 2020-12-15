@@ -25,4 +25,18 @@ namespace ReadLeadSucced_Data.Models
 
         public virtual ICollection<LivrePanier> LivrePaniers { get; set; }
     }
+
+
+    public class SearchPanier
+    {
+        public int idPanier { get; set; }
+
+        public int idClient { get; set; }
+        public int quantitePanier { get; set; }
+
+        public double prixHtPanier { get; set; }
+
+        public double prixTtcPanier { get; set; }
+
+    }
 }

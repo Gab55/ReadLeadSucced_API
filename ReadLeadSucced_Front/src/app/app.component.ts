@@ -95,6 +95,7 @@ export class AppComponent implements OnDestroy {
     
   }
 
+
   loadCategorie() {
     this.categories$ = this.categorieWebService.getCategories();
 
@@ -140,8 +141,6 @@ export class AppComponent implements OnDestroy {
     // this.navCtrl.setRoot(this.navCtrl.getActive().component);
 
   }
-
-  
 
 
 
