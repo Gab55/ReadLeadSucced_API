@@ -34,8 +34,9 @@ export class RechercheLivrePage implements OnInit {
 
 
   loadLivres() {
-  //  this.livreService.getLivre().subscribe();
-  this.livres$ = this.livreService.getLivreAsynRev();
+  //  this.livreService.getLivre().subscribe();+
+  var bool = "1"
+  this.livres$ = this.livreService.getLivreAsynRev(bool);
 
   //   let currentUrl = this.router.url;
   //   this.router.routeReuseStrategy.shouldReuseRoute = () => false;
