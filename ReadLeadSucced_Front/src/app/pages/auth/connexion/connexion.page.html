@@ -1,26 +1,6 @@
-<ion-header>
-
-  <ion-toolbar>
-    <div class="container-image">
-        <div class="logo">
-          <img src="../assets/images/logo-readleadsucced.png" />
-        </div>
-        <div class="shopping">
-          <img src="../assets/images/Icon-shopping.png" />
-        </div>
-        
-  </div>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 
 <ion-content>
+  <div class="card-up">
   <ion-card>
     <form [formGroup]="form" (ngSubmit)="login()">
     <ion-card-header class="ion-justify-content-center">
@@ -53,11 +33,12 @@
   
       <br>
       <br>
-      <ion-button (click)="login()"  router-direction="forward"  expand="block" shape="round" fill="outline">Connexion</ion-button>
+      <ion-button (click)="login()"  router-direction="root"  expand="block" shape="round" fill="outline">Connexion</ion-button>
       <br>
       <ion-button color="tertiary" expand="block" shape="round" [routerLink]="['/creation-utilisateur']">Inscription</ion-button>
     </ion-card-content>
   </form>
   </ion-card>
+  </div>
 </ion-content>
 

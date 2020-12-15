@@ -68,8 +68,8 @@
       </ion-col>
       
     </ion-row>-->
-    <ion-row *ngIf="livres?.length>0">
-      <ion-col size="4" *ngFor="let livre of livres">
+    <ion-row *ngIf="(livres$| async)?.length>0">
+      <ion-col size="4" *ngFor="let livre of (livres$ | async)">
         <ion-card [routerLink]="['/livre/', livre.idLivre]">
         <div class="container">
           <ion-img style="height: 170px" [src]="livre.urlPhoto" class="full-image"></ion-img>

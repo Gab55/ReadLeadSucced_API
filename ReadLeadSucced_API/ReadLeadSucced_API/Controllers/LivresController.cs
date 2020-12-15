@@ -47,8 +47,8 @@ namespace ReadLeadSucced_API.Controllers
             if (search.idCategorie.GetValueOrDefault() != 0)
                 req = req.Where(l => l.LivreCategories.Any(c => c.idCategorie == search.idCategorie.Value));
 
-            if (!string.IsNullOrWhiteSpace(search.titre))
-                req = req.Where(l => l.titreLivre.ToLower().Contains(search.titre.ToLower()));
+            //if (!string.IsNullOrWhiteSpace(search.titre))
+            //    req = req.Where(l => l.titreLivre.ToLower().Contains(search.titre.ToLower()));
 
 
             return await req.ToListAsync();

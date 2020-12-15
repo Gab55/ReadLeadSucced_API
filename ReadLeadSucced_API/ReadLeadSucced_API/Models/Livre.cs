@@ -58,7 +58,7 @@ namespace ReadLeadSucced_Data.Models
     public class SearchLivre
     {
         public int? idCategorie { get; set; }
-        public string titre { get; set; }
+        //public string titre { get; set; }
 
     }
 

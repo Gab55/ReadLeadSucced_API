@@ -2,12 +2,16 @@ import { ChangeDetectorRef,Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { NavigationEnd, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationExtras, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 import { Livre, LivreLight } from 'src/app/models/Livre';
 import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-service.service';
 import { tap } from 'rxjs/operators';
+import { SearchLivre } from 'src/app/search/SearchLivre';
+import { Categorie } from 'src/app/models/Categorie';
+import { CategorieWebServiceService } from 'src/app/webServices/categorie/categorie-web-service.service';
+
 
 
 @Component({
@@ -17,16 +21,28 @@ import { tap } from 'rxjs/operators';
 })
 export class LivresPage implements OnInit, OnDestroy {
   mySubscription: any;
-  livres: Livre[];
+
+  catgerorie: Categorie[];
+  livres$: Observable<LivreLight[]>;
+ // livres: LivreLight[];
+  categerieId : number;
   // Livres : any[];
   constructor(
-    private livreService: LivreWebServiceService, 
+    private livreService: LivreWebServiceService,
+    private categorieService: CategorieWebServiceService,
     private cd: ChangeDetectorRef,
+    private avRoute: ActivatedRoute,
     private router: Router) {
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
       };
-      
+
+        const idParam = 'id';
+
+        if (this.avRoute.snapshot.params[idParam]) {
+          this.categerieId = this.avRoute.snapshot.params[idParam];
+        }
+
       this.mySubscription = this.router.events.subscribe((event) => {
         if (event instanceof NavigationEnd) {
           // Trick the Router into believing it's last link wasn't previously loaded
@@ -38,13 +54,30 @@ export class LivresPage implements OnInit, OnDestroy {
    ngOnInit() {
 
     this.loadLivres();
+    console.log(this.categerieId)
+    if(this.categerieId > 0){
+      this.searchCategorie();
+    }
 
   }
 
+
+  searchCategorie() {
+    const search: SearchLivre = {
+      idCategorie: this.categerieId
+    };
+    const searchString = JSON.stringify(search);
+    this.livres$= this.livreService.searchClient<Livre[]>(searchString);
+  }
+
   loadLivres() {
-    this.livreService.getLivre().pipe(
-      tap(l => this.livres = l)
-    ).subscribe();
+
+    this.livres$ = this.livreService.getLivreAsynRev();
+
+
+    // this.livreService.getLivre().pipe(
+    //   tap(l => this.livres = l)
+    // ).subscribe();
   }
 
   ngOnDestroy() {

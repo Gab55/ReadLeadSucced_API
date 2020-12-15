@@ -5,6 +5,7 @@ import { LivreWebServiceService } from 'src/app/webServices/Livre/livre-web-serv
 import { Observable } from 'rxjs';
 import { Livre, LivreLight } from 'src/app/models/Livre';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,19 +18,39 @@ export class RechercheLivrePage implements OnInit {
   livres: LivreLight[];
   // Livres : any[];
   constructor(private livreService: LivreWebServiceService, 
-    private cd: ChangeDetectorRef) {
+    private cd: ChangeDetectorRef,
+    private router: Router) {
 
    }
 
    ngOnInit() {
     this.loadLivres();
+    
+    //  let currentUrl = this.router.url;
+    //  this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    // this.router.onSameUrlNavigation = 'reload';
+    // this.router.navigate([currentUrl]);
   }
 
+
   loadLivres() {
-    this.livreService.getLivre().subscribe();
+  //  this.livreService.getLivre().subscribe();
     this.livreService.getLivreLight().pipe(
       tap(l => this.livres = l)
     ).subscribe();
+
+  //   let currentUrl = this.router.url;
+  //   this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  //  this.router.onSameUrlNavigation = 'reload';
+  //  this.router.navigate([currentUrl]);
+
+  //    let currentUrl = this.router.url;
+  //    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+  //        this.router.navigate([currentUrl]);
+  //  });
   }
+
+
+
 
 }

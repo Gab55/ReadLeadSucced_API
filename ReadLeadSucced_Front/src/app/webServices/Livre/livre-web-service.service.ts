@@ -52,6 +52,15 @@ export class LivreWebServiceService extends ApiService {
     );
   }
 
+
+  getLivreAsynRev(): Observable<LivreLight[]> {
+    return this.get<LivreLight[]>(this.livresUrl, [])
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
+  }
+
   searchLivre(search: string) {
     this.post<Livre[]>(this.livresUrl + 'search', search)
     .pipe(
@@ -61,8 +70,6 @@ export class LivreWebServiceService extends ApiService {
         this.setLivre(l);
       })
     ).subscribe();
-
-
   }
 
 
