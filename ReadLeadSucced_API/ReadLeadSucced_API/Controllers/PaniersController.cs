@@ -33,8 +33,8 @@ namespace ReadLeadSucced_API.Controllers
 
         // GET: api/Paniers/5
         [Authorize]
-        [HttpGet("{id}")]
-        public async Task<List<LivrePanier>> GetPanier(string id)
+        [HttpGet("livres/{id}")]
+        public async Task<List<LivrePanier>> GetPanierLivres(string id)
         {
             var listePanier = _context.LivrePaniers.Select(p => p);
 
@@ -47,6 +47,24 @@ namespace ReadLeadSucced_API.Controllers
           
 
             return await listePanier.ToListAsync();
+        }
+
+        // GET: api/Paniers/5
+        [Authorize]
+        [HttpGet("{id}")]
+        public async Task<List<Panier>> GetPanier(string id)
+        {
+            var panier = _context.Paniers.Select(p => p);
+
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                var idInt = Int32.Parse(id);
+                panier = panier.Where(p => p.idClient == idInt);
+            }
+
+
+
+            return await panier.ToListAsync();
         }
 
         [Authorize]

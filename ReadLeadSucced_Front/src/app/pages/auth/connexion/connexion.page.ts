@@ -110,7 +110,6 @@ this.form.controls['identifiant']
           const newObj: any = log;
           if(newObj.result != null) {
             localStorage.setItem('token', newObj.result.token);
-
             localStorage.setItem('id', newObj.result.idClient);
             localStorage.setItem('idPanier', newObj.result.idPanier);
             this.router.navigateByUrl('auth/connexion', { skipLocationChange: true }).then(() => {
