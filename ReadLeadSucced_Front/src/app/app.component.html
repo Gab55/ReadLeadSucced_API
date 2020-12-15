@@ -115,7 +115,7 @@
           </ion-list>
       <br>
       <br>
-      <div *ngIf="idClient != null || idLibraire != null" (click)="logOut()" class="menu-deconnexion">
+      <div *ngIf="idClient != null || idLibraire != null" routerDirection="root" (click)="logOut()" class="menu-deconnexion">
           <h4>Déconnexion</h4>
       </div>
 

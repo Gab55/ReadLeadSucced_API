@@ -24,17 +24,65 @@ namespace ReadLeadSucced_API.Controllers
 
         // GET: api/Livres
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GetLivre>>> GetLivres()
-        {
-            return await _context.Livres.Select(l => new GetLivre()
-            {
-                idLivre = l.idLivre,
-                titreLivre = l.titreLivre,
-                stockInvLivre = l.stockInvLivre,
-                urlPhoto = l.urlImageLivre,
-                prixLivreTtc = l.prixLivreTtc
+        //public async Task<ActionResult<IEnumerable<GetLivre>>> GetLivres()
+        //{
+        //    return await _context.Livres.Select(l => new GetLivre()
+        //    {
+        //        idLivre = l.idLivre,
+        //        titreLivre = l.titreLivre,
+        //        stockInvLivre = l.stockInvLivre,
+        //        urlPhoto = l.urlImageLivre,
+        //        prixLivreTtc = l.prixLivreTtc
 
-            }).ToListAsync();
+        //    }).ToListAsync();
+        //}
+
+        public async Task<ActionResult<IEnumerable<GetLivreTop>>> GetLivres()
+        {
+
+
+            //var listeLivre = _context.LivreCommandes.GroupBy(l => l.Livre.titreLivre)
+            //                                        .Select(l => new LivreCommande() 
+            //                                        {
+            //                                          idCommande = Convert.ToInt32(l.Key),
+            //                                          idCommandeCount = l.Count()
+
+            //                                        }).toList
+
+
+            var items = _context.LivreCommandes.GroupBy(u => new { 
+                                                        u.Livre.titreLivre, 
+                                                        u.Livre.idLivre, 
+                                                        u.Livre.resumeLivre, 
+                                                        u.Livre.prixLivreHt, 
+                                                        u.Livre.prixLivreTtc, 
+                                                        u.Livre.stockInvLivre, 
+                                                        u.Livre.stockCmdLivre, 
+                                                        u.Livre.Editeur.idEditeur,
+                                                        u.Livre.urlImageLivre,
+                                                        u.Livre.etatLivre
+                                                        })
+                                                     .Select(x => new GetLivreTop
+                                                     {
+                                                         idLivre = x.Key.idLivre,
+                                                         titreLivre = x.Key.titreLivre,
+                                                         resumerLivre = x.Key.resumeLivre,
+                                                         prixLivreHt = x.Key.prixLivreHt,
+                                                         prixLivreTtc = x.Key.prixLivreTtc,
+                                                         stockInvLivre = x.Key.stockInvLivre,
+                                                         stockCmdLivre = x.Key.stockCmdLivre,
+                                                         idEditeur = x.Key.idEditeur,
+                                                         etatLivre = x.Key.etatLivre,
+                                                         urlPhoto = x.Key.urlImageLivre,
+                                                         nbVenteLivre = x.Count()
+
+
+                                                     })
+                                                     .OrderByDescending(x => x.nbVenteLivre)
+                                                     .Take(10);
+
+             return await items.ToListAsync(); // ToList forces execution
+
         }
 
 
@@ -47,8 +95,8 @@ namespace ReadLeadSucced_API.Controllers
             if (search.idCategorie.GetValueOrDefault() != 0)
                 req = req.Where(l => l.LivreCategories.Any(c => c.idCategorie == search.idCategorie.Value));
 
-            if (!string.IsNullOrWhiteSpace(search.titre))
-                req = req.Where(l => l.titreLivre.ToLower().Contains(search.titre.ToLower()));
+            //if (!string.IsNullOrWhiteSpace(search.titre))
+            //    req = req.Where(l => l.titreLivre.ToLower().Contains(search.titre.ToLower()));
 
 
             return await req.ToListAsync();

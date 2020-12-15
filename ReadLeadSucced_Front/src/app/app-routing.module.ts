@@ -50,6 +50,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/livres/livres.module').then( m => m.LivresPageModule)
   },
   {
+    path: 'livres/:id',
+    loadChildren: () => import('./pages/livres/livres.module').then( m => m.LivresPageModule)
+  },
+  {
     path: 'admin/recherche-livre',
     loadChildren: () => import('./pages/admin/recherche-livre/recherche-livre.module').then( m => m.RechercheLivrePageModule)
   },

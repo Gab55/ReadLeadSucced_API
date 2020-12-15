@@ -50,6 +50,12 @@ namespace ReadLeadSucced_Data.Models
         public string etatLivre { get; set; }
     }
 
+    public class GetLivreTop : GetLivre
+    {
+        public int nbVenteLivre { get; set; }
+    }
+
+
     public class EditLivre : Livre
     {
         public int? idCategorie { get; set; }
@@ -58,7 +64,7 @@ namespace ReadLeadSucced_Data.Models
     public class SearchLivre
     {
         public int? idCategorie { get; set; }
-        public string titre { get; set; }
+        //public string titre { get; set; }
 
     }
 

@@ -1,5 +1,5 @@
 import { MenuController, NavController, Platform } from '@ionic/angular';
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Observable } from 'rxjs';
@@ -32,7 +32,7 @@ export class AppComponent implements OnDestroy {
   idClient: string;
   idLibraire: string;
   mySubscription: any;
-
+  changeDetection: ChangeDetectionStrategy.OnPush
   navigate: any;
   navigateAdmin: any;
   categorie: any;
@@ -132,16 +132,16 @@ export class AppComponent implements OnDestroy {
     const search: SearchLivre = {
       idCategorie: idCateg
     };
-    const searchString = JSON.stringify(search);
-    this.livreWebService.searchLivre(searchString);
-
-    this.navCtrl.navigateRoot('livres')
+    // const searchString = JSON.stringify(search);
+    // this.livreWebService.searchLivre(searchString);
+    
+    //this.livreWebService.get
+    this.navCtrl.navigateForward('livres/'+ idCateg)
     // this.navCtrl.setRoot(this.navCtrl.getActive().component);
-
-
 
   }
 
+  
 
 
 
