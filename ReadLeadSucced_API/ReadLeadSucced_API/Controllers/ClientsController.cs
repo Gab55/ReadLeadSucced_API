@@ -59,7 +59,7 @@ namespace ReadLeadSucced_API.Controllers
 
         // GET: api/Clients
         [HttpGet]
-        [Authorize]
+        [AuthorizeLibraire]
         public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
             return await _context.Clients.ToListAsync();
