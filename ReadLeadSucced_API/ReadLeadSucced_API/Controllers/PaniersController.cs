@@ -78,6 +78,16 @@ namespace ReadLeadSucced_API.Controllers
             {
                 _context.LivrePaniers.RemoveRange(LivrePaniers);
                 await _context.SaveChangesAsync();
+
+                var panier = _context.Paniers.FirstOrDefault(item => item.idPanier == livrePanier.idPanier);
+
+                var prixHt = _context.LivrePaniers.Where(p => p.idPanier == livrePanier.idPanier).Sum(p => p.prixHt);
+                var prixTtc = _context.LivrePaniers.Where(p => p.idPanier == livrePanier.idPanier).Sum(p => p.prixTtc);
+
+                panier.prixHtPanier = Convert.ToDouble(prixHt);
+                panier.prixTtcPanier = Convert.ToDouble(prixTtc);
+
+                await _context.SaveChangesAsync();
                 return Ok();
             }
 
@@ -88,38 +98,64 @@ namespace ReadLeadSucced_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPanier([FromBody] LivrePanier livrePanier)
         {
-                _context.LivrePaniers.Add(livrePanier);
-                await _context.SaveChangesAsync();
-                return Ok();
+            var idPanier = livrePanier.idPanier;
+            var idLivre = livrePanier.idLivre;
+
+            var livre = _context.Livres.FirstOrDefault(item => item.idLivre == idLivre);
+
+            livrePanier.prixHt = livre.prixLivreHt * livrePanier.quantite;
+            livrePanier.prixTtc = livre.prixLivreTtc * livrePanier.quantite;
+
+            _context.LivrePaniers.Add(livrePanier);
+
+            await _context.SaveChangesAsync();
+
+            var panier = _context.Paniers.FirstOrDefault(item => item.idPanier == idPanier);
+
+            var prixHt = _context.LivrePaniers.Where(p => p.idPanier == idPanier).Sum(p => p.prixHt);
+            var prixTtc = _context.LivrePaniers.Where(p => p.idPanier == idPanier).Sum(p => p.prixTtc);
+
+            panier.prixHtPanier = Convert.ToDouble(prixHt);
+            panier.prixTtcPanier = Convert.ToDouble(prixTtc);
+
+            await _context.SaveChangesAsync();
+            return Ok();
         }
 
         // PUT: api/Paniers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [Authorize]
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPanier(int id, Panier panier)
+        [HttpPut]
+        public async Task<IActionResult> PutPanier([FromBody] LivrePanier livrePanier)
         {
-            if (id != panier.idPanier)
-            {
-                return BadRequest();
-            }
+            var idLivre = livrePanier.idLivre;
+            var idPanier = livrePanier.idPanier;
+            var livre = _context.Livres.FirstOrDefault(item => item.idLivre == idLivre);
 
-            _context.Entry(panier).State = EntityState.Modified;
+            livrePanier.prixHt = livre.prixLivreHt * livrePanier.quantite;
+            livrePanier.prixTtc = livre.prixLivreTtc * livrePanier.quantite;
+
+
+            _context.Entry(livrePanier).State = EntityState.Modified;
 
             try
             {
                 await _context.SaveChangesAsync();
+
+                var panier = _context.Paniers.FirstOrDefault(item => item.idPanier == idPanier);
+
+                var prixHt = _context.LivrePaniers.Where(p => p.idPanier == idPanier).Sum(p => p.prixHt);
+                var prixTtc = _context.LivrePaniers.Where(p => p.idPanier == idPanier).Sum(p => p.prixTtc);
+
+                panier.prixHtPanier = Convert.ToDouble(prixHt);
+                panier.prixTtcPanier = Convert.ToDouble(prixTtc);
+
+                await _context.SaveChangesAsync();
+
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PanierExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                
             }
 
             return NoContent();

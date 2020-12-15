@@ -33,7 +33,11 @@ export class PanierPage implements OnInit {
       } 
     ));
 
-    this.panier$ = this.pService.getPanier(this.idClient);
+    this.panier$ = this.pService.getPanier(this.idClient).pipe(
+      tap(p => {
+        console.log(p);
+      } 
+    ));
     
   }
 
@@ -47,6 +51,16 @@ export class PanierPage implements OnInit {
     await toast.present();
 }
 
+  async showToastUpdate() {
+    const toast = await this.toastController.create({
+      color: 'dark',
+      duration: 2000,
+      message: 'Panier mit à jour'
+    });
+
+    await toast.present();
+  }
+
   deletePanier(idLivre, idPanier) {
     this.pService.deletePanier(idLivre, idPanier).subscribe(
       pipe(
@@ -57,4 +71,18 @@ export class PanierPage implements OnInit {
       )
     );
   }
+
+  updatePanier(idLivre, idPanier, quantite){
+    if(quantite > 0) {
+      this.pService.updatePanier(idLivre, idPanier, quantite).subscribe(
+        pipe(
+         () => {
+          this.loadPanier();
+          this.showToastUpdate();
+         }
+        )
+      );
+    }
+  }
+
 }

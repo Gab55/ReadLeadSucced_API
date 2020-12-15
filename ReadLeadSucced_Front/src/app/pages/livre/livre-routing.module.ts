@@ -5,6 +5,7 @@ import { LoginInterceptor } from './../../../Shared/login-interceptor.service';
 
 import { LivrePage } from './livre.page';
 import { PanierWebService } from '../../webServices/Panier/panier.service';
+import { CommentaireService } from '../../webServices/Commentaire/commentaire-web-service.service';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       useClass: LoginInterceptor,
       multi: true 
     },
-    PanierWebService
+    PanierWebService,
+    CommentaireService
   ]
 })
 export class LivrePageRoutingModule {}

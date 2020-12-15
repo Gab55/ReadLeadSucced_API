@@ -24,19 +24,19 @@
           <ion-col class="ion-justify-content-center" size="4">
               <ion-img  [src]="livre.urlImageLivre" class="full-image"></ion-img>
               <span>
-                <ion-icon style="zoom: 1.2" classe="iconStar" name="star"></ion-icon>
+                <ion-icon style="zoom: 1.1" classe="iconStar" name="star"></ion-icon>
               </span>
               <span >
-                <ion-icon style="zoom: 1.2" classe="iconStar" name="star"></ion-icon>
+                <ion-icon style="zoom: 1.1" classe="iconStar" name="star"></ion-icon>
               </span>
               <span>
-                <ion-icon style="zoom: 1.2" classe="iconStar" name="star"></ion-icon>
+                <ion-icon style="zoom: 1.1" classe="iconStar" name="star"></ion-icon>
               </span>
               <span>
-                <ion-icon style="zoom: 1.2" classe="iconStar" name="star"></ion-icon>
+                <ion-icon style="zoom: 1.1" classe="iconStar" name="star"></ion-icon>
               </span >
               <span>
-                <ion-icon style="zoom: 1.2" classe="iconStar" name="star"></ion-icon>
+                <ion-icon style="zoom: 1.1" classe="iconStar" name="star"></ion-icon>
               </span>
           </ion-col>
           <ion-col size="1">
@@ -46,14 +46,12 @@
               <h3 style="margin-top: 10px;">Prix : {{livre.prixLivreTtc | currency:'EUR':'symbol':undefined:'fr-FR' }} <br/> <div style="font-size: x-small;">Toutes taxes comprises</div>  </h3>
               
               <h3 style="color: green;" *ngIf="livre.stockInvLivre > 0" >En Stock</h3>
-              <h3 style="color: red" *ngIf="livre.stockInvLivre <= 0">Indisponible</h3>
-              <ion-label>Quantité : {{livre.stockInvLivre}}</ion-label>
-            <ion-row class="ajout">
-
-              <ion-col>
-                <ion-input type="text"></ion-input>
-              </ion-col>
-            </ion-row>
+              <h3 style="color: red" *ngIf="livre.stockInvLivre <= 0">En réaprovisionement</h3>
+              <ion-label>Stock disponible : {{livre.stockInvLivre}}</ion-label><br/>
+              <ion-item>
+                <ion-label>Quantité : </ion-label>
+                <ion-input [(ngModel)]="quantite" type="number"></ion-input>
+              </ion-item>
             <ion-row *ngIf="livre.stockInvLivre > 0">
               <ion-button (click)="addBasket(livre.idLivre)" expand="bock" >Ajouter au panier</ion-button>
             </ion-row>
@@ -106,6 +104,62 @@
         </div>
       </ion-card>
     </ion-row>
+
+    <ion-row *ngIf="(commentaires$ | async) as commentaire">
+      <ion-col size="12">
+        <ion-card *ngFor="let c of commentaire">
+          <div class="">
+            <ion-item lines="none">
+              <ion-label *ngIf="c.anonymeCommentaire">Utilisateur</ion-label>
+              <ion-label *ngIf="!c.anonymeCommentaire">{{c.client.nomClient}}</ion-label>
+              <ion-range min="1" max="5" step="1" disabled="true" value="3" [(ngModel)]="c.noteCommentaire" snaps color="warning">
+                <ion-icon slot="start" size="small" color="warning" name="star"></ion-icon>
+                <ion-icon slot="end" color="warning" name="star"></ion-icon>
+              </ion-range>
+            </ion-item>
+            <hr class="solid">
+          </div>
+          <div>
+              <ion-item>
+                <ion-label position="stacked">Votre commentaire</ion-label>
+                <ion-textarea auto-grow="true" [(ngModel)]="c.contenuCommentaire" readonly placeholder="Entrez votre commentaire"></ion-textarea>
+              </ion-item>
+          </div>
+        </ion-card>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <form [formGroup]="form">
+            <div class="">
+              <ion-item lines="none">
+                <ion-label>Votre avis</ion-label>
+                <ion-range min="1" max="5" step="1" value="3" formControlName="noteCommentaire" snaps color="warning">
+                  <ion-icon slot="start" size="small" color="warning" name="star"></ion-icon>
+                  <ion-icon slot="end" color="warning" name="star"></ion-icon>
+                </ion-range>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Anonyme ?</ion-label>
+                <ion-checkbox slot="end"  formControlName="anonymeCommentaire" color="warning"></ion-checkbox>
+              </ion-item>
+              <hr class="solid">
+            </div>
+            <div>
+                <ion-item>
+                  <ion-label position="stacked">Votre commentaire</ion-label>
+                  <ion-textarea rows="6" cols="12"  formControlName="contenuCommentaire" placeholder="Entrez votre commentaire"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                  <ion-button (click)="addCommentaire()" slot="end" >Envoyer</ion-button>
+              </ion-item>
+            </div>
+          </form>
+        </ion-card>
+    </ion-col>
+    </ion-row>
+
   </ion-grid>
   </div>
 </ion-content>

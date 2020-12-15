@@ -33,6 +33,7 @@ export class LivresPage implements OnInit, OnDestroy {
     private cd: ChangeDetectorRef,
     private avRoute: ActivatedRoute,
     private router: Router) {
+      
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
       };
@@ -86,6 +87,6 @@ export class LivresPage implements OnInit, OnDestroy {
     }
   }
 
-
+  
 }
 

@@ -13,7 +13,18 @@ namespace ReadLeadSucced_Data.Models
         public int idCommentaire { get; set; }
         [MaxLength(500)]
         public string contenuCommentaire { get; set; }
+        public bool anonymeCommentaire { get; set; }
+        public int noteCommentaire { get; set; }
 
+        [ForeignKey("idClient")]
+        public int idClient { get; set; }
+
+        public virtual Client Client { get; set; }
         public virtual ICollection<LivreCommentaire> LivreCommentaires { get; set; }
+    }
+
+    public class CommentaireId : Commentaire
+    {
+        public int idLivre { get; set; }
     }
 }
