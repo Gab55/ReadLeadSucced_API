@@ -161,3 +161,4 @@ C:\Users\allig\source\repos\Gab55\ReadLeadSucced_API\ReadLeadSucced_API\ReadLead
 C:\Users\allig\source\repos\Gab55\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_API\obj\Debug\net5.0\ref\ReadLeadSucced_API.dll
 C:\Users\allig\source\repos\Gab55\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_API\obj\Debug\net5.0\ReadLeadSucced_API.pdb
 C:\Users\allig\source\repos\Gab55\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_API\obj\Debug\net5.0\ReadLeadSucced_API.genruntimeconfig.cache
+C:\Users\allig\source\repos\Gab55\ReadLeadSucced_API\ReadLeadSucced_API\ReadLeadSucced_API\obj\Debug\net5.0\ReadLeadSucced_API.csprojAssemblyReference.cache
