@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Client } from 'src/app/models/Client';
 import { Commande } from 'src/app/models/Commande';
-import { LivrePaniers } from 'src/app/models/Panier';
+import { LivrePaniers, Panier } from 'src/app/models/Panier';
 import { CommandeWebServiceService } from 'src/app/webServices/Commande/commande-web-service.service';
 import { PanierWebService } from 'src/app/webServices/Panier/panier.service';
 import { UtilisateurWebServiceService } from 'src/app/webServices/Utilisateur/utilisateur-web-service.service';
@@ -23,7 +23,8 @@ export class CommandePage implements OnInit {
   prixTotalHt?: number;
   etatCommande: string;
   panierVide: boolean;
-  panier$: Observable<LivrePaniers[]>;
+  panier$: Observable<Panier>;
+  panierLivres$: Observable<LivrePaniers[]>;
   form: FormGroup;
   actionType: string;
   loading = false;
@@ -69,6 +70,7 @@ export class CommandePage implements OnInit {
       this.idClient = localStorage.getItem('id');
       this.loadClient();
       this.loadPaniers();
+      this.loadPanierLivres();
       return localStorage.getItem('id');
 
     }
@@ -79,11 +81,16 @@ export class CommandePage implements OnInit {
     this.client$ = this.clientWebService.getClientIDString(this.idClient);
   }
   
-
   loadPaniers() {
-    this.panier$ = this.pService.getPanierLivres(this.idClient).pipe(
+    this.panier$ = this.pService.getPanier(this.idClient)
+  }
+
+  loadPanierLivres() {
+    this.panierLivres$ = this.pService.getPanierLivres(this.idClient).pipe(
       tap(p => {
+
         this.panierVide = p[0] != undefined ? false : true; 
+        
       } 
     ));
   }

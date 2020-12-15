@@ -13,8 +13,8 @@
     <ion-card-subtitle>Détail de la commande</ion-card-subtitle>
   </ion-card>
   <form  [formGroup]="form" (ngSubmit)="save()">
-  <ion-card *ngIf="panier$ as panier">
-    <ion-card-header *ngFor="let p of (panier$ | async)">
+  <ion-card *ngIf="panierLivres$ as panier">
+    <ion-card-header *ngFor="let p of (panierLivres$ | async)">
       <ion-card-subtitle></ion-card-subtitle>
       <ion-label center text-center></ion-label>
       <!--<ion-card-title>Contenu de la commande</ion-card-title>-->
@@ -22,8 +22,8 @@
       <ion-label center text-center>{{p.livre.titreLivre}}</ion-label>
     </ion-card-header>
   
-    <ion-card-content>
-      <ion-label center text-center class="solid">Total</ion-label>
+    <ion-card-content *ngIf="panier$ | async as panier">
+      <ion-label center text-center class="solid">Total: {{p[0].prixTtcPanier}}</ion-label>
     </ion-card-content>
     
   </ion-card>
