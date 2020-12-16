@@ -82,7 +82,9 @@ export class CommandePage implements OnInit {
   }
   
   loadPaniers() {
-    this.panier$ = this.pService.getPanier(this.idClient)
+    this.panier$ = this.pService.getPanier(this.idClient).pipe(
+      tap(p => console.log(p))
+    )
   }
 
   loadPanierLivres() {

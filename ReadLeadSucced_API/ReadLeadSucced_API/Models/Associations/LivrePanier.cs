@@ -20,4 +20,13 @@ namespace ReadLeadSucced_Data.Models.Associations
         [Column(TypeName = "decimal(10, 2)")]
         public decimal prixTtc { get; set; }
     }
+
+    public class LivrePanierLight
+    {
+        public int idLivre { get; set; }
+        public int idPanier { get; set; }
+        public int quantite { get; set; }
+        public decimal prixHt { get; set; }
+        public decimal prixTtc { get; set; }
+    }
 }

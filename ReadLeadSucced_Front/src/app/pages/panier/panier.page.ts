@@ -13,6 +13,7 @@ import { PanierWebService } from './../../../app/webServices/Panier/panier.servi
 })
 export class PanierPage implements OnInit {
   idClient: string = null;
+  idPanier: string;
   panierVide: boolean;
   panier$: Observable<Panier>;
   panierLivres$: Observable<LivrePaniers[]>;
@@ -23,13 +24,14 @@ export class PanierPage implements OnInit {
   ngOnInit() {
 
     this.idClient = localStorage.getItem('id');
+    this.idPanier = localStorage.getItem('idPanier')
     this.loadPanier();
   }
 
   loadPanier() {
-    this.panierLivres$ = this.pService.getPanierLivres(this.idClient).pipe(
-      tap(p => {
-        this.panierVide = p[0] != undefined ? false : true; 
+    this.panierLivres$ = this.pService.getPanierLivres(this.idPanier).pipe(
+     tap(p => {
+        console.log(p);
       } 
     ));
 

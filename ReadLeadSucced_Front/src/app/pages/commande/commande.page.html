@@ -22,7 +22,7 @@
       <ion-label center text-center>{{p.livre.titreLivre}}</ion-label>
     </ion-card-header>
   
-    <ion-card-content *ngIf="panier$ | async as panier">
+    <ion-card-content *ngIf="panier$ | async as p">
       <ion-label center text-center class="solid">Total: {{p[0].prixTtcPanier}}</ion-label>
     </ion-card-content>
     

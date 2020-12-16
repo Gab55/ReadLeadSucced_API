@@ -12,14 +12,14 @@
     </ion-card> 
     <ion-card *ngIf="!panierVide">
       <ion-card-content>
-          <ion-grid class="ion-align-items-center" *ngFor="let p of (panierLivres$ | async)">
+          <ion-grid class="ion-align-items-center" *ngFor="let p of panier[0].livrePaniers">
             <ion-row class="ion-align-items-center">
                 <ion-col size="2">
                   <ion-img [src]="p.livre.urlImageLivre"></ion-img>
                 </ion-col>
                 <ion-col size="8">
                   <ion-row class="ion-align-items-center">
-                    <ion-label style="text-decoration: underline;" [routerLink]="['/livre/', p.livre.idLivre]" center text-center>{{p.livre.titreLivre + " "}}</ion-label>
+                    <ion-label style="text-decoration: underline;" [routerLink]="['/livre/', p.idLivre]" center text-center>{{p.livre.titreLivre + " "}}</ion-label>
                   </ion-row>
                   <ion-row class="ion-align-items-center">
                     <ion-label center text-center>{{p.livre.livreAuteurs[0].auteur.prenomAuteur}} {{p.livre.livreAuteurs[0].auteur.nomAuteur}} </ion-label>
