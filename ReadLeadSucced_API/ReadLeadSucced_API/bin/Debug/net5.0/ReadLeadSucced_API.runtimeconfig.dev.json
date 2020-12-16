@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
@@ -6,4 +7,13 @@
       "C:\\Microsoft\\Xamarin\\NuGet"
     ]
   }
+=======
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/gabrielgiroud/.dotnet/store/|arch|/|tfm|",
+      "/Users/gabrielgiroud/.nuget/packages"
+    ]
+  }
+>>>>>>> Stashed changes
 }

@@ -2,22 +2,17 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="ReadLeadSucced_API/Controllers/CommandesController.cs">
     <Files>
       <File FileName="ReadLeadSucced_API/Controllers/CategoriesController.cs" Line="99" Column="10" />
-      <File FileName="ReadLeadSucced_API/Controllers/CommandesController.cs" Line="68" Column="18" NotebookId="1" />
+      <File FileName="ReadLeadSucced_API/Controllers/CommandesController.cs" Line="68" Column="14" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ReadLeadSucced_API" expanded="True">
+          <Node name="ReadLeadSucced_API" expanded="True" selected="True">
             <Node name="ReadLeadSucced_API" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="CommandesController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
